@@ -77,4 +77,16 @@ public class ArticleList {
     }
 
 
+    @Override
+    public String toString() {
+        return "ArticleList{" +
+                "over=" + over +
+                ", pageCount=" + pageCount +
+                ", size=" + size +
+                ", total=" + total +
+                ", curPage=" + curPage +
+                ", offset=" + offset +
+                ", datas=" + datas +
+                '}';
+    }
 }

@@ -15,7 +15,7 @@ import okhttp3.logging.HttpLoggingInterceptor;
  */
 public class UnsafeOkHttpClient {
     private static final long TIME_OUT = 10L;
-    public static OkHttpClient getUnsafeOkHttpClient(InputStream... certificates) {
+    public static OkHttpClient getUnsafeOkHttpClient(InputStream[] certificates) {
         SSLSocketFactory sslSocketFactory = HttpsSupport.getSslSocketFactory(certificates, null, null);
         OkHttpClient.Builder builder = new OkHttpClient().newBuilder();
         builder = builder.sslSocketFactory(sslSocketFactory);

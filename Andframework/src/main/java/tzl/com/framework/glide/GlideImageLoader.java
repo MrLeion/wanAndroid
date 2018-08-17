@@ -118,7 +118,6 @@ public class GlideImageLoader {
                 .placeholder(emptyImg)
                 .dontTransform()
                 .into(iv);
-
     }
 
 

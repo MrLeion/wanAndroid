@@ -1,10 +1,10 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 16
         versionCode 1
         versionName "1.0"
     }
@@ -19,6 +19,13 @@ android {
 dependencies {
     //api = compile ,implementation only work on current module
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //android support
+    api 'com.android.support:appcompat-v7:27.1.1'
+    api 'com.android.support:recyclerview-v7:27.1.1'
+
+
+    //图片加载
     api 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 
@@ -40,6 +47,9 @@ dependencies {
     //rx
     api "io.reactivex.rxjava2:rxjava:2.2.0"
     api 'io.reactivex.rxjava2:rxandroid:2.0.2'
+
+
+
 
 
 

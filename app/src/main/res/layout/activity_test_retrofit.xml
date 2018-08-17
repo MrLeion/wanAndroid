@@ -5,11 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     tools:context=".testExample.TestRetrofitActivity">
-
-
-
 
 
 
@@ -20,7 +17,8 @@
             android:text="Get"
             android:onClick="get"
             android:background="@color/colorPrimary"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"/>
 
 
@@ -31,7 +29,8 @@
             android:gravity="center"
             android:text="post"
             android:onClick="post"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"/>
 
 
@@ -42,7 +41,8 @@
             android:background="@color/colorPrimary"
             android:text="cookie"
             android:onClick="cookie"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"/>
 
 

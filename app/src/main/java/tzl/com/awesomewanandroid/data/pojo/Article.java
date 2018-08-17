@@ -269,4 +269,34 @@ public class Article {
             this.url = url;
         }
     }
+
+
+    @Override
+    public String toString() {
+        return "Article{" +
+                "apkLink='" + apkLink + '\'' +
+                ", author='" + author + '\'' +
+                ", chapterId=" + chapterId +
+                ", chapterName='" + chapterName + '\'' +
+                ", collect=" + collect +
+                ", courseId=" + courseId +
+                ", desc='" + desc + '\'' +
+                ", envelopePic='" + envelopePic + '\'' +
+                ", fresh=" + fresh +
+                ", id=" + id +
+                ", link='" + link + '\'' +
+                ", niceDate='" + niceDate + '\'' +
+                ", origin='" + origin + '\'' +
+                ", projectLink='" + projectLink + '\'' +
+                ", publishTime=" + publishTime +
+                ", superChapterId=" + superChapterId +
+                ", superChapterName='" + superChapterName + '\'' +
+                ", title='" + title + '\'' +
+                ", type=" + type +
+                ", userId=" + userId +
+                ", visible=" + visible +
+                ", zan=" + zan +
+                ", tags=" + tags +
+                '}';
+    }
 }
