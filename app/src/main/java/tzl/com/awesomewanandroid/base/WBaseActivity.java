@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 
 import tzl.com.framework.base.BaseActivity;
 import tzl.com.framework.helper.ActivityManager;
+import tzl.com.framework.widget.dialog.QMUITipDialog;
 
 /**
  * author: tangzenglei
@@ -14,6 +15,8 @@ import tzl.com.framework.helper.ActivityManager;
  */
 public abstract class WBaseActivity extends BaseActivity {
 
+
+    private QMUITipDialog mProgressDialog;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -39,11 +42,27 @@ public abstract class WBaseActivity extends BaseActivity {
      * @param tip 提示文字
      */
     public void showLoading(String tip) {
-        //TODO:
+        showDialog(tip, QMUITipDialog.Builder.ICON_TYPE_LOADING);
 
 
+    }
 
+    private void showDialog(String tip, int iconType) {
+        dismissLoading();
+        try {
+            mProgressDialog = new QMUITipDialog.Builder(this)
+                    .setIconType(iconType)
+                    .setTipWord(tip)
+                    .create();
+            mProgressDialog.setCancelable(false);
+            mProgressDialog.setOnCancelListener(null);
+            if (!isFinishing()) {
+                mProgressDialog.show();
+            }
 
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void showLoading() {
@@ -52,8 +71,14 @@ public abstract class WBaseActivity extends BaseActivity {
 
 
     public void dismissLoading() {
-        //TODO:
-
+        if (mProgressDialog != null && mProgressDialog.isShowing()) {
+            try {
+                mProgressDialog.dismiss();
+                mProgressDialog = null;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
     }
 

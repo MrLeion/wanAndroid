@@ -37,7 +37,6 @@ public class TestRetrofitActivity extends WBaseActivity {
 
 
     public void get(View view) {
-
         ApiManager.getApi().getAricle(1)
                 .compose(RxSchedulers.<BaseResponse<ArticleList>>applyObservableAsync())
                 .subscribe(new BaseObserver<ArticleList>() {
@@ -51,17 +50,28 @@ public class TestRetrofitActivity extends WBaseActivity {
                         ToastHelper.showToast(response.getData().toString());
                     }
                 });
-
-
-
     }
 
     public void post(View view) {
+        ApiManager.getApi().login("MrLeion","abc123")
+                .compose( RxSchedulers.<BaseResponse<Object>>applyObservableAsync())
+                .subscribe(new BaseObserver<Object>() {
+                    @Override
+                    public void onSuccess(BaseResponse<Object> response) {
+                        ToastHelper.showToast(response.getData().toString());
+                    }
 
-
+                    @Override
+                    public void onFailure(BaseResponse<Object> response) {
+                        ToastHelper.showToast(response.getErrorMsg());
+                    }
+                });
     }
 
     public void cookie(View view) {
+
+
+        
 
 
 

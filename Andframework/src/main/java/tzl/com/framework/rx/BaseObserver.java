@@ -33,8 +33,11 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
     @Override
     public void onSubscribe(Disposable d) {
 
+
         if (isCanLoading()) {
-            mBaseActivitySoftReference.get().showLoading();
+            if (null!=mBaseActivitySoftReference&&mBaseActivitySoftReference.get()!=null) {
+                mBaseActivitySoftReference.get().showLoading();
+            }
         }
 
     }
@@ -63,13 +66,16 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
     public void onComplete() {
 
         if (isCanLoading()) {
-            mBaseActivitySoftReference.get().dismissLoading();
+
+            if (null!=mBaseActivitySoftReference&&mBaseActivitySoftReference.get()!=null) {
+                mBaseActivitySoftReference.get().dismissLoading();
+            }
         }
     }
 
 
     private boolean isCanLoading() {
-        return isCanLoading();
+        return canLoading;
     }
 
     public abstract void onSuccess(BaseResponse<T> response);
