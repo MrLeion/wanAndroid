@@ -39,9 +39,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
 
 
-
-
-
     @Override
     protected void onResume() {
         ActivityManager.setTopActivity(this);

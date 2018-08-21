@@ -21,10 +21,7 @@ public abstract class WBaseActivity extends BaseActivity {
 
         setContentView(getLayoutId());
 
-
         //TODO:状态栏处理
-
-
         initView();
         initEvent();
         initData();
@@ -43,6 +40,10 @@ public abstract class WBaseActivity extends BaseActivity {
      */
     public void showLoading(String tip) {
         //TODO:
+
+
+
+
     }
 
     public void showLoading() {
@@ -89,10 +90,6 @@ public abstract class WBaseActivity extends BaseActivity {
 
        }
     }
-
-
-
-
 
     /**
      * 获取 Activity 布局

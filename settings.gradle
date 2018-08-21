@@ -1,1 +1,1 @@
-include ':app', ':Andframework'
+include ':app', ':Andframework', ':java'
