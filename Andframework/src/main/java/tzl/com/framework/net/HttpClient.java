@@ -4,7 +4,6 @@ import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
-import tzl.com.framework.helper.UnsafeOkHttpClient;
 
 /**
  * author: tangzenglei
@@ -13,11 +12,11 @@ import tzl.com.framework.helper.UnsafeOkHttpClient;
  */
 public class HttpClient {
 
-    public static Retrofit.Builder mRetrofitBuilder = new Retrofit.Builder()
+       public static Retrofit.Builder mRetrofitBuilder = new Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .client(getHttpClient().newBuilder()
-//                    .addInterceptor(new GlobalNetworkInterceptor(App.getContext()))
+                    //                    .addInterceptor(new GlobalNetworkInterceptor(App.getContext()))
                     .build());
 
     public static OkHttpClient getHttpClient() {
@@ -27,12 +26,12 @@ public class HttpClient {
     private static class HttpClientHolder {
         private static OkHttpClient httpClient = getHttpClient();
         private static OkHttpClient getHttpClient() {
-            return UnsafeOkHttpClient.getUnsafeOkHttpClient(null);
+            return NoCerOkHttpClient.getUnsafeOkHttpClient(null);
         }
     }
 
 
-    public static <T> T getObservable(final String baseUrl, final Class<T> service) {
+    public static <T> T getObservables(final String baseUrl, final Class<T> service) {
         return mRetrofitBuilder.baseUrl(baseUrl).build().create(service);
     }
 

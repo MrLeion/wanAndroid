@@ -55,7 +55,7 @@ public class TestRetrofitActivity extends WBaseActivity {
     public void post(View view) {
         ApiManager.getApi().login("MrLeion","abc123")
                 .compose( RxSchedulers.<BaseResponse<Object>>applyObservableAsync())
-                .subscribe(new BaseObserver<Object>() {
+                .subscribe(new BaseObserver<Object>(TestRetrofitActivity.this,true) {
                     @Override
                     public void onSuccess(BaseResponse<Object> response) {
                         ToastHelper.showToast(response.getData().toString());
@@ -71,7 +71,15 @@ public class TestRetrofitActivity extends WBaseActivity {
     public void cookie(View view) {
 
 
-        
+
+
+
+
+
+
+
+
+
 
 
 

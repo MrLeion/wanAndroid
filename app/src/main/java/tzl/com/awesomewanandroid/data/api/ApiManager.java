@@ -13,7 +13,7 @@ public class ApiManager {
 
 
     private static class ApiHolder{
-        private static Api api = WHttpClient.getObservable(BuildConfig.BASE_URL, Api.class);
+        private static Api api = WHttpClient.getObservables(BuildConfig.BASE_URL, Api.class);
     }
 
 

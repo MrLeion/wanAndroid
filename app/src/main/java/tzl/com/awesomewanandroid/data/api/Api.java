@@ -7,6 +7,9 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
 import tzl.com.awesomewanandroid.data.pojo.ArticleList;
+import tzl.com.awesomewanandroid.data.pojo.Banner;
+import tzl.com.awesomewanandroid.data.pojo.Friend;
+import tzl.com.awesomewanandroid.data.pojo.HotKey;
 import tzl.com.framework.net.pojo.BaseResponse;
 
 /**
@@ -24,6 +27,30 @@ public interface Api {
      */
     @GET("/article/list/{index}/json")
     Observable<BaseResponse<ArticleList>> getAricle(@Path("index") int index);
+
+
+    /***
+     * 首页banner
+     * @return
+     */
+    @GET("/banner/json")
+    Observable<BaseResponse<Banner>> getBanners();
+
+    /***
+     * 常用网站
+     * @return
+     */
+    @GET("/friend/json")
+    Observable<BaseResponse<Friend>> getFriend();
+
+    /***
+     * 搜索热词
+     * @return
+     */
+    @GET("/hotkey/json")
+    Observable<BaseResponse<HotKey>> getHotkey();
+
+
 
 
     /**

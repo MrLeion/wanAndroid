@@ -38,13 +38,10 @@ public abstract class WBaseActivity extends BaseActivity {
 
     /**
      * 显示加载 DialogLoading
-     *
      * @param tip 提示文字
      */
     public void showLoading(String tip) {
         showDialog(tip, QMUITipDialog.Builder.ICON_TYPE_LOADING);
-
-
     }
 
     private void showDialog(String tip, int iconType) {
