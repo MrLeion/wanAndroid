@@ -1,7 +1,5 @@
 package tzl.com.framework.net.interceptor;
 
-import android.util.Log;
-
 import java.io.IOException;
 import java.util.HashSet;
 
@@ -9,6 +7,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import tzl.com.framework.cache.CacheManager;
 import tzl.com.framework.data.AppConfig;
+import tzl.com.framework.helper.LogHelper;
 
 /**
  * author: tangzenglei
@@ -20,9 +19,11 @@ public class ReadCookiesInterceptor extends BaseInterceptor {
     public Response intercept(Chain chain) throws IOException {
         Request.Builder builder = chain.request().newBuilder();
         HashSet<String> cookies = (HashSet) CacheManager.getObject(AppConfig.PRE_COOKIE);
-        for (String cookie : cookies) {
-            builder.addHeader("Cookie", cookie);
-            Log.v("OkHttp", "Adding Header: " + cookie); // This is done so I know which headers are being added; this interceptor is used after the normal logging of OkHttp
+        if (cookies!=null) {
+            for (String cookie : cookies) {
+                builder.addHeader("Cookie", cookie);
+                LogHelper.d("OkHttp", "Adding Header: " + cookie); // This is done so I know which headers are being added; this interceptor is used after the normal logging of OkHttp
+            }
         }
         return chain.proceed(builder.build());
     }

@@ -7,9 +7,9 @@ import javax.net.ssl.SSLSocketFactory;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
-import tzl.com.framework.helper.ContextHolder;
 import tzl.com.framework.helper.HttpsSupport;
-import tzl.com.framework.net.cookie.CookieManger;
+import tzl.com.framework.net.interceptor.ReadCookiesInterceptor;
+import tzl.com.framework.net.interceptor.SaveCookiesInterceptor;
 
 /**
  * author: tangzenglei
@@ -26,10 +26,10 @@ public class NoCerOkHttpClient {
         builder = builder.sslSocketFactory(sslSocketFactory);
         builder.hostnameVerifier(new HttpsSupport.UnSafeHostnameVerifier())
                 //方案一
-                .cookieJar(new CookieManger(ContextHolder.getContext()))
+//                .cookieJar(new CookieManger(ContextHolder.getContext()))
                 //方案二
-//                .addInterceptor(new ReadCookiesInterceptor())
-//                .addInterceptor(new SaveCookiesInterceptor())
+                .addInterceptor(new ReadCookiesInterceptor())
+                .addInterceptor(new SaveCookiesInterceptor())
                 .readTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .writeTimeout(TIME_OUT, TimeUnit.SECONDS)

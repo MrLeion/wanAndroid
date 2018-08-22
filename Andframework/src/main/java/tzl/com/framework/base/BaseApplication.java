@@ -2,6 +2,7 @@ package tzl.com.framework.base;
 
 import android.app.Application;
 
+import tzl.com.framework.cache.CacheManager;
 import tzl.com.framework.helper.ContextHolder;
 import tzl.com.framework.helper.LogHelper;
 
@@ -20,7 +21,7 @@ public abstract class BaseApplication extends Application {
         super.onCreate();
         LogHelper.init(tag(),logToggle());
         ContextHolder.init(this);
-
+        CacheManager.init(this);
 
     }
 

@@ -5,7 +5,7 @@ import android.graphics.Canvas;
 import android.util.AttributeSet;
 
 /**
- * @author Maliang
+ * @author tangzenglei
  * @desc 处理8.0 8.1bitmap的问题 Canvas: trying to use a recycled bitmap android.graphics.Bitmap@d4afdac
  * @date 2018/6/7
  */

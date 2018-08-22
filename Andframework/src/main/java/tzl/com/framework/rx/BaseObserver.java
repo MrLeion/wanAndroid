@@ -52,7 +52,7 @@ public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
         hideLoading();
         //TODO:处理错误
         ToastHelper.showToast("请求失败："+e.getStackTrace().toString());
-        LogHelper.e(e.getStackTrace().toString());
+        e.printStackTrace();
     }
 
 

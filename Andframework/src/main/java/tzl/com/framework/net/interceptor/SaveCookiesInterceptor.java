@@ -23,7 +23,6 @@ public class SaveCookiesInterceptor extends BaseInterceptor {
             }
             CacheManager.putObject(AppConfig.PRE_COOKIE, cookies);
         }
-
         return originalResponse;
     }
 }
