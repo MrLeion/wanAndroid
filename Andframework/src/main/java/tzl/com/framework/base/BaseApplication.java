@@ -22,10 +22,11 @@ public abstract class BaseApplication extends Application {
         LogHelper.init(tag(),logToggle());
         ContextHolder.init(this);
         CacheManager.init(this);
+        init();
 
     }
 
-
+    protected abstract void init();
 
 
     /**
@@ -39,6 +40,8 @@ public abstract class BaseApplication extends Application {
      * @return
      */
     public abstract String tag();
+
+
 
 
 

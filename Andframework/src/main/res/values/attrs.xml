@@ -12,5 +12,26 @@
         <attr name="contentView" format="reference"/>
     </declare-styleable>
 
+    <declare-styleable name="OptionItemView">
+        <attr format="string" name="title"/>
+        <attr format="dimension" name="title_size"/>
+        <attr format="color" name="title_color"/>
+        <attr format="reference|color" name="left_src"/>
+        <attr format="string" name="left_text"/>
+        <attr format="dimension" name="left_text_size"/>
+        <attr format="dimension" name="left_image_margin_left"/>
+        <attr format="dimension" name="left_text_margin_left"/>
+        <attr format="dimension" name="left_image_margin_right"/>
+        <attr format="color" name="left_text_color"/>
+        <attr format="reference|color" name="right_src"/>
+        <attr format="string" name="right_text"/>
+        <attr format="dimension" name="right_text_size"/>
+        <attr format="dimension" name="right_image_margin_left"/>
+        <attr format="dimension" name="right_image_margin_right"/>
+        <attr format="dimension" name="right_text_margin_right"/>
+        <attr format="color" name="right_text_color"/>
+        <attr format="boolean" name="splite_mode"/>
+    </declare-styleable>
+
 
 </resources>

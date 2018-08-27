@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import tzl.com.framework.base.BaseApplication;
 
@@ -16,11 +17,16 @@ public class WanAndroidApplication extends BaseApplication {
 
     private  RefWatcher mRefWatcher;
 
+
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected void init() {
         //内存泄漏检测工具
         mRefWatcher = setupLeakCanary();
+        initBugly();
+    }
+
+    private void initBugly() {
+        CrashReport.initCrashReport(getApplicationContext(), "62066e4106", false);
     }
 
     @Override
@@ -45,11 +51,6 @@ public class WanAndroidApplication extends BaseApplication {
         WanAndroidApplication application = (WanAndroidApplication) context.getApplicationContext();
         return application.mRefWatcher;
     }
-
-
-
-
-
 
 
 

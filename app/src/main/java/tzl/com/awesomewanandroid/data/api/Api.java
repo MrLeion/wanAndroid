@@ -34,7 +34,7 @@ public interface Api {
      * @return
      */
     @GET("/banner/json")
-    Observable<BaseResponse<Banner>> getBanners();
+    Observable<BaseResponse<Banner>> getBanner();
 
     /***
      * 常用网站

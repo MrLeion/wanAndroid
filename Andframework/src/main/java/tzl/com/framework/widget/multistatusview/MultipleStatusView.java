@@ -18,7 +18,8 @@ import tzl.com.framework.R;
  * 创建人:   续写经典
  * 创建时间: 2016/1/15 10:20.
  */
-@SuppressWarnings("unused") public class MultipleStatusView extends RelativeLayout {
+@SuppressWarnings("unused")
+public class MultipleStatusView extends RelativeLayout {
     private static final String TAG = "MultipleStatusView";
 
     private static final RelativeLayout.LayoutParams DEFAULT_LAYOUT_PARAMS =
