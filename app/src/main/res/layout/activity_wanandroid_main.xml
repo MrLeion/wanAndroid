@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tzl.com.framework.widget.anim.Rotate3dFrameLayout
+<android.support.v4.widget.DrawerLayout
     android:orientation="vertical"
-    android:id="@+id/container"
     android:gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,14 +11,21 @@
 
 
     <include
-        layout="@layout/activity_wanandroid_main"/>
-
-
-    <include
-        android:visibility="gone"
-        layout="@layout/activity_rest_main"/>
+        layout="@layout/content_main"/>
 
 
 
 
-</tzl.com.framework.widget.anim.Rotate3dFrameLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+</android.support.v4.widget.DrawerLayout>

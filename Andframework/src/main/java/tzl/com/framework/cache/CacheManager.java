@@ -10,7 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import tzl.com.framework.helper.LogHelper;
 
 /**
- * @author Maliang
+ * @author tangzenglei
  * @desc
  * @date 2018/3/6 下午12:01.
  */

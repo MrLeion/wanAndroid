@@ -12,7 +12,9 @@ import android.provider.ContactsContract;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
-
+/**
+ * universal util
+ */
 public class Util {
     /**
      * 隐藏键盘

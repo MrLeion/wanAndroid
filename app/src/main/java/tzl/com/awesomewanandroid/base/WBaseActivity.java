@@ -4,8 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
 import tzl.com.framework.base.BaseActivity;
-import tzl.com.framework.helper.ActivityManager;
 import tzl.com.framework.widget.dialog.QMUITipDialog;
 
 /**
@@ -17,18 +18,18 @@ public abstract class WBaseActivity extends BaseActivity {
 
 
     private QMUITipDialog mProgressDialog;
+    private Unbinder mUnbinder;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(getLayoutId());
-
+        mUnbinder = ButterKnife.bind(this);
         //TODO:状态栏处理
         initView();
         initEvent();
         initData();
-        ActivityManager.add(this);
 
 
 
@@ -93,6 +94,7 @@ public abstract class WBaseActivity extends BaseActivity {
 
 
 
+
     /**
      * 跳转页面
      * @param clz    所跳转的目的Activity类
@@ -135,4 +137,13 @@ public abstract class WBaseActivity extends BaseActivity {
     public abstract void initData();
 
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (null!=mUnbinder) {
+            mUnbinder.unbind();
+        }
+
+    }
 }

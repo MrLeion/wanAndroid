@@ -17,7 +17,7 @@ android {
             buildConfigField("String", "BASE_URL", '"http://www.wanandroid.com"')
         }
 
-        debug{
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", '"http://www.wanandroid.com"')
@@ -32,14 +32,24 @@ dependencies {
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation project(':Andframework')
     //    LeakCanary
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.google.android.gms:play-services-plus:15.0.1'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
-
-
     //Dagger
     implementation 'com.google.dagger:dagger-android:2.17'
-    implementation 'com.google.dagger:dagger-android-support:2.17' // if you use the support libraries
+    implementation 'com.google.dagger:dagger-android-support:2.17'
+    // if you use the support libraries
     annotationProcessor 'com.google.dagger:dagger-android-processor:2.17'
     //bugly
     implementation 'com.tencent.bugly:crashreport:2.6.6'
+
+    //agentX5
+    implementation('com.just.agentwebX5:agentwebX5:2.0.0'){
+        exclude group: 'com.android.support'
+    }
+
+    //butterknife
+    implementation 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

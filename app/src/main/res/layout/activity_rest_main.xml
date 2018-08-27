@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tzl.com.framework.widget.anim.Rotate3dFrameLayout
+<LinearLayout
     android:orientation="vertical"
-    android:id="@+id/container"
     android:gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,15 +10,27 @@
     tools:context=".MainActivity">
 
 
-    <include
-        layout="@layout/activity_wanandroid_main"/>
 
 
-    <include
-        android:visibility="gone"
-        layout="@layout/activity_rest_main"/>
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="have a rest"
+        android:textSize="40sp"
+        android:gravity="center" />
 
 
 
 
-</tzl.com.framework.widget.anim.Rotate3dFrameLayout>
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>

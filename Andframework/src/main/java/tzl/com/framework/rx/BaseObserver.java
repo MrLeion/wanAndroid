@@ -13,7 +13,7 @@ import tzl.com.framework.net.pojo.BaseResponse;
 /**
  * author: tangzenglei
  * created on: 2018/8/17 下午4:11
- * description:
+ * description:Observer 统一处理
  */
 public abstract class BaseObserver<T> implements Observer<BaseResponse<T>> {
 
