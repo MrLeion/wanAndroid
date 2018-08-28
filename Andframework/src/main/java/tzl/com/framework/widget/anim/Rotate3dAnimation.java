@@ -37,7 +37,7 @@ public class Rotate3dAnimation extends Animation {
         mCenterX = centerX;
         mCenterY = centerY;
         mDepthZ = depthZ;
-        mReverse = reverse;//
+        mReverse = reverse;
     }
 
     @Override

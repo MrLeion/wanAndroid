@@ -1,19 +1,18 @@
 package tzl.com.awesomewanandroid;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
 import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
 import tzl.com.awesomewanandroid.ui.home.HomeFragment;
+import tzl.com.awesomewanandroid.ui.music.MusicFragment;
 import tzl.com.awesomewanandroid.ui.navigator.NavigatorFragment;
 import tzl.com.awesomewanandroid.ui.project.ProjectFragment;
+import tzl.com.awesomewanandroid.ui.video.VideoFragment;
 import tzl.com.framework.base.BaseFragment;
 import tzl.com.framework.helper.TabManager;
 import tzl.com.framework.widget.anim.Rotate3dFrameLayout;
@@ -25,6 +24,8 @@ public class MainActivity extends WBaseActivity {
     public static final String TAG_NAV       = "navigator";
     public static final String TAG_HIERARCHY = "hierarchy";
     public static final String TAG_PROJECT   = "project";
+    public static final String TAG_MUSIC     = "music";
+    public static final String TAG_VIDEO     = "video";
     @BindView(R.id.rbHome)
     RadioButton         mRbHome;
     @BindView(R.id.rbHierarchy)
@@ -37,15 +38,24 @@ public class MainActivity extends WBaseActivity {
     RadioButton         mRbProject;
     @BindView(R.id.radioGroup)
     RadioGroup          mRadioGroup;
-    @BindView(R.id.tv)
-    TextView            mTv;
+    @BindView(R.id.rlMenuCode)
+    RelativeLayout      mRlMenuCode;
     @BindView(R.id.container)
     Rotate3dFrameLayout mContainer;
+    @BindView(R.id.rbMusic)
+    RadioButton         mRbMusic;
+    @BindView(R.id.rbVideo)
+    RadioButton         mRbVideo;
+    @BindView(R.id.restRadioGroup)
+    RadioGroup          mRestRadioGroup;
 
-    private TabManager   tabManager;
-    private BaseFragment currentFragment;
-    private String currentTag = TAG_HOME; //默认首页
-    private boolean isFirst = true;//默认第一面
+    private TabManager   mWanAndroidTabManager;
+    private TabManager   mRestTabManager;
+    private BaseFragment currentFragmentWandroid;
+    private BaseFragment currentFragmentRest;
+    private String  currentWanAndroidTag = TAG_HOME; //默认首页
+    private String  currentRestTag = TAG_HOME; //默认音乐
+    private boolean isFirst              = true;//默认第一面
 
 
     @Override
@@ -55,13 +65,25 @@ public class MainActivity extends WBaseActivity {
 
     @Override
     public void initView() {
-        tabManager = new TabManager(R.id.fl_content, getSupportFragmentManager());
-        tabManager.addFragment(TAG_HOME, HomeFragment.class);
-        tabManager.addFragment(TAG_NAV, NavigatorFragment.class);
-        tabManager.addFragment(TAG_HIERARCHY, HierarchyFragment.class);
-        tabManager.addFragment(TAG_PROJECT, ProjectFragment.class);
-        switchFragment(TAG_HOME);
+        initAndroid();
+        initRest();
         setTabEvent();
+    }
+
+    private void initRest() {
+        mRestTabManager = new TabManager(R.id.fl_content_rest, getSupportFragmentManager());
+        mRestTabManager.addFragment(TAG_MUSIC, MusicFragment.class);
+        mRestTabManager.addFragment(TAG_VIDEO, VideoFragment.class);
+        switchRestFragment(TAG_MUSIC);
+    }
+
+    private void initAndroid() {
+        mWanAndroidTabManager = new TabManager(R.id.fl_content_wanandroid, getSupportFragmentManager());
+        mWanAndroidTabManager.addFragment(TAG_HOME, HomeFragment.class);
+        mWanAndroidTabManager.addFragment(TAG_NAV, NavigatorFragment.class);
+        mWanAndroidTabManager.addFragment(TAG_HIERARCHY, HierarchyFragment.class);
+        mWanAndroidTabManager.addFragment(TAG_PROJECT, ProjectFragment.class);
+        switchWanAndroidFragment(TAG_HOME);
     }
 
     @Override
@@ -77,13 +99,13 @@ public class MainActivity extends WBaseActivity {
 
 
     /**
-     * 切换 Fragment
+     * wanandroid 切换 Fragment
      *
      * @param tag
      */
-    public void switchFragment(String tag) {
-        tabManager.setTab(tag);
-        currentTag = tag;
+    public void switchWanAndroidFragment(String tag) {
+        mWanAndroidTabManager.setTab(tag);
+        currentWanAndroidTag = tag;
         switch (tag) {
             case TAG_HIERARCHY:
                 mRbHierarchy.setChecked(true);
@@ -99,7 +121,27 @@ public class MainActivity extends WBaseActivity {
                 mRbHome.setChecked(true);
                 break;
         }
-        currentFragment = tabManager.getCurrentFragment();
+        currentFragmentWandroid = mWanAndroidTabManager.getCurrentFragment();
+    }
+
+    /**
+     * 休息一下 切换 Fragment
+     *
+     * @param tag
+     */
+    public void switchRestFragment(String tag) {
+        mRestTabManager.setTab(tag);
+        currentRestTag = tag;
+        switch (tag) {
+            case TAG_VIDEO:
+                mRbVideo.setChecked(true);
+                break;
+            case TAG_MUSIC:
+            default:
+                mRbMusic.setChecked(true);
+                break;
+        }
+        currentFragmentRest = mRestTabManager.getCurrentFragment();
     }
 
 
@@ -112,17 +154,31 @@ public class MainActivity extends WBaseActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 switch (checkedId) {
                     case R.id.rbProject:
-                        switchFragment(TAG_PROJECT);
+                        switchWanAndroidFragment(TAG_PROJECT);
                         break;
                     case R.id.rbNavigator:
-                        switchFragment(TAG_NAV);
+                        switchWanAndroidFragment(TAG_NAV);
                         break;
                     case R.id.rbHierarchy:
-                        switchFragment(TAG_HIERARCHY);
+                        switchWanAndroidFragment(TAG_HIERARCHY);
                         break;
                     case R.id.rbHome:
                     default:
-                        switchFragment(TAG_HOME);
+                        switchWanAndroidFragment(TAG_HOME);
+                        break;
+                }
+            }
+        });
+        mRestRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rbVideo:
+                        switchRestFragment(TAG_VIDEO);
+                        break;
+                    case R.id.rbMusic:
+                    default:
+                        switchRestFragment(TAG_MUSIC);
                         break;
                 }
             }
@@ -139,14 +195,8 @@ public class MainActivity extends WBaseActivity {
             }
         };
         mRlMenuRest.setOnClickListener(onClickListener);
-        mTv.setOnClickListener(onClickListener);
+        mRlMenuCode.setOnClickListener(onClickListener);
     }
 
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:android="http://schemas.android.com/apk/res/android"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-
     <FrameLayout
-        android:id="@+id/fl_content"
+        android:id="@+id/fl_content_rest"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/divider" />
+        android:layout_above="@+id/restDivider" />
 
 
     <View
-        android:id="@+id/divider"
+        android:id="@+id/restDivider"
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_above="@id/radioGroup"
+        android:layout_above="@id/restRadioGroup"
         android:background="@color/divider" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/restRadioGroup"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_alignParentBottom="true"
@@ -28,42 +27,33 @@
         android:orientation="horizontal">
 
         <RadioButton
-            android:id="@+id/rbHome"
+            android:id="@+id/rbMusic"
             style="@style/MainTabBottom"
             android:checked="true"
-            android:drawableTop="@drawable/ic_tab_home_selector"
-            android:text="@string/home" />
-        <RadioButton
-            android:id="@+id/rbHierarchy"
-            style="@style/MainTabBottom"
-            android:drawableTop="@drawable/ic_tab_hierarchy_selector"
-            android:text="@string/hierarchy" />
+            android:drawableTop="@drawable/ic_tab_music_selector"
+            android:text="@string/music" />
 
         <RelativeLayout
-            android:id="@+id/rlMenuRest"
+            android:id="@+id/rlMenuCode"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
             <ImageView
-                android:id="@+id/ivRest"
+                android:id="@+id/ivCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:padding="@dimen/dp_10"
-                android:src="@mipmap/ic_rest" />
+                android:src="@mipmap/ic_code" />
 
         </RelativeLayout>
 
+
         <RadioButton
-            android:id="@+id/rbNavigator"
+            android:id="@+id/rbVideo"
             style="@style/MainTabBottom"
-            android:drawableTop="@drawable/ic_tab_navigator_selector"
-            android:text="@string/navigator" />
-        <RadioButton
-            android:id="@+id/rbProject"
-            style="@style/MainTabBottom"
-            android:drawableTop="@drawable/ic_tab_project_selector"
-            android:text="@string/project" />
+            android:drawableTop="@drawable/ic_tab_video_selector"
+            android:text="@string/video" />
 
 
     </RadioGroup>

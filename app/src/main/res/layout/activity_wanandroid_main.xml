@@ -11,7 +11,7 @@
 
 
     <include
-        layout="@layout/content_main"/>
+        layout="@layout/wanandroid_content_main"/>
 
 
 
