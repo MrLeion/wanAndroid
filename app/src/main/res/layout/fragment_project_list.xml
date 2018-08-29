@@ -15,10 +15,10 @@
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="@color/white"
-        tl:tl_indicator_color="@color/color_red"
+        app:tl_indicator_color="@color/color_indicator"
+        tl:tl_indicator_style="TRIANGLE"
         app:tl_textUnselectColor="@color/color_text_gray"
-        app:tl_textSelectColor="@color/color_text_gray"
-        tl:tl_indicator_style="TRIANGLE"/>
+        app:tl_textSelectColor="@color/color_text_gray"/>
 
 
 
@@ -27,8 +27,6 @@
         android:layout_below="@id/stlProject"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
-
 
 
 

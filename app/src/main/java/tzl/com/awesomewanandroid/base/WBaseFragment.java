@@ -15,7 +15,7 @@ import tzl.com.framework.base.BaseFragment;
 /**
  * author: tangzenglei
  * created on: 2018/8/22 下午5:30
- * description:
+ * description:http://www.sunnyang.com/742.html
  */
 public abstract class WBaseFragment extends BaseFragment {
 
@@ -24,9 +24,8 @@ public abstract class WBaseFragment extends BaseFragment {
     private Unbinder mUnbinder;
 
 
-    /**
-     * 懒加载
-     */
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -75,6 +74,8 @@ public abstract class WBaseFragment extends BaseFragment {
 
 
 
+
+
     /**
      * 显示加载 DialogLoading
      * @param tip 提示文字
@@ -99,6 +100,7 @@ public abstract class WBaseFragment extends BaseFragment {
         if (null!=mUnbinder) {
             mUnbinder.unbind();
         }
+
     }
 
     /**
@@ -139,6 +141,12 @@ public abstract class WBaseFragment extends BaseFragment {
 
 
     }
+
+
+
+
+
+
 
 
 

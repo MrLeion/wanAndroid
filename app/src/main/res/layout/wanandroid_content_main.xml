@@ -1,29 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-                xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <FrameLayout
-        android:id="@+id/fl_content_wanandroid"
+    <tzl.com.framework.widget.OptionItemView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/divider" />
+        android:layout_height="48dp"
+        app:layout_behavior="@string/bye_burger_title_behavior"
+        app:title="首页"/>
 
 
-    <View
-        android:id="@+id/divider"
+    <android.support.v4.widget.NestedScrollView
+        android:fillViewport="true"
         android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_above="@id/radioGroup"
-        android:background="@color/divider" />
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/fl_content_wanandroid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/divider"
+            android:visibility="visible"
+            app:layout_behavior="@string/bye_burger_bottom_behavior"/>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
 
     <RadioGroup
+        android:layout_gravity="bottom"
+        app:layout_behavior="@string/bye_burger_bottom_behavior"
         android:id="@+id/radioGroup"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
         android:background="@color/white"
         android:orientation="horizontal">
 
@@ -68,6 +81,17 @@
 
     </RadioGroup>
 
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/floatButton"
+        app:layout_behavior="@string/bye_burger_float_behavior"
+        android:layout_gravity="bottom|right"
+        android:src="@mipmap/ic_up"
+        android:backgroundTint="@color/white"
+        android:layout_marginBottom="60dp"
+        android:layout_marginRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 
 
 
@@ -76,5 +100,4 @@
 
 
 
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

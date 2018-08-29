@@ -8,10 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import butterknife.Unbinder;
 import tzl.com.awesomewanandroid.R;
-import tzl.com.awesomewanandroid.base.WBaseFragmentPagerAdapter;
 import tzl.com.awesomewanandroid.base.WBaseFragment;
+import tzl.com.awesomewanandroid.base.WBaseFragmentPagerAdapter;
 import tzl.com.awesomewanandroid.data.api.ApiManager;
 import tzl.com.awesomewanandroid.data.pojo.ProjectTree;
 import tzl.com.framework.net.pojo.BaseResponse;
@@ -33,7 +32,6 @@ public class ProjectListFragment extends WBaseFragment {
     ViewPager          mViewPager;
     @BindView(R.id.multistatusview)
     MultipleStatusView mMultistatusview;
-    Unbinder unbinder;
 
     @Override
     public int getLayoutId() {

@@ -33,7 +33,14 @@ public class NoCerOkHttpClient {
                 .readTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .connectTimeout(TIME_OUT, TimeUnit.SECONDS)
                 .writeTimeout(TIME_OUT, TimeUnit.SECONDS)
-                .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)) ;
+                .addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY));
+
+        //生产环境去除代理
+//        if (BuildConfig.DEBUG) {
+//            builder.addInterceptor(new HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
+//        }else{
+//            builder.proxy(Proxy.NO_PROXY);
+//        }
         return builder.build();
     }
 
