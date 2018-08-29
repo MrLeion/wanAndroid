@@ -31,9 +31,8 @@ dependencies {
 
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     implementation project(':Andframework')
-    //    LeakCanary
+    //LeakCanary
     implementation 'com.android.support:support-v4:27.1.1'
-    implementation 'com.google.android.gms:play-services-plus:15.0.1'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     //Dagger
@@ -49,7 +48,23 @@ dependencies {
         exclude group: 'com.android.support'
     }
 
+    //FlycoTabLayout
+    implementation 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+
     //butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    //Debug tools
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp:1.5.0'
+
+    //快速开发
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.41'
+
+    //下拉刷新
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5'
+    implementation 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5'
+
+
 }

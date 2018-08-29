@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tzl.com.framework.widget.multistatusview.MultipleStatusView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/tools"
+    android:id="@+id/multistatusview"
+    app:emptyView="@layout/empty_view"
+    app:errorView="@layout/error_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <com.flyco.tablayout.SlidingTabLayout
+        android:id="@+id/stlProject"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/white"
+        tl:tl_indicator_color="@color/color_red"
+        app:tl_textUnselectColor="@color/color_text_gray"
+        app:tl_textSelectColor="@color/color_text_gray"
+        tl:tl_indicator_style="TRIANGLE"/>
+
+
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_below="@id/stlProject"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+
+
+
+
+
+
+
+
+
+</tzl.com.framework.widget.multistatusview.MultipleStatusView>

@@ -30,9 +30,6 @@ public abstract class WBaseActivity extends BaseActivity {
         initView();
         initEvent();
         initData();
-
-
-
     }
 
 

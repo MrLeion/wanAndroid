@@ -1,15 +1,20 @@
 package tzl.com.awesomewanandroid.data.api;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 import tzl.com.awesomewanandroid.data.pojo.ArticleList;
 import tzl.com.awesomewanandroid.data.pojo.Banner;
 import tzl.com.awesomewanandroid.data.pojo.Friend;
 import tzl.com.awesomewanandroid.data.pojo.HotKey;
+import tzl.com.awesomewanandroid.data.pojo.ProjectList;
+import tzl.com.awesomewanandroid.data.pojo.ProjectTree;
 import tzl.com.framework.net.pojo.BaseResponse;
 
 /**
@@ -49,6 +54,24 @@ public interface Api {
      */
     @GET("/hotkey/json")
     Observable<BaseResponse<HotKey>> getHotkey();
+
+
+    /***
+     * 项目分类
+     * @return
+     */
+    @GET("/project/tree/json")
+    Observable<BaseResponse<List<ProjectTree>>> getProjectTree();
+
+
+    /***
+     * 项目列表
+     * @return
+     */
+    @GET("/project/list/{pageNo}/json")
+    Observable<BaseResponse<ProjectList>> getProjects(@Path("pageNo")int pageNo, @Query("cid") int cid);
+
+
 
 
 

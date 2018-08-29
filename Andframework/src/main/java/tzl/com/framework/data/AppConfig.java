@@ -11,5 +11,5 @@ public class AppConfig {
     public static final String PRE_COOKIE = "pre_cookie";
 
 
-
+    public static final String PROJECT_ID = "project_id";
 }

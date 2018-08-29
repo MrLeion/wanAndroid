@@ -33,12 +33,12 @@ public abstract class WBaseFragment extends BaseFragment {
         //加载view
         if (null==mRootView) {
             mRootView = inflater.inflate(getLayoutId(), null);
-            mUnbinder = ButterKnife.bind(mRootView);
         }
         ViewGroup parent= (ViewGroup) mRootView.getParent();
         if(parent!=null){
             parent.removeView(mRootView);
         }
+        mUnbinder = ButterKnife.bind(this,mRootView);
         return mRootView;
     }
 
@@ -48,8 +48,6 @@ public abstract class WBaseFragment extends BaseFragment {
         initView();
         initEvent();
         initData();
-
-
     }
 
     @Override

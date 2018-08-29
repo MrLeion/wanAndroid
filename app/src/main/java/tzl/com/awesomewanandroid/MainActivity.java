@@ -11,7 +11,7 @@ import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
 import tzl.com.awesomewanandroid.ui.home.HomeFragment;
 import tzl.com.awesomewanandroid.ui.music.MusicFragment;
 import tzl.com.awesomewanandroid.ui.navigator.NavigatorFragment;
-import tzl.com.awesomewanandroid.ui.project.ProjectFragment;
+import tzl.com.awesomewanandroid.ui.project.ProjectListFragment;
 import tzl.com.awesomewanandroid.ui.video.VideoFragment;
 import tzl.com.framework.base.BaseFragment;
 import tzl.com.framework.helper.TabManager;
@@ -82,7 +82,7 @@ public class MainActivity extends WBaseActivity {
         mWanAndroidTabManager.addFragment(TAG_HOME, HomeFragment.class);
         mWanAndroidTabManager.addFragment(TAG_NAV, NavigatorFragment.class);
         mWanAndroidTabManager.addFragment(TAG_HIERARCHY, HierarchyFragment.class);
-        mWanAndroidTabManager.addFragment(TAG_PROJECT, ProjectFragment.class);
+        mWanAndroidTabManager.addFragment(TAG_PROJECT, ProjectListFragment.class);
         switchWanAndroidFragment(TAG_HOME);
     }
 
@@ -191,7 +191,6 @@ public class MainActivity extends WBaseActivity {
                 //3D 旋转到音视频界面
                 mContainer.applyRotation(isFirst);
                 isFirst = !isFirst;
-
             }
         };
         mRlMenuRest.setOnClickListener(onClickListener);
