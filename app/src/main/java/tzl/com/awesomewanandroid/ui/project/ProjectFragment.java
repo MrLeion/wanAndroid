@@ -65,7 +65,7 @@ public class ProjectFragment extends WBaseLazyFragment {
     private void loadData() {
         ApiManager.getApi().getProjects(1, mCid)
                 .compose(RxSchedulers.<BaseResponse<ProjectList>>applyObservableAsync())
-                .subscribe(new BaseObserver<ProjectList>() {
+                .subscribe(new BaseObserver<ProjectList>(mActivity,true) {
 
                     @Override
                     public void onSuccess(BaseResponse<ProjectList> response) {

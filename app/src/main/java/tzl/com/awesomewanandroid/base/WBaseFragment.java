@@ -24,8 +24,6 @@ public abstract class WBaseFragment extends BaseFragment {
     private Unbinder mUnbinder;
 
 
-
-
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -1,11 +1,13 @@
 package tzl.com.awesomewanandroid;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
 import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
 import tzl.com.awesomewanandroid.ui.home.HomeFragment;
@@ -15,6 +17,7 @@ import tzl.com.awesomewanandroid.ui.project.ProjectListFragment;
 import tzl.com.awesomewanandroid.ui.video.VideoFragment;
 import tzl.com.framework.base.BaseFragment;
 import tzl.com.framework.helper.TabManager;
+import tzl.com.framework.widget.OptionItemView;
 import tzl.com.framework.widget.anim.Rotate3dFrameLayout;
 
 public class MainActivity extends WBaseActivity {
@@ -48,13 +51,15 @@ public class MainActivity extends WBaseActivity {
     RadioButton         mRbVideo;
     @BindView(R.id.restRadioGroup)
     RadioGroup          mRestRadioGroup;
+    @BindView(R.id.titleView)
+    OptionItemView      mTitleView;
 
     private TabManager   mWanAndroidTabManager;
     private TabManager   mRestTabManager;
     private BaseFragment currentFragmentWandroid;
     private BaseFragment currentFragmentRest;
     private String  currentWanAndroidTag = TAG_HOME; //默认首页
-    private String  currentRestTag = TAG_HOME; //默认音乐
+    private String  currentRestTag       = TAG_HOME; //默认音乐
     private boolean isFirst              = true;//默认第一面
 
 
@@ -109,16 +114,20 @@ public class MainActivity extends WBaseActivity {
         switch (tag) {
             case TAG_HIERARCHY:
                 mRbHierarchy.setChecked(true);
+                mTitleView.setTitleText("知识体系");
                 break;
             case TAG_NAV:
                 mRbNavigator.setChecked(true);
+                mTitleView.setTitleText("导航");
                 break;
             case TAG_PROJECT:
                 mRbProject.setChecked(true);
+                mTitleView.setTitleText("项目");
                 break;
             case TAG_HOME:
             default:
                 mRbHome.setChecked(true);
+                mTitleView.setTitleText("首页");
                 break;
         }
         currentFragmentWandroid = mWanAndroidTabManager.getCurrentFragment();
@@ -198,4 +207,10 @@ public class MainActivity extends WBaseActivity {
     }
 
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
+    }
 }

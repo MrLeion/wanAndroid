@@ -6,28 +6,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <tzl.com.framework.widget.OptionItemView
+    <!--app:layout_behavior="@string/bye_burger_title_behavior"-->
+
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        app:layout_behavior="@string/bye_burger_title_behavior"
-        app:title="首页"/>
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:elevation="@dimen/dp_0">
+            <tzl.com.framework.widget.OptionItemView
+                android:layout_width="match_parent"
+                android:id="@+id/titleView"
+                android:minHeight="@dimen/dp_0"
+                android:layout_height="@dimen/dp_48"
+                android:background="@color/color_gray"
+                app:layout_scrollFlags="scroll|enterAlways"
+                app:title_color="@color/white"
+                app:title_size="@dimen/sp_14"
+                app:title="首页"/>
+    </android.support.design.widget.AppBarLayout>
 
 
-    <android.support.v4.widget.NestedScrollView
-        android:fillViewport="true"
+    <FrameLayout
+        android:id="@+id/fl_content_wanandroid"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
-        <FrameLayout
-            android:id="@+id/fl_content_wanandroid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/divider"
-            android:visibility="visible"
-            app:layout_behavior="@string/bye_burger_bottom_behavior"/>
-
-
-    </android.support.v4.widget.NestedScrollView>
 
 
 
@@ -81,20 +85,16 @@
 
     </RadioGroup>
 
+
+
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/floatButton"
         app:layout_behavior="@string/bye_burger_float_behavior"
-        android:layout_gravity="bottom|right"
-        android:src="@mipmap/ic_up"
-        android:backgroundTint="@color/white"
-        android:layout_marginBottom="60dp"
-        android:layout_marginRight="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        />
-
-
-
+        android:src="@mipmap/ic_up"
+        android:layout_gravity="bottom|right"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginBottom="@dimen/dp_60"/>
 
 
 

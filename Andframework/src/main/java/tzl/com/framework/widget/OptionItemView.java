@@ -206,6 +206,8 @@ public class OptionItemView extends View {
         mTextBound = new Rect();
         // 计算了描绘字体需要的范围
         mPaint.getTextBounds(title, 0, title.length(), mTextBound);
+
+
     }
 
     @Override
