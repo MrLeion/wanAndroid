@@ -1,18 +1,16 @@
 package tzl.com.awesomewanandroid.base;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.View;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import tzl.com.awesomewanandroid.R;
 import tzl.com.framework.base.BaseActivity;
 import tzl.com.framework.widget.dialog.QMUITipDialog;
+import tzl.com.framework.widget.statusbar.StatusBarUtil;
 
 /**
  * author: tangzenglei
@@ -30,16 +28,18 @@ public abstract class WBaseActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         mUnbinder = ButterKnife.bind(this);
-        //TODO:状态栏处理
         initView();
         initEvent();
         initData();
-        getWindow().getDecorView().setBackgroundColor(getResources().getColor(R.color.color_red));
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.parseColor("#FF0000"));
+//        getWindow().getDecorView().setBackgroundColor(getResources().getColor(R.color.color_red));
+        StatusBarUtil.darkMode(this);
+        try {
+            View view = findViewById(R.id.titleView);
+            if (view != null) {
+                StatusBarUtil.setPaddingSmart(this, view);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
     }

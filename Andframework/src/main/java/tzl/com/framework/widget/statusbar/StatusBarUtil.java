@@ -18,7 +18,9 @@ import java.lang.reflect.Method;
 import java.util.regex.Pattern;
 
 /**
- * 状态栏透明
+ * Tranlucent bar
+ *
+ * by the way :https://github.com/gyf-dev/ImmersionBar
  */
 
 @SuppressWarnings("unused")
@@ -27,7 +29,7 @@ public class StatusBarUtil {
 
     public static int DEFAULT_COLOR = 0;
     public static float DEFAULT_ALPHA = 0;//Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP ? 0.2f : 0.3f;
-    public static final int MIN_API = 19;
+    public static final int MIN_API = Build.VERSION_CODES.KITKAT;
 
 
     //<editor-fold desc="沉侵">
@@ -59,16 +61,18 @@ public class StatusBarUtil {
             systemUiVisibility |= View.SYSTEM_UI_FLAG_LAYOUT_STABLE;
             window.getDecorView().setSystemUiVisibility(systemUiVisibility);
 
-            //改变状态栏颜色
+            //改变状态栏颜色,必须如此设置方能奏效
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(mixtureColor(color, alpha));
 
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             setTranslucentView((ViewGroup) window.getDecorView(), color, alpha);
         }else{
-            //to do nothing
+            //to do nothing api <19 无法进行设配
+
         }
 //
     }
@@ -111,15 +115,13 @@ public class StatusBarUtil {
             darkModeForM(window, true);
             immersive(window, color, alpha);
         } else if (Build.VERSION.SDK_INT >= 19) {
+            //todo 如果字体和背景均为白色，应设置背景 alpha 值
             window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             setTranslucentView((ViewGroup) window.getDecorView(), color, alpha);
+
         }else{
             //to do nothing
-
         }
-//        else {
-//            immersive(window, color, alpha);
-//        }
     }
 
     //------------------------->
@@ -276,7 +278,6 @@ public class StatusBarUtil {
             view.setLayoutParams(lp);
         }
     }
-    //<editor-fold desc="哈哈">
 
     /**
      * 创建假的透明栏
@@ -297,7 +298,6 @@ public class StatusBarUtil {
             }
         }
     }
-    //</editor-fold>
 
     public static int mixtureColor(int color, @FloatRange(from = 0.0, to = 1.0) float alpha) {
         int a = (color & 0xff000000) == 0 ? 0xff : color >>> 24;

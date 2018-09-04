@@ -13,16 +13,10 @@
         android:layout_height="wrap_content"
         android:theme="@style/AppTheme.AppBarOverlay"
         app:elevation="@dimen/dp_0">
-            <tzl.com.framework.widget.OptionItemView
-                android:layout_width="match_parent"
-                android:id="@+id/titleView"
-                android:minHeight="@dimen/dp_0"
-                android:layout_height="@dimen/dp_48"
-                android:background="@color/color_gray"
-                app:layout_scrollFlags="scroll|enterAlways"
-                app:title_color="@color/white"
-                app:title_size="@dimen/sp_14"
-                app:title="首页"/>
+
+
+        <include layout="@layout/common_toolbar"
+                 android:id="@+id/titleView"/>
     </android.support.design.widget.AppBarLayout>
 
 

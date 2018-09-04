@@ -2,12 +2,13 @@
 <android.support.v4.widget.DrawerLayout
     android:orientation="vertical"
     android:gravity="center"
-    android:background="#f00"
+    android:id="@+id/drawer_wanandroid"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:openDrawer="start"
     tools:context=".MainActivity">
 
 
@@ -15,6 +16,11 @@
         layout="@layout/wanandroid_content_main"/>
 
 
+    <include
+        android:layout_gravity="start"
+        layout="@layout/wanandroid_sliding_menu"
+        android:layout_width="@dimen/dp_300"
+        android:layout_height="match_parent"/>
 
 
 

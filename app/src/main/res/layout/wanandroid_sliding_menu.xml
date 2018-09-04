@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:clickable="true"
+              android:background="@android:color/white"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+
+
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp">
+
+        <TextView
+            android:text="MrLeion"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/sp_16"
+            android:drawablePadding="@dimen/dp_5"
+            android:textColor="@color/color_text_gray"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RelativeLayout>
+
+
+    <tzl.com.framework.widget.OptionItemView
+        android:id="@+id/oivColletion"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:right_src="@mipmap/ic_right"
+        app:left_src="@mipmap/ic_drawer"
+        app:left_text="@string/collection"/>
+
+    <tzl.com.framework.widget.OptionItemView
+        android:id="@+id/oivTodo"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:right_src="@mipmap/ic_right"
+        app:left_src="@mipmap/ic_drawer"
+        app:left_text="@string/TODO"/>
+
+    <tzl.com.framework.widget.OptionItemView
+        android:id="@+id/oivSetting"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:right_src="@mipmap/ic_right"
+        app:left_src="@mipmap/ic_drawer"
+        app:left_text="@string/setting"/>
+
+    <tzl.com.framework.widget.OptionItemView
+        android:id="@+id/oivAboutUs"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:right_src="@mipmap/ic_right"
+        app:left_src="@mipmap/ic_drawer"
+        app:left_text="@string/about_us"/>
+
+
+    <tzl.com.framework.widget.OptionItemView
+        android:id="@+id/oivLogout"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:right_src="@mipmap/ic_right"
+        app:left_src="@mipmap/ic_drawer"
+        app:left_text="@string/logout"/>
+
+
+
+
+</LinearLayout>

@@ -1,13 +1,21 @@
 package tzl.com.awesomewanandroid;
 
 import android.os.Bundle;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
 import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
 import tzl.com.awesomewanandroid.ui.home.HomeFragment;
@@ -16,6 +24,7 @@ import tzl.com.awesomewanandroid.ui.navigator.NavigatorFragment;
 import tzl.com.awesomewanandroid.ui.project.ProjectListFragment;
 import tzl.com.awesomewanandroid.ui.video.VideoFragment;
 import tzl.com.framework.base.BaseFragment;
+import tzl.com.framework.helper.LogHelper;
 import tzl.com.framework.helper.TabManager;
 import tzl.com.framework.widget.OptionItemView;
 import tzl.com.framework.widget.anim.Rotate3dFrameLayout;
@@ -52,7 +61,22 @@ public class MainActivity extends WBaseActivity {
     @BindView(R.id.restRadioGroup)
     RadioGroup          mRestRadioGroup;
     @BindView(R.id.titleView)
-    OptionItemView      mTitleView;
+    Toolbar             mCommonToolbar;
+    @BindView(R.id.tv_common_toolbar_title)
+    TextView            mTvCommonToolbarTitle;
+    @BindView(R.id.drawer_wanandroid)
+    DrawerLayout        mDrawerWanandroid;
+    @BindView(R.id.oivColletion)
+    OptionItemView      mOivColletion;
+    @BindView(R.id.oivTodo)
+    OptionItemView      mOivTodo;
+    @BindView(R.id.oivSetting)
+    OptionItemView      mOivSetting;
+    @BindView(R.id.oivAboutUs)
+    OptionItemView      mOivAboutUs;
+    @BindView(R.id.oivLogout)
+    OptionItemView      mOivLogout;
+
 
     private TabManager   mWanAndroidTabManager;
     private TabManager   mRestTabManager;
@@ -61,6 +85,7 @@ public class MainActivity extends WBaseActivity {
     private String  currentWanAndroidTag = TAG_HOME; //默认首页
     private String  currentRestTag       = TAG_HOME; //默认音乐
     private boolean isFirst              = true;//默认第一面
+    private ActionBarDrawerToggle mToggle;
 
 
     @Override
@@ -72,8 +97,95 @@ public class MainActivity extends WBaseActivity {
     public void initView() {
         initAndroid();
         initRest();
-        setTabEvent();
+        initWanAndroidDrawerLayout();
     }
+
+    private void initWanAndroidDrawerLayout() {
+
+        setSupportActionBar(mCommonToolbar);
+
+        //去除默认标题
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+
+        // Toolbar 监听
+        mCommonToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_search:
+                        Toast.makeText(MainActivity.this, "Search !", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                return true;
+            }
+        });
+
+
+        //侧滑与图标交互处理
+        //高仿QQ 效果
+        //获取mDrawerLayout中的第一个子布局，也就是布局中的RelativeLayout
+        //获取抽屉的view
+        //设置左边菜单滑动后的占据屏幕大小
+        //设置菜单透明度
+        //设置内容界面水平和垂直方向偏转量
+        //在滑动时内容界面的宽度为 屏幕宽度减去菜单界面所占宽度
+        //设置内容界面操作无效（比如有button就会点击无效）
+        //设置右边菜单滑动后的占据屏幕大小
+        mToggle = new ActionBarDrawerToggle(
+                this, mDrawerWanandroid, mCommonToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                super.onDrawerSlide(drawerView, slideOffset);
+                //高仿QQ 效果
+                //获取mDrawerLayout中的第一个子布局，也就是布局中的RelativeLayout
+                //获取抽屉的view
+                View mContent = mDrawerWanandroid.getChildAt(0);
+                float scale = 1 - slideOffset;
+                float endScale = 0.8f + scale * 0.2f;
+                float startScale = 1 - 0.3f * scale;
+
+                //设置左边菜单滑动后的占据屏幕大小
+                drawerView.setScaleX(startScale);
+                drawerView.setScaleY(startScale);
+                //设置菜单透明度
+                drawerView.setAlpha(0.6f + 0.4f * (1 - scale));
+
+                //设置内容界面水平和垂直方向偏转量
+                //在滑动时内容界面的宽度为 屏幕宽度减去菜单界面所占宽度
+                mContent.setTranslationX(drawerView.getMeasuredWidth() * (1 - scale));
+                //设置内容界面操作无效（比如有button就会点击无效）
+                mContent.invalidate();
+                //设置右边菜单滑动后的占据屏幕大小
+                mContent.setScaleX(endScale);
+                mContent.setScaleY(endScale);
+
+            }
+
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+                super.onDrawerOpened(drawerView);
+                LogHelper.e("MainActivity onDrawerOpened");
+            }
+
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+                LogHelper.e("MainActivity onDrawerClosed");
+
+            }
+        };
+
+        mDrawerWanandroid.addDrawerListener(mToggle);
+        mToggle.syncState();
+    }
+
 
     private void initRest() {
         mRestTabManager = new TabManager(R.id.fl_content_rest, getSupportFragmentManager());
@@ -93,7 +205,7 @@ public class MainActivity extends WBaseActivity {
 
     @Override
     public void initEvent() {
-
+        setTabEvent();
     }
 
     @Override
@@ -102,6 +214,13 @@ public class MainActivity extends WBaseActivity {
 
     }
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //设置toolbar右侧图标
+        getMenuInflater().inflate(R.menu.menu_wanandroid_home, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     /**
      * wanandroid 切换 Fragment
@@ -114,20 +233,20 @@ public class MainActivity extends WBaseActivity {
         switch (tag) {
             case TAG_HIERARCHY:
                 mRbHierarchy.setChecked(true);
-                mTitleView.setTitleText("知识体系");
+                mTvCommonToolbarTitle.setText("知识体系");
                 break;
             case TAG_NAV:
                 mRbNavigator.setChecked(true);
-                mTitleView.setTitleText("导航");
+                mTvCommonToolbarTitle.setText("导航");
                 break;
             case TAG_PROJECT:
                 mRbProject.setChecked(true);
-                mTitleView.setTitleText("项目");
+                mTvCommonToolbarTitle.setText("项目");
                 break;
             case TAG_HOME:
             default:
                 mRbHome.setChecked(true);
-                mTitleView.setTitleText("首页");
+                mTvCommonToolbarTitle.setText("首页");
                 break;
         }
         currentFragmentWandroid = mWanAndroidTabManager.getCurrentFragment();
@@ -158,6 +277,39 @@ public class MainActivity extends WBaseActivity {
      * 设置底部 button 的点击事件
      */
     private void setTabEvent() {
+        setWanAndroidEvent();
+        setRestEvent();
+        //中间 menu
+        View.OnClickListener onClickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //3D 旋转到音视频界面
+                mContainer.applyRotation(isFirst);
+                isFirst = !isFirst;
+            }
+        };
+        mRlMenuRest.setOnClickListener(onClickListener);
+        mRlMenuCode.setOnClickListener(onClickListener);
+    }
+
+    private void setRestEvent() {
+        mRestRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rbVideo:
+                        switchRestFragment(TAG_VIDEO);
+                        break;
+                    case R.id.rbMusic:
+                    default:
+                        switchRestFragment(TAG_MUSIC);
+                        break;
+                }
+            }
+        });
+    }
+
+    private void setWanAndroidEvent() {
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -178,34 +330,30 @@ public class MainActivity extends WBaseActivity {
                 }
             }
         });
-        mRestRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rbVideo:
-                        switchRestFragment(TAG_VIDEO);
-                        break;
-                    case R.id.rbMusic:
-                    default:
-                        switchRestFragment(TAG_MUSIC);
-                        break;
-                }
-            }
-        });
-
-        //中间 menu
-        View.OnClickListener onClickListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //3D 旋转到音视频界面
-                mContainer.applyRotation(isFirst);
-                isFirst = !isFirst;
-            }
-        };
-        mRlMenuRest.setOnClickListener(onClickListener);
-        mRlMenuCode.setOnClickListener(onClickListener);
     }
 
+
+    @OnClick({R.id.oivColletion,R.id.oivTodo, R.id.oivSetting, R.id.oivAboutUs, R.id.oivLogout})
+     public void onClickView(View view) {
+        switch (view.getId()) {
+            case R.id.oivColletion:
+                mDrawerWanandroid.closeDrawers();
+            break;
+            case R.id.oivTodo:
+                mDrawerWanandroid.closeDrawers();
+            break;
+            case R.id.oivSetting:
+                mDrawerWanandroid.closeDrawers();
+            break;
+            case R.id.oivAboutUs:
+                mDrawerWanandroid.closeDrawers();
+            break;
+            case R.id.oivLogout:
+                mDrawerWanandroid.closeDrawers();
+                break;
+        }
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

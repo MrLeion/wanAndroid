@@ -4,12 +4,18 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 
     <!-- Customize your theme here. -->
-    <!--<item name="colorPrimary">@color/colorPrimary</item>-->
-    <!--<item name="colorAccent">@color/colorAccent</item>-->
         <item name="colorPrimaryDark">@color/color_gray</item>
-    <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
+         <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
+
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
 </style>
 
+
+    <!--小汉堡颜色为白色-->
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
 
     <!-- 底部 Tab -->
     <style name="MainTabBottom">
