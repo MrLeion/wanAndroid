@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import me.jessyan.autosize.internal.CustomAdapt;
 import tzl.com.framework.helper.ActivityManager;
 
 /**
@@ -11,7 +12,7 @@ import tzl.com.framework.helper.ActivityManager;
  * created on: 2018/7/27 上午11:02
  * description:
  */
-public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity {
+public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity implements CustomAdapt{
     protected T mPresenter;
 
     @Override
@@ -55,6 +56,18 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
             mPresenter.onDestory();
         }
     }
+
+    @Override
+    public boolean isBaseOnWidth() {
+        return false;
+    }
+
+    @Override
+    public float getSizeInDp() {
+        return 667;
+    }
+
+
 
 
 

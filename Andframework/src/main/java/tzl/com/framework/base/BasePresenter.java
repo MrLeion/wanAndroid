@@ -25,6 +25,7 @@ public abstract class BasePresenter<V extends IView,M extends BaseModel> {
         } else if (view instanceof BaseFragment) {
             mActivity = (BaseActivity) ((BaseFragment) view).getActivity();
         }
+        init();
         registerEvent();
     }
 
@@ -38,6 +39,8 @@ public abstract class BasePresenter<V extends IView,M extends BaseModel> {
     }
 
 
+    public abstract void init();
     public abstract void registerEvent();
+
 
 }

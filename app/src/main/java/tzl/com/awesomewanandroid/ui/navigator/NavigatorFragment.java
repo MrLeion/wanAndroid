@@ -10,7 +10,7 @@ import tzl.com.awesomewanandroid.base.WBaseFragment;
  * created on: 2018/8/27 下午4:00
  * description:体系
  */
-public class NavigatorFragment extends WBaseFragment {
+public class NavigatorFragment extends WBaseFragment<NavigatorPresenter> implements NavigatorView {
 
 
     public static NavigatorFragment newInstance(String title) {
@@ -29,6 +29,7 @@ public class NavigatorFragment extends WBaseFragment {
     @Override
     public void initView() {
 
+
     }
 
     @Override
@@ -38,7 +39,9 @@ public class NavigatorFragment extends WBaseFragment {
 
     @Override
     public void initData() {
+        mPresenter = new NavigatorPresenter(this, new NavigatorModel());
 
+        mPresenter.loadData();
     }
 
 

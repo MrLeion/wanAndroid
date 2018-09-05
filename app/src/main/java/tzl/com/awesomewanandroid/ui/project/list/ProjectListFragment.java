@@ -35,9 +35,6 @@ public class ProjectListFragment extends WBaseFragment<ProjectListPresenter> imp
     public void initView() {
 
 
-
-
-
     }
 
     @Override
@@ -48,16 +45,8 @@ public class ProjectListFragment extends WBaseFragment<ProjectListPresenter> imp
 
     @Override
     public void initData() {
-
         mPresenter = new ProjectListPresenter(this, new ProjectListModel());
-    }
-
-
-    @Override
-    public void onResumeFragment() {
-
         RxBus.getDefault().post(new ProjectListEvent());
-
     }
 
     public SlidingTabLayout getStlProject() {

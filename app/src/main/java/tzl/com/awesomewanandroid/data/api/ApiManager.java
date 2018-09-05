@@ -12,13 +12,15 @@ public class ApiManager {
 
 
 
+
+
     private static class ApiHolder{
         private static Api api = WHttpClient.getObservables(BuildConfig.BASE_URL, Api.class);
     }
 
 
 
-    public static Api getApi(){
+    public static Api getWanAndroidApi(){
         return ApiHolder.api;
     }
 

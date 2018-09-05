@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 
+import tzl.com.framework.base.BasePresenter;
 import tzl.com.framework.helper.LogHelper;
 
 /**
@@ -12,7 +13,7 @@ import tzl.com.framework.helper.LogHelper;
  * created on: 2018/8/22 下午5:30
  * description:http://www.sunnyang.com/742.html
  */
-public abstract class WBaseLazyFragment extends WBaseFragment {
+public abstract class WBaseLazyFragment<T extends BasePresenter> extends WBaseFragment {
 
     protected WBaseActivity mActivity;
 
@@ -24,6 +25,9 @@ public abstract class WBaseLazyFragment extends WBaseFragment {
 
     //页面是否已经加载数据
     protected boolean isInitialized;
+
+
+    protected T mPresenter;
 
 
 
@@ -58,6 +62,9 @@ public abstract class WBaseLazyFragment extends WBaseFragment {
         isPrepared = false;
         isInitialized = false;
         LogHelper.e("onDestroy wBaseFragment:"+isPrepared +isInitialized);
+        if (null!=mPresenter) {
+            mPresenter.onDestory();
+        }
     }
 
 

@@ -19,7 +19,7 @@ public class ProjectListModel extends BaseModel {
 
 
      Observable<BaseResponse<ProjectList>> getProjects(int pageNo,int cid) {
-        return ApiManager.getApi().getProjects(pageNo, cid);
+        return ApiManager.getWanAndroidApi().getProjects(pageNo, cid);
     }
 
 
@@ -29,7 +29,7 @@ public class ProjectListModel extends BaseModel {
      * @return
      */
     Observable<BaseResponse<List<ProjectTree>>> getProjectTree(){
-        return ApiManager.getApi().getProjectTree();
+        return ApiManager.getWanAndroidApi().getProjectTree();
     }
 
 

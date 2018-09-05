@@ -12,7 +12,7 @@ import tzl.com.awesomewanandroid.base.WBaseFragment;
 import tzl.com.awesomewanandroid.base.WBaseFragmentPagerAdapter;
 import tzl.com.awesomewanandroid.data.pojo.ProjectTree;
 import tzl.com.awesomewanandroid.event.ProjectListEvent;
-import tzl.com.awesomewanandroid.ui.project.ProjectFragment;
+import tzl.com.awesomewanandroid.ui.project.project.ProjectFragment;
 import tzl.com.framework.base.BasePresenter;
 import tzl.com.framework.net.pojo.BaseResponse;
 import tzl.com.framework.rx.BaseObserver;
@@ -27,18 +27,21 @@ import tzl.com.framework.widget.multistatusview.MultipleStatusView;
  */
 public class ProjectListPresenter extends BasePresenter<ProjectListView,ProjectListModel>{
 
-    private final MultipleStatusView mMultistatusview;
-    private final SlidingTabLayout mStlProject;
-    private final ViewPager mViewPager;
+    private  MultipleStatusView mMultistatusview;
+    private  SlidingTabLayout mStlProject;
+    private  ViewPager mViewPager;
 
     /**
      * 绑定 View 和 model
-     *
      * @param view
      * @param model
      */
     public ProjectListPresenter(ProjectListView view, ProjectListModel model) {
         super(view, model);
+    }
+
+    @Override
+    public void init() {
         mMultistatusview = mView.getMultistatusview();
         mStlProject = mView.getStlProject();
         mViewPager = mView.getViewPager();

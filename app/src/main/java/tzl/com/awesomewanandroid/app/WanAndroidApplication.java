@@ -6,6 +6,7 @@ import com.squareup.leakcanary.LeakCanary;
 import com.squareup.leakcanary.RefWatcher;
 import com.tencent.bugly.crashreport.CrashReport;
 
+import me.jessyan.autosize.AutoSizeConfig;
 import tzl.com.framework.base.BaseApplication;
 
 /**
@@ -23,6 +24,7 @@ public class WanAndroidApplication extends BaseApplication {
         //内存泄漏检测工具
         mRefWatcher = setupLeakCanary();
         initBugly();
+        AutoSizeConfig.getInstance().setCustomFragment(true);
     }
 
     private void initBugly() {

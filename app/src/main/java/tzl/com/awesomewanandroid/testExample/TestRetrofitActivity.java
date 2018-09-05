@@ -37,7 +37,7 @@ public class TestRetrofitActivity extends WBaseActivity {
 
 
     public void get(View view) {
-        ApiManager.getApi().getAricle(1)
+        ApiManager.getWanAndroidApi().getAricle(1)
                 .compose(RxSchedulers.<BaseResponse<ArticleList>>applyObservableAsync())
                 .subscribe(new BaseObserver<ArticleList>() {
                     @Override
@@ -53,7 +53,7 @@ public class TestRetrofitActivity extends WBaseActivity {
     }
 
     public void post(View view) {
-        ApiManager.getApi().login("MrLeion","abc123")
+        ApiManager.getWanAndroidApi().login("MrLeion","abc123")
                 .compose( RxSchedulers.<BaseResponse<Object>>applyObservableAsync())
                 .subscribe(new BaseObserver<Object>(TestRetrofitActivity.this,true) {
                     @Override
