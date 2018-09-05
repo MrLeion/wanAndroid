@@ -1,4 +1,4 @@
-package tzl.com.awesomewanandroid.ui.project;
+package tzl.com.awesomewanandroid.ui.project.list;
 
 import android.support.v4.view.ViewPager;
 
@@ -7,46 +7,64 @@ import com.flyco.tablayout.SlidingTabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.BindView;
-import tzl.com.awesomewanandroid.R;
+import io.reactivex.functions.Consumer;
 import tzl.com.awesomewanandroid.base.WBaseFragment;
 import tzl.com.awesomewanandroid.base.WBaseFragmentPagerAdapter;
-import tzl.com.awesomewanandroid.data.api.ApiManager;
 import tzl.com.awesomewanandroid.data.pojo.ProjectTree;
+import tzl.com.awesomewanandroid.event.ProjectListEvent;
+import tzl.com.awesomewanandroid.ui.project.ProjectFragment;
+import tzl.com.framework.base.BasePresenter;
 import tzl.com.framework.net.pojo.BaseResponse;
 import tzl.com.framework.rx.BaseObserver;
+import tzl.com.framework.rx.RxBus;
 import tzl.com.framework.rx.RxSchedulers;
 import tzl.com.framework.widget.multistatusview.MultipleStatusView;
 
 /**
  * author: tangzenglei
- * created on: 2018/8/27 下午4:00
- * description:体系
+ * created on: 2018/9/5 上午10:43
+ * description:
  */
-public class ProjectListFragment extends WBaseFragment {
+public class ProjectListPresenter extends BasePresenter<ProjectListView,ProjectListModel>{
 
+    private final MultipleStatusView mMultistatusview;
+    private final SlidingTabLayout mStlProject;
+    private final ViewPager mViewPager;
 
-    @BindView(R.id.stlProject)
-    SlidingTabLayout   mStlProject;
-    @BindView(R.id.viewPager)
-    ViewPager          mViewPager;
-    @BindView(R.id.multistatusview)
-    MultipleStatusView mMultistatusview;
-
-    @Override
-    public int getLayoutId() {
-        return R.layout.fragment_project_list;
+    /**
+     * 绑定 View 和 model
+     *
+     * @param view
+     * @param model
+     */
+    public ProjectListPresenter(ProjectListView view, ProjectListModel model) {
+        super(view, model);
+        mMultistatusview = mView.getMultistatusview();
+        mStlProject = mView.getStlProject();
+        mViewPager = mView.getViewPager();
     }
 
     @Override
-    public void initView() {
-        ApiManager.getApi().getProjectTree()
+    public void registerEvent() {
+        RxBus.getDefault().toObservable(ProjectListEvent.class)
+                .subscribe(new Consumer<ProjectListEvent>() {
+                    @Override
+                    public void accept(ProjectListEvent projectListEvent) throws Exception {
+                        loadData();
+                    }
+                });
+    }
+
+
+    public void loadData() {
+        mModel.getProjectTree()
                 .compose(RxSchedulers.<BaseResponse<List<ProjectTree>>>applyObservableAsync())
                 .subscribe(new BaseObserver<List<ProjectTree>>(mActivity, true) {
 
                     @Override
                     public void onSuccess(BaseResponse<List<ProjectTree>> response) {
                         if (response.getData() != null) {
+                            mMultistatusview.showContent();
                             ArrayList<WBaseFragment> wBaseFragments = new ArrayList<>();
                             ArrayList<String> titles = new ArrayList<>();
                             List<ProjectTree> data = response.getData();
@@ -58,26 +76,17 @@ public class ProjectListFragment extends WBaseFragment {
                             WBaseFragmentPagerAdapter adapter = new WBaseFragmentPagerAdapter(mActivity.getSupportFragmentManager(), wBaseFragments, titles);
                             mViewPager.setAdapter(adapter);
                             mStlProject.setViewPager(mViewPager);
+                        }else{
+                            mMultistatusview.showEmpty();
                         }
                     }
 
                     @Override
                     public void onFailure(BaseResponse<List<ProjectTree>> response) {
-
+                            mMultistatusview.showEmpty();
                     }
+
                 });
 
     }
-
-    @Override
-    public void initEvent() {
-
-
-    }
-
-    @Override
-    public void initData() {
-
-    }
-
 }

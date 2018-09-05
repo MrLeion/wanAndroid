@@ -18,7 +18,7 @@ import tzl.com.framework.R;
 
 /**
  * tangzenglei
- * 自定义的顶部标题
+ * 自定义的带箭头条目
  */
 public class OptionItemView extends View {
 

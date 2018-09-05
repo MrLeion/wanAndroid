@@ -11,17 +11,20 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import tzl.com.framework.base.BaseFragment;
+import tzl.com.framework.base.BasePresenter;
 
 /**
  * author: tangzenglei
  * created on: 2018/8/22 下午5:30
  * description:http://www.sunnyang.com/742.html
  */
-public abstract class WBaseFragment extends BaseFragment {
+public abstract class WBaseFragment<T extends BasePresenter> extends BaseFragment {
 
     protected WBaseActivity mActivity;
     private View mRootView;
     private Unbinder mUnbinder;
+    protected T mPresenter;
+
 
 
     @Nullable
@@ -45,6 +48,7 @@ public abstract class WBaseFragment extends BaseFragment {
         initView();
         initEvent();
         initData();
+        onResumeFragment();
     }
 
     @Override
@@ -124,7 +128,7 @@ public abstract class WBaseFragment extends BaseFragment {
 
 
     /**
-     * 更新数据(fragment创建时不会被调用，当其创建后再次可见时会被调用)
+     * 更新数据(fragment创建时不会被调用，获取焦点会被调用)
      */
 
     public void onResumeFragment() {
@@ -139,13 +143,6 @@ public abstract class WBaseFragment extends BaseFragment {
 
 
     }
-
-
-
-
-
-
-
 
 
 }

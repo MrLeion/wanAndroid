@@ -21,7 +21,7 @@ import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
 import tzl.com.awesomewanandroid.ui.home.HomeFragment;
 import tzl.com.awesomewanandroid.ui.music.MusicFragment;
 import tzl.com.awesomewanandroid.ui.navigator.NavigatorFragment;
-import tzl.com.awesomewanandroid.ui.project.ProjectListFragment;
+import tzl.com.awesomewanandroid.ui.project.list.ProjectListFragment;
 import tzl.com.awesomewanandroid.ui.video.VideoFragment;
 import tzl.com.framework.base.BaseFragment;
 import tzl.com.framework.helper.LogHelper;

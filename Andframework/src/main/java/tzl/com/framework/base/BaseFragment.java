@@ -8,14 +8,20 @@ import android.support.v4.app.Fragment;
  * created on: 2018/8/22 下午5:30
  * description:
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment<T extends BasePresenter> extends Fragment {
 
-    protected Activity mActivity;
+
+
+
+    protected T mPresenter;
+
+
+    protected BaseActivity mActivity;
 
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
-        this.mActivity = activity;
+        this.mActivity = (BaseActivity) activity;
     }
 
     @Override
@@ -23,6 +29,9 @@ public abstract class BaseFragment extends Fragment {
         super.onDestroy();
         System.gc();
         System.runFinalization();
+        if (null!=mPresenter) {
+            mPresenter.onDestory();
+        }
     }
 
     /**

@@ -11,8 +11,8 @@ import tzl.com.framework.helper.ActivityManager;
  * created on: 2018/7/27 上午11:02
  * description:
  */
-public abstract class BaseActivity extends AppCompatActivity {
-
+public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity {
+    protected T mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,6 +50,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onDestroy();
         ActivityManager.remove(this);
         System.gc();
+        //调用解绑
+        if (null!=mPresenter) {
+            mPresenter.onDestory();
+        }
     }
 
 

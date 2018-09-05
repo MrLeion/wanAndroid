@@ -14,14 +14,15 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_wanandroid"
-        tools:replace="android:label"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-
-        <activity android:name=".MainActivity"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
+
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
@@ -30,6 +31,10 @@
         <activity android:name=".testExample.TestGlideActivity"/>
         <activity android:name=".testExample.TestRetrofitActivity"/>
         <activity android:name=".testExample.TestImersiveModeActivity"/>
+        <activity android:name=".ui.usercenter.LoginActivity">
+        </activity>
+        <activity android:name=".ui.usercenter.RegisterActivity">
+        </activity>
     </application>
 
 </manifest>
