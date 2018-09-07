@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import me.jessyan.autosize.internal.CustomAdapt;
 import tzl.com.framework.base.BaseFragment;
 import tzl.com.framework.base.BasePresenter;
 
@@ -18,7 +19,7 @@ import tzl.com.framework.base.BasePresenter;
  * created on: 2018/8/22 下午5:30
  * description:http://www.sunnyang.com/742.html
  */
-public abstract class WBaseFragment<T extends BasePresenter> extends BaseFragment {
+public abstract class WBaseFragment<T extends BasePresenter> extends BaseFragment implements CustomAdapt {
 
     protected WBaseActivity mActivity;
     private View mRootView;
@@ -142,6 +143,18 @@ public abstract class WBaseFragment<T extends BasePresenter> extends BaseFragmen
     public void onPauseFragment() {
 
 
+    }
+
+
+
+    @Override
+    public boolean isBaseOnWidth() {
+        return false;
+    }
+
+    @Override
+    public float getSizeInDp() {
+        return 667;
     }
 
 

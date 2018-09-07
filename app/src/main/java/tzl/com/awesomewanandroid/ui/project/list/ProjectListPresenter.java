@@ -62,7 +62,7 @@ public class ProjectListPresenter extends BasePresenter<ProjectListView,ProjectL
     public void loadData() {
         mModel.getProjectTree()
                 .compose(RxSchedulers.<BaseResponse<List<ProjectTree>>>applyObservableAsync())
-                .subscribe(new BaseObserver<List<ProjectTree>>(mActivity, true) {
+                .subscribe(new BaseObserver<List<ProjectTree>>() {
 
                     @Override
                     public void onSuccess(BaseResponse<List<ProjectTree>> response) {

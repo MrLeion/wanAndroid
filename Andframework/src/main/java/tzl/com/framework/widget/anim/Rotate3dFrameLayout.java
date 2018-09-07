@@ -23,7 +23,7 @@ public class Rotate3dFrameLayout extends FrameLayout {
     private View childView2;
     private float mCenterX;
     private float mCenterY;
-    private int Duration = 150;
+    private int Duration = 200;
     private boolean mIsFirst;
 
     public Rotate3dFrameLayout(@NonNull Context context) {

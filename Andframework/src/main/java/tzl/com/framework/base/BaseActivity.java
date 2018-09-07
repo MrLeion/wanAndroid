@@ -12,7 +12,7 @@ import tzl.com.framework.helper.ActivityManager;
  * created on: 2018/7/27 上午11:02
  * description:
  */
-public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity implements CustomAdapt{
+public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity implements CustomAdapt {
     protected T mPresenter;
 
     @Override
@@ -20,7 +20,6 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
         super.onCreate(savedInstanceState);
         ActivityManager.add(this);
     }
-
 
     /**
      * 显示加载 DialogLoading

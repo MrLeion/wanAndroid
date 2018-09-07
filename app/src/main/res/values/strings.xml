@@ -3,7 +3,7 @@
     <string name="project">项目</string>
     <string name="home">首页</string>
     <string name="collection">收藏</string>
-    <string name="TODO">ToDoList</string>
+    <string name="TODO">事务清单</string>
     <string name="setting">设置</string>
     <string name="about_us">关于我们</string>
     <string name="logout">退出登录</string>

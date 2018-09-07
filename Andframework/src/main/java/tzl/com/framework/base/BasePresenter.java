@@ -39,7 +39,14 @@ public abstract class BasePresenter<V extends IView,M extends BaseModel> {
     }
 
 
+    /**
+     * 获取view
+     */
     public abstract void init();
+
+    /**
+     * 注册监听
+     */
     public abstract void registerEvent();
 
 
