@@ -1,5 +1,9 @@
 package tzl.com.awesomewanandroid.ui.home;
 
+import android.support.v7.widget.RecyclerView;
+
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+
 import tzl.com.framework.base.IView;
 
 /**
@@ -10,6 +14,9 @@ import tzl.com.framework.base.IView;
 public interface HomeView extends IView {
 
 
+    RecyclerView getRecyclerView();
+
+    SmartRefreshLayout getRefreshLayout();
 
 
 }

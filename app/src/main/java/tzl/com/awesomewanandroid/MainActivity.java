@@ -1,6 +1,5 @@
 package tzl.com.awesomewanandroid;
 
-import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
 import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
@@ -106,10 +104,7 @@ public class MainActivity extends WBaseActivity {
 
         //去除默认标题
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
 
         // Toolbar 监听
         mCommonToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
@@ -181,7 +176,6 @@ public class MainActivity extends WBaseActivity {
 
             }
         };
-
         mDrawerWanandroid.addDrawerListener(mToggle);
         mToggle.syncState();
     }
@@ -355,10 +349,4 @@ public class MainActivity extends WBaseActivity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
 }

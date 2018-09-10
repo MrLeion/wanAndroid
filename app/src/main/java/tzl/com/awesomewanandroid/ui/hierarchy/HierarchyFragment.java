@@ -8,7 +8,7 @@ import tzl.com.awesomewanandroid.base.WBaseFragment;
  * created on: 2018/8/27 下午4:00
  * description:体系
  */
-public class HierarchyFragment extends WBaseFragment {
+public class HierarchyFragment extends WBaseFragment<HierarchyPresenter> implements HierarchyView {
 
 
     @Override
