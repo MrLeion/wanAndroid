@@ -42,7 +42,7 @@ public interface Api {
      * @return
      */
     @GET("/banner/json")
-    Observable<BaseResponse<Banner>> getBanner();
+    Observable<BaseResponse<List<Banner>>> getBanner();
 
     /***
      * 常用网站  --- 显示于搜索框下方

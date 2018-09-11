@@ -49,7 +49,6 @@ public abstract class WBaseFragment<T extends BasePresenter> extends BaseFragmen
         initView();
         initEvent();
         initData();
-        onResumeFragment();
     }
 
     @Override

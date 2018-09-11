@@ -76,6 +76,13 @@ public class ArticleList {
         this.total = total;
     }
 
+    public List<Article> getDatas() {
+        return datas;
+    }
+
+    public void setDatas(List<Article> datas) {
+        this.datas = datas;
+    }
 
     @Override
     public String toString() {

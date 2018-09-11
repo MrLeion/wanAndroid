@@ -1,5 +1,7 @@
 package tzl.com.awesomewanandroid.ui.home;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import tzl.com.awesomewanandroid.data.api.ApiManager;
 import tzl.com.awesomewanandroid.data.pojo.ArticleList;
@@ -18,7 +20,7 @@ public class HomeModel extends BaseModel {
      * 首页banner
      * @return
      */
-    public  Observable<BaseResponse<Banner>> getBanner() {
+    public  Observable<BaseResponse<List<Banner>>> getBanner() {
         return ApiManager.getWanAndroidApi().getBanner();
     }
 

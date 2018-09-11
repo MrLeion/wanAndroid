@@ -1,5 +1,6 @@
 package tzl.com.awesomewanandroid.ui.home;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -30,7 +31,8 @@ public class HomeFragment extends WBaseFragment<HomePresenter> implements HomeVi
 
     @Override
     public void initView() {
-
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
+        mRecyclerView.setHasFixedSize(true);
     }
 
     @Override
@@ -51,11 +53,15 @@ public class HomeFragment extends WBaseFragment<HomePresenter> implements HomeVi
         mPresenter.getBanner();
         mPresenter.getArticle();
 
-
-
-
     }
 
+
+    @Override
+    public void onResumeFragment() {
+        super.onResumeFragment();
+        mPresenter.getBanner();
+        mPresenter.getArticle();
+    }
 
     public RecyclerView getRecyclerView() {
         return mRecyclerView;

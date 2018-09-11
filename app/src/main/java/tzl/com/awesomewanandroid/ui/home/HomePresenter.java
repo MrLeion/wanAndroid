@@ -5,7 +5,10 @@ import android.view.View;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
+import java.util.List;
+
 import tzl.com.awesomewanandroid.R;
+import tzl.com.awesomewanandroid.adapter.ArticleListAdpater;
 import tzl.com.awesomewanandroid.data.pojo.ArticleList;
 import tzl.com.awesomewanandroid.data.pojo.Banner;
 import tzl.com.framework.base.BasePresenter;
@@ -24,6 +27,7 @@ public class HomePresenter extends BasePresenter<HomeView,HomeModel> {
     private RecyclerView mRecyclerView;
     private SmartRefreshLayout mRefreshLayout;
     private View mHeader;
+    private ArticleListAdpater mArticleListAdpater;
 
     /**
      * 绑定 View 和 model
@@ -39,10 +43,13 @@ public class HomePresenter extends BasePresenter<HomeView,HomeModel> {
         mRecyclerView = mView.getRecyclerView();
         mRefreshLayout = mView.getRefreshLayout();
         mHeader = View.inflate(mActivity, R.layout.view_head_banner, null);
+        mArticleListAdpater = new ArticleListAdpater(R.layout.item_article_list);
+
     }
 
     @Override
     public void registerEvent() {
+
 
 
 
@@ -51,19 +58,18 @@ public class HomePresenter extends BasePresenter<HomeView,HomeModel> {
     public void getBanner() {
 
         mModel.getBanner()
-                .compose(RxSchedulers.<BaseResponse<Banner>>applyObservableAsync())
-                .subscribe(new BaseObserver<Banner>() {
+                .compose(RxSchedulers.<BaseResponse<List<Banner>>>applyObservableAsync())
+                .subscribe(new BaseObserver<List<Banner>>() {
                     @Override
-                    public void onSuccess(BaseResponse<Banner> response) {
+                    public void onSuccess(BaseResponse<List<Banner>> response) {
                         if (response.getData()!=null) {
-                            
 
 
                         }
                     }
 
                     @Override
-                    public void onFailure(BaseResponse<Banner> response) {
+                    public void onFailure(BaseResponse<List<Banner>> response) {
 
                     }
                 });
@@ -84,7 +90,11 @@ public class HomePresenter extends BasePresenter<HomeView,HomeModel> {
                 .subscribe(new BaseObserver<ArticleList>() {
                     @Override
                     public void onSuccess(BaseResponse<ArticleList> response) {
-
+                        if (response.getData()!=null
+                                &&response.getData().getDatas()!=null
+                                &&response.getData().getDatas().size()>0) {
+                            mArticleListAdpater.setNewData(response.getData().getDatas());
+                        }
                     }
 
                     @Override
