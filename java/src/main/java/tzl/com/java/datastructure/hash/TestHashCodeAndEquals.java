@@ -1,4 +1,4 @@
-package tzl.com.java.collection.hash;
+package tzl.com.java.datastructure.hash;
 
 /**
  * author: tangzenglei
@@ -13,7 +13,6 @@ public class TestHashCodeAndEquals {
 
      public static void main(String[] args){
 
-
          Person person = new Person(1);
          Person person1 = new Person(2);
          System.out.println("person == person?==========="+person.equals(person1));
@@ -24,7 +23,6 @@ public class TestHashCodeAndEquals {
 
      }
 }
-
 
 
 class Person{

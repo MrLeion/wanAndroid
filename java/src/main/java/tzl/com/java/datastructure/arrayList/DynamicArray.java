@@ -1,4 +1,4 @@
-package tzl.com.java.collection.list.arrayList;
+package tzl.com.java.datastructure.arrayList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -103,8 +103,6 @@ class Solution {
         return sum;
     }
 }
-
-
 
 
 public class DynamicArray {

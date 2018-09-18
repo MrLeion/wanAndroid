@@ -1,4 +1,4 @@
-package tzl.com.java.collection.list.linkedList;
+package tzl.com.java.datastructure.linkedList;
 
 /**
  * author: tangzenglei
