@@ -4,6 +4,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
 
 /**
  * author: tangzenglei
@@ -20,6 +21,7 @@ public class TestTheadCreation {
          new Thread(new ImplementRunnable()).start();
 
 
+         // Future Callable
          ExecutorService executorService = Executors.newSingleThreadExecutor();
          Future<String> result = executorService.submit(new ImplementCallable());
          try {
@@ -29,6 +31,25 @@ public class TestTheadCreation {
          } catch (ExecutionException e) {
              e.printStackTrace();
          }
+
+
+         //FutureTask implement Runnable Future
+         FutureTask<String> stringFutureTask = new FutureTask<String>(new ImplementCallable());
+         executorService.submit(stringFutureTask);
+         try {
+             System.out.println("语文考试结果："+stringFutureTask.get());
+         } catch (InterruptedException e) {
+             e.printStackTrace();
+         } catch (ExecutionException e) {
+             e.printStackTrace();
+         }
+         executorService.shutdown();
+
+
+
+
+
+
      }
 
 }

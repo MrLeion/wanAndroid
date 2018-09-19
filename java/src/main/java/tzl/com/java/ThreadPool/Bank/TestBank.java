@@ -15,7 +15,8 @@ public class TestBank {
 //         ICounter counter = new ProblemCounter();
 //         ICounter counter = new LockedCounter();
 //         ICounter counter = new SynchronizedHelper1(new Object(),new LockedCounter());
-         ICounter counter = new SynchronizedHelper3(new LockedCounter());
+//         ICounter counter = new SynchronizedHelper3(new LockedCounter());
+         ICounter counter = new DataLockedCounter();
 
          WindowThread windowThread1 = new WindowThread(counter);
          WindowThread windowThread2= new WindowThread(counter);
