@@ -7,10 +7,7 @@ package tzl.com.java.ThreadPool.Bank;
  */
 public class TestBank {
 
-
-
      public static void main(String[] args){
-
 
 //         ICounter counter = new ProblemCounter();
 //         ICounter counter = new LockedCounter();
@@ -18,14 +15,11 @@ public class TestBank {
 //         ICounter counter = new SynchronizedHelper3(new LockedCounter());
          ICounter counter = new DataLockedCounter();
 
-         WindowThread windowThread1 = new WindowThread(counter);
-         WindowThread windowThread2= new WindowThread(counter);
-         WindowThread windowThread3 = new WindowThread(counter);
-         WindowThread windowThread4 = new WindowThread(counter);
-         windowThread1.start();
-         windowThread2.start();
-         windowThread3.start();
-         windowThread4.start();
+         for (int i = 0; i < 500; i++) {
+
+             new WindowThread(counter).start();
+
+         }
      }
 
 

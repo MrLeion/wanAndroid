@@ -19,7 +19,5 @@ public class BuyTicket extends Thread {
                 }
             }
         }
-
-
     }
 }
