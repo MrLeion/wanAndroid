@@ -23,7 +23,7 @@ javap -p -v ByteCodeDemo
 一般常见的方式：
 volidate/synchronize
 Atomic：https://blog.csdn.net/qq_30379689/article/details/80785650
-ReentrantLock(可重入锁)
+ReentrantLock(可重入锁),常用
 
 总结三：
 
@@ -33,11 +33,22 @@ future 配合线程池获取 Callable 的线程执行结果
 futureTask 配合线程池获取线程执行结果
 
 
+总结四：
+java 为我们提供了四种线程池，分别通过 Executors 可获取
+
+
+总结五：
+https://blog.csdn.net/tangzenglei/article/details/50436737
+
+
+
+
+
+
 
 TODO：
 线程间的通信
-锁
-线程池
+
 
 
 
