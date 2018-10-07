@@ -15,6 +15,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", '"http://www.wanandroid.com"')
+            buildConfigField("String", "VIDEO_BASE_URL", '"http://baobab.kaiyanapp.com"')
             buildConfigField("boolean", "ONLINE", 'false')
         }
 
@@ -22,6 +23,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", '"http://www.wanandroid.com"')
+            buildConfigField("String", "VIDEO_BASE_URL", '"http://baobab.kaiyanapp.com"')
             buildConfigField("boolean", "ONLINE", 'true')
         }
 
@@ -64,4 +66,7 @@ dependencies {
     implementation 'com.youth.banner:banner:1.4.10'
     //最新版本
     implementation 'com.android.support:design:27.1.1'
+    //video support
+    implementation 'com.shuyu:GSYVideoPlayer:6.0.0-beta'
+
 }

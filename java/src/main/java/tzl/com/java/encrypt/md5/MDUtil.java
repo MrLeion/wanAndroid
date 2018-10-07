@@ -1,4 +1,4 @@
-package tzl.com.java.encrypt;
+package tzl.com.java.encrypt.md5;
 
 import java.io.File;
 import java.io.FileInputStream;

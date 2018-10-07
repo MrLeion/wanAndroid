@@ -1,4 +1,4 @@
-package tzl.com.java.encrypt;
+package tzl.com.java.encrypt.md5;
 
 import java.security.MessageDigest;
 import java.util.Arrays;

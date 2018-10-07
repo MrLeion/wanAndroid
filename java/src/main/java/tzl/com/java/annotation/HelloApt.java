@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 /**
  * author: tangzenglei
  * created on: 2018/9/6 下午5:25
- * description:
+ * description:https://blog.csdn.net/briblue/article/details/73824058
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.CLASS)
