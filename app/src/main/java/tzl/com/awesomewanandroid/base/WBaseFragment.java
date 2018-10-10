@@ -46,6 +46,15 @@ public abstract class WBaseFragment<T extends BasePresenter> extends BaseFragmen
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+//        StatusBarUtil.darkMode(mActivity);
+//        try {
+//            View titleView = mRootView.findViewById(R.id.titleView);
+//            if (titleView != null) {
+//                StatusBarUtil.setPaddingSmart(mActivity, titleView);
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         initView();
         initEvent();
         initData();

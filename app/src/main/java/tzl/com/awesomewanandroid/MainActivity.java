@@ -1,5 +1,6 @@
 package tzl.com.awesomewanandroid;
 
+import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
 import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
@@ -26,6 +28,7 @@ import tzl.com.framework.helper.LogHelper;
 import tzl.com.framework.helper.TabManager;
 import tzl.com.framework.widget.OptionItemView;
 import tzl.com.framework.widget.anim.Rotate3dFrameLayout;
+import tzl.com.framework.widget.statusbar.StatusBarUtil;
 
 public class MainActivity extends WBaseActivity {
 
@@ -74,6 +77,8 @@ public class MainActivity extends WBaseActivity {
     OptionItemView      mOivAboutUs;
     @BindView(R.id.oivLogout)
     OptionItemView      mOivLogout;
+    @BindView(R.id.tv_toolbar_title)
+    TextView            mTvToolbarTitle;
 
 
     private TabManager   mWanAndroidTabManager;
@@ -82,7 +87,7 @@ public class MainActivity extends WBaseActivity {
     private BaseFragment currentFragmentRest;
     private String  currentWanAndroidTag = TAG_HOME; //默认首页
     private String  currentRestTag       = TAG_HOME; //默认音乐
-    private boolean isFirst              = true;//默认第一面
+    private boolean isWanAndroid         = true;//默认第一面
     private ActionBarDrawerToggle mToggle;
 
 
@@ -99,9 +104,7 @@ public class MainActivity extends WBaseActivity {
     }
 
     private void initWanAndroidDrawerLayout() {
-
         setSupportActionBar(mCommonToolbar);
-
         //去除默认标题
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -182,6 +185,20 @@ public class MainActivity extends WBaseActivity {
 
 
     private void initRest() {
+
+
+        //手动设置状态栏
+        StatusBarUtil.darkMode(MainActivity.this);
+        try {
+            View view = findViewById(R.id.titleRest);
+            if (view != null) {
+                StatusBarUtil.setPaddingSmart(MainActivity.this, view);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
         mRestTabManager = new TabManager(R.id.fl_content_rest, getSupportFragmentManager());
         mRestTabManager.addFragment(TAG_MUSIC, MusicFragment.class);
         mRestTabManager.addFragment(TAG_VIDEO, VideoFragment.class);
@@ -257,10 +274,12 @@ public class MainActivity extends WBaseActivity {
         switch (tag) {
             case TAG_VIDEO:
                 mRbVideo.setChecked(true);
+                mTvToolbarTitle.setText("视频");
                 break;
             case TAG_MUSIC:
             default:
                 mRbMusic.setChecked(true);
+                mTvToolbarTitle.setText("音乐");
                 break;
         }
         currentFragmentRest = mRestTabManager.getCurrentFragment();
@@ -277,9 +296,11 @@ public class MainActivity extends WBaseActivity {
         View.OnClickListener onClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //3D 旋转到音视频界面
-                mContainer.applyRotation(isFirst);
-                isFirst = !isFirst;
+                mContainer.applyRotation(isWanAndroid);
+                isWanAndroid = !isWanAndroid;
+
             }
         };
         mRlMenuRest.setOnClickListener(onClickListener);
@@ -327,21 +348,21 @@ public class MainActivity extends WBaseActivity {
     }
 
 
-    @OnClick({R.id.oivColletion,R.id.oivTodo, R.id.oivSetting, R.id.oivAboutUs, R.id.oivLogout})
-     public void onClickView(View view) {
+    @OnClick({R.id.oivColletion, R.id.oivTodo, R.id.oivSetting, R.id.oivAboutUs, R.id.oivLogout})
+    public void onClickView(View view) {
         switch (view.getId()) {
             case R.id.oivColletion:
                 mDrawerWanandroid.closeDrawers();
-            break;
+                break;
             case R.id.oivTodo:
                 mDrawerWanandroid.closeDrawers();
-            break;
+                break;
             case R.id.oivSetting:
                 mDrawerWanandroid.closeDrawers();
-            break;
+                break;
             case R.id.oivAboutUs:
                 mDrawerWanandroid.closeDrawers();
-            break;
+                break;
             case R.id.oivLogout:
                 mDrawerWanandroid.closeDrawers();
                 break;

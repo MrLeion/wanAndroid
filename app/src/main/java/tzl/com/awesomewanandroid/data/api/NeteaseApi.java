@@ -7,21 +7,15 @@ import tzl.com.framework.net.pojo.BaseResponse;
 
 /**
  * author: tangzenglei
- * created on: 2018/10/1 下午4:57
- * description:开眼视频
+ * created on: 2018/10/10 下午4:18
+ * description:
  */
-public interface VideoApi {
-
-    @GET("/api/v4/tabs/selected")
-    Observable<BaseResponse<HomeVideo>> getSelected();
+public interface NeteaseApi {
 
 
 
-
-
-
-
-
+    @GET("/top/playlist")
+    Observable<BaseResponse<HomeVideo>> getTopPlayList();
 
 
 

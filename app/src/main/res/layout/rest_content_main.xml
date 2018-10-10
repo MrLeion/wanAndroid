@@ -1,70 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-             xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
-    <FrameLayout
-        android:id="@+id/fl_content_rest"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@+id/restDivider" />
+<android.support.design.widget.CoordinatorLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
-    <View
-        android:id="@+id/restDivider"
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_above="@id/restRadioGroup"
-        android:background="@color/divider" />
+<!--app:layout_behavior="@string/bye_burger_title_behavior"-->
 
-    <RadioGroup
-        android:id="@+id/restRadioGroup"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_alignParentBottom="true"
-        android:background="@color/white"
-        android:orientation="horizontal">
+<android.support.design.widget.AppBarLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:theme="@style/AppTheme.AppBarOverlay"
+    app:elevation="@dimen/dp_0">
 
-        <RadioButton
-            android:id="@+id/rbMusic"
-            style="@style/MainTabBottom"
-            android:checked="true"
-            android:drawableTop="@drawable/ic_tab_music_selector"
-            android:text="@string/music" />
+    <include layout="@layout/toolbar_rest"
+             android:id="@+id/titleRest"/>
 
-        <RelativeLayout
-            android:id="@+id/rlMenuCode"
+
+</android.support.design.widget.AppBarLayout>
+
+
+<FrameLayout
+    android:id="@+id/fl_content_rest"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+
+<RadioGroup
+    android:id="@+id/restRadioGroup"
+    android:layout_width="match_parent"
+    android:layout_gravity="bottom"
+    android:layout_height="55dp"
+    app:layout_behavior="@string/bye_burger_bottom_behavior"
+    android:background="@color/white"
+    android:orientation="horizontal">
+
+    <RadioButton
+        android:id="@+id/rbMusic"
+        style="@style/MainTabBottom"
+        android:checked="true"
+        android:drawableTop="@drawable/ic_tab_music_selector"
+        android:text="@string/music" />
+
+    <RelativeLayout
+        android:id="@+id/rlMenuCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/ivCode"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/dp_10"
+            android:src="@mipmap/ic_code" />
 
-            <ImageView
-                android:id="@+id/ivCode"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerInParent="true"
-                android:padding="@dimen/dp_10"
-                android:src="@mipmap/ic_code" />
-
-        </RelativeLayout>
+    </RelativeLayout>
 
 
-        <RadioButton
-            android:id="@+id/rbVideo"
-            style="@style/MainTabBottom"
-            android:drawableTop="@drawable/ic_tab_video_selector"
-            android:text="@string/video" />
+    <RadioButton
+        android:id="@+id/rbVideo"
+        style="@style/MainTabBottom"
+        android:drawableTop="@drawable/ic_tab_video_selector"
+        android:text="@string/video" />
 
 
-    </RadioGroup>
+</RadioGroup>
 
 
 
+<android.support.design.widget.FloatingActionButton
+    app:layout_behavior="@string/bye_burger_float_behavior"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@mipmap/ic_up"
+    android:layout_gravity="bottom|right"
+    android:layout_marginRight="@dimen/dp_10"
+    android:layout_marginBottom="@dimen/dp_60"/>
 
 
 
 
 
-
-
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>

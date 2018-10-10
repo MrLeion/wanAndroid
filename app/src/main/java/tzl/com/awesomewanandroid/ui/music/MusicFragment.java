@@ -8,9 +8,7 @@ import tzl.com.awesomewanandroid.base.WBaseFragment;
  * created on: 2018/8/27 下午4:00
  * description:音乐
  */
-public class MusicFragment extends WBaseFragment {
-
-
+public class MusicFragment extends WBaseFragment<MusicPresenter> {
 
 
     @Override
@@ -20,6 +18,8 @@ public class MusicFragment extends WBaseFragment {
 
     @Override
     public void initView() {
+
+
 
     }
 
