@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tl="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -10,7 +12,15 @@
     <com.flyco.tablayout.SlidingTabLayout
         android:id="@+id/stlMusic"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="48dp"
+        android:background="@color/colorTheme"
+        app:tl_indicator_color="@color/white"
+        app:tl_indicator_style="NORMAL"
+        app:tl_textBold="SELECT"
+        app:tl_tab_space_equal="true"
+        app:tl_textUnselectColor="@color/white"
+        app:tl_textsize="@dimen/sp_14"
+        app:tl_textSelectColor="@color/white"/>
 
 
 

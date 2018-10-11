@@ -1,5 +1,6 @@
 package tzl.com.awesomewanandroid.ui.music.mv;
 
+import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.base.WBaseLazyFragment;
 
 /**
@@ -10,6 +11,14 @@ import tzl.com.awesomewanandroid.base.WBaseLazyFragment;
 public class MVFragment extends WBaseLazyFragment<MVPresenter>{
 
 
+
+
+    public static MVFragment newInstance() {
+        MVFragment mvFragment = new MVFragment();
+        return mvFragment;
+    }
+
+
     @Override
     protected void onLazyLoad() {
 
@@ -17,7 +26,7 @@ public class MVFragment extends WBaseLazyFragment<MVPresenter>{
 
     @Override
     public int getLayoutId() {
-        return 0;
+        return  R.layout.fragment_mv;
     }
 
     @Override

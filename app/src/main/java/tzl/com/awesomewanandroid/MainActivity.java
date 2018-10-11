@@ -1,6 +1,5 @@
 package tzl.com.awesomewanandroid;
 
-import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -14,14 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
 import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
 import tzl.com.awesomewanandroid.ui.home.HomeFragment;
 import tzl.com.awesomewanandroid.ui.music.MusicFragment;
 import tzl.com.awesomewanandroid.ui.navigator.NavigatorFragment;
-import tzl.com.awesomewanandroid.ui.project.list.ProjectListFragment;
+import tzl.com.awesomewanandroid.ui.project.ProjectListFragment;
 import tzl.com.awesomewanandroid.ui.video.VideoFragment;
 import tzl.com.framework.base.BaseFragment;
 import tzl.com.framework.helper.LogHelper;

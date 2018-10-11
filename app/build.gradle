@@ -70,9 +70,7 @@ dependencies {
     implementation 'com.youth.banner:banner:1.4.10'
     //最新版本
     implementation 'com.android.support:design:27.1.1'
-
-
-
+    implementation project(':musiclibrary')
 }
 repositories {
     mavenCentral()

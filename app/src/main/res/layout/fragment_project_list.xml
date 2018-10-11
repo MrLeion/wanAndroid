@@ -16,7 +16,7 @@
         android:layout_height="48dp"
         android:background="@color/white"
         app:tl_indicator_color="@color/color_indicator"
-        tl:tl_indicator_style="TRIANGLE"
+        app:tl_indicator_style="TRIANGLE"
         app:tl_textUnselectColor="@color/color_text_gray"
         app:tl_textSelectColor="@color/color_text_gray"/>
 

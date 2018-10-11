@@ -1,5 +1,6 @@
 package tzl.com.awesomewanandroid.ui.music.discovery;
 
+import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.base.WBaseLazyFragment;
 
 /**
@@ -10,6 +11,12 @@ import tzl.com.awesomewanandroid.base.WBaseLazyFragment;
 public class DiscoveryFragment extends WBaseLazyFragment<DiscoveryPresenter>{
 
 
+
+    public static DiscoveryFragment newInstance() {
+        DiscoveryFragment discoveryFragment = new DiscoveryFragment();
+        return discoveryFragment;
+    }
+
     @Override
     protected void onLazyLoad() {
 
@@ -17,11 +24,14 @@ public class DiscoveryFragment extends WBaseLazyFragment<DiscoveryPresenter>{
 
     @Override
     public int getLayoutId() {
-        return 0;
+        return R.layout.fragment_discovery;
     }
 
     @Override
     public void initView() {
+
+
+
 
     }
 
