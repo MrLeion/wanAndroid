@@ -10,7 +10,7 @@ import tzl.com.awesomewanandroid.base.WBaseActivity;
 /**
  * LeakCanary 测试类
  */
-public class LeakCanaryTestActivity extends WBaseActivity {
+public class TestLeakCanaryActivity extends WBaseActivity {
 
 
 

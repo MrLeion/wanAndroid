@@ -15,4 +15,5 @@
     <dimen name="dp_3">3dp</dimen>
     <dimen name="dp_2">2dp</dimen>
     <dimen name="dp_25">25dp</dimen>
+    <dimen name="sp_28">28sp</dimen>
 </resources>

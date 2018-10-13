@@ -1,10 +1,12 @@
 package tzl.com.framework.base;
 
 import android.app.Application;
+import android.os.Process;
 
 import tzl.com.framework.cache.CacheManager;
 import tzl.com.framework.helper.ContextHolder;
 import tzl.com.framework.helper.LogHelper;
+import tzl.com.framework.helper.Util;
 
 /**
  * author: tangzenglei
@@ -19,6 +21,9 @@ public abstract class BaseApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        LogHelper.e("current process id:"+ Process.myPid()+ Util.getProcessName(this));
+
         LogHelper.init(tag(),logToggle());
         ContextHolder.init(this);
         CacheManager.init(this);

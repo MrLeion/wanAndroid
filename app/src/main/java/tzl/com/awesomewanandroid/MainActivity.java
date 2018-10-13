@@ -1,5 +1,7 @@
 package tzl.com.awesomewanandroid;
 
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +17,7 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.OnClick;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
+import tzl.com.awesomewanandroid.testExample.TestListActivity;
 import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
 import tzl.com.awesomewanandroid.ui.home.HomeFragment;
 import tzl.com.awesomewanandroid.ui.music.MusicFragment;
@@ -87,6 +90,19 @@ public class MainActivity extends WBaseActivity {
     private String  currentRestTag       = TAG_HOME; //默认音乐
     private boolean isWanAndroid         = true;//默认第一面
     private ActionBarDrawerToggle mToggle;
+
+
+    private Handler mHandler = new Handler(){
+        @Override
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 0:
+                    MainActivity.this.startActivity(TestListActivity.class);
+                    break;
+
+            }
+        }
+    };
 
 
     @Override
@@ -210,6 +226,9 @@ public class MainActivity extends WBaseActivity {
         mWanAndroidTabManager.addFragment(TAG_HIERARCHY, HierarchyFragment.class);
         mWanAndroidTabManager.addFragment(TAG_PROJECT, ProjectListFragment.class);
         switchWanAndroidFragment(TAG_HOME);
+
+
+
     }
 
     @Override
@@ -288,6 +307,29 @@ public class MainActivity extends WBaseActivity {
      * 设置底部 button 的点击事件
      */
     private void setTabEvent() {
+
+
+
+        mCommonToolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+                        mHandler.sendEmptyMessage(0);
+                    }
+                }).start();
+
+            }
+        });
+//        if (!BuildConfig.ONLINE) {
+//
+//        }
         setWanAndroidEvent();
         setRestEvent();
         //中间 menu
@@ -303,6 +345,8 @@ public class MainActivity extends WBaseActivity {
         };
         mRlMenuRest.setOnClickListener(onClickListener);
         mRlMenuCode.setOnClickListener(onClickListener);
+
+
     }
 
     private void setRestEvent() {

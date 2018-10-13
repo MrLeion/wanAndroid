@@ -19,4 +19,9 @@
     <string name="share_view">share_view</string>
     <string name="hot_artist">热门歌手</string>
     <string name="see_all">更多</string>
+
+
+
+
+    <string name="add_Person">添加成员</string>
 </resources>

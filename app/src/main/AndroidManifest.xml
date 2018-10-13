@@ -26,7 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".testExample.LeakCanaryTestActivity">
+        <activity android:name=".testExample.TestLeakCanaryActivity">
         </activity>
         <activity android:name=".testExample.TestGlideActivity"/>
         <activity android:name=".testExample.TestRetrofitActivity"/>
@@ -35,6 +35,15 @@
         </activity>
         <activity android:name=".ui.usercenter.RegisterActivity">
         </activity>
+        <activity android:name=".testExample.TestListActivity">
+        </activity>
+        <activity android:name=".testExample.aidl.ClientActivity">
+        </activity>
+
+        <service
+            android:name=".testExample.aidl.RemoteService"
+            android:process=":test">
+        </service>
     </application>
 
 </manifest>

@@ -8,6 +8,7 @@ import android.content.ContextWrapper;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Looper;
+import android.os.Process;
 import android.provider.ContactsContract;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -135,4 +136,23 @@ public class Util {
     public static boolean isMainThread() {
         return Looper.myLooper() == Looper.getMainLooper();
     }
+
+
+
+    public static String getProcessName(Context context) {
+        String procName = null;
+        android.app.ActivityManager mActivityManager = (android.app.ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        for (android.app.ActivityManager.RunningAppProcessInfo appProcess : mActivityManager
+                .getRunningAppProcesses()) {
+            if (appProcess.pid == Process.myPid()) {
+                procName = appProcess.processName;
+            }
+        }
+        return procName;
+    }
+
+
+
+
+
 }
