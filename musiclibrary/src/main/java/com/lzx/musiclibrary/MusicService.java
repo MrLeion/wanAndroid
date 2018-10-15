@@ -23,7 +23,6 @@ import java.lang.ref.WeakReference;
 public class MusicService extends Service {
 
     private PlayControl mBinder;
-
     private static MusicService mService;
     private NotificationManager mNotificationManager;
 
