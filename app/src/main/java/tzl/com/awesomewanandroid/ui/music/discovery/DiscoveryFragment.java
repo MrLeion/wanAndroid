@@ -8,9 +8,10 @@ import tzl.com.awesomewanandroid.base.WBaseLazyFragment;
  * created on: 2018/10/10 下午3:53
  * description: 发现界面
  */
-public class DiscoveryFragment extends WBaseLazyFragment<DiscoveryPresenter>{
+public class DiscoveryFragment extends WBaseLazyFragment<DiscoveryPresenter> implements DiscoveryView{
 
 
+    private DiscoveryPresenter mDiscoveryPresenter;
 
     public static DiscoveryFragment newInstance() {
         DiscoveryFragment discoveryFragment = new DiscoveryFragment();
@@ -29,19 +30,23 @@ public class DiscoveryFragment extends WBaseLazyFragment<DiscoveryPresenter>{
 
     @Override
     public void initView() {
-
-
-
-
+        mDiscoveryPresenter = new DiscoveryPresenter(this, new DiscoveryModel());
     }
 
     @Override
     public void initEvent() {
+
+
 
     }
 
     @Override
     public void initData() {
 
+
     }
+
+
+
+
 }

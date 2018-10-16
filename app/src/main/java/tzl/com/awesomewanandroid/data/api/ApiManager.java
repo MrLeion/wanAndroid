@@ -18,7 +18,7 @@ public class ApiManager {
 
 
     private static class VideoHolder{
-        private static VideoApi videoApi = WHttpClient.getObservables(BuildConfig.VIDEO_BASE_URL, VideoApi.class);
+        private static VideoApi videoApi = WHttpClient.getObservables(BuildConfig.BASE_VIDEO_URL, VideoApi.class);
     }
 
 

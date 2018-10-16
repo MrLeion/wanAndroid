@@ -7,7 +7,7 @@ import tzl.com.framework.base.IView;
  * created on: 2018/10/10 下午2:39
  * description:
  */
-public class MVView implements IView {
+public interface MVView extends IView {
 
 
 

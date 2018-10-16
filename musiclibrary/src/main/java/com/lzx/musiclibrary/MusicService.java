@@ -32,7 +32,7 @@ public class MusicService extends Service {
         super.onCreate();
         mService = this;
         this.mNotificationManager = (NotificationManager) getSystemService(Service.NOTIFICATION_SERVICE);
-        if (Build.VERSION.SDK_INT >= 26) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel("com.lzx.musiclibrary", "播放通知栏", 4);
             channel.enableLights(false);
             channel.setShowBadge(false);

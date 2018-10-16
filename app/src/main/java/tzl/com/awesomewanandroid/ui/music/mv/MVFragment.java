@@ -8,10 +8,10 @@ import tzl.com.awesomewanandroid.base.WBaseLazyFragment;
  * created on: 2018/10/10 下午3:53
  * description: 发现界面
  */
-public class MVFragment extends WBaseLazyFragment<MVPresenter>{
+public class MVFragment extends WBaseLazyFragment<MVPresenter> implements MVView{
 
 
-
+    private MVPresenter mMVPresenter;
 
     public static MVFragment newInstance() {
         MVFragment mvFragment = new MVFragment();
@@ -31,7 +31,7 @@ public class MVFragment extends WBaseLazyFragment<MVPresenter>{
 
     @Override
     public void initView() {
-
+        mMVPresenter = new MVPresenter(this, new MVModel());
     }
 
     @Override

@@ -21,6 +21,9 @@ public class ClientActivity extends WBaseActivity {
     }
 
 
+
+
+
     @Override
     public void initView() {
         mResult = findViewById(R.id.result);
@@ -42,8 +45,8 @@ public class ClientActivity extends WBaseActivity {
 
 
         try {
-            mIRemoteService.addPerson(new Person("tzl"));
-            mResult.setText(mIRemoteService.getPersonList().toString());
+            mRemoteServiceAidl.addPerson(new Person("tzl"));
+            mResult.setText(mRemoteServiceAidl.getPersonList().toString());
 
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -53,19 +56,19 @@ public class ClientActivity extends WBaseActivity {
     }
 
 
-    private IRemoteService mIRemoteService;
+    private RemoteServiceAidl mRemoteServiceAidl;
 
 
 
     private ServiceConnection mServiceConnection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            mIRemoteService = IRemoteService.Stub.asInterface(service);
+            mRemoteServiceAidl = RemoteServiceAidl.Stub.asInterface(service);
         }
 
         @Override
         public void onServiceDisconnected(ComponentName name) {
-            mIRemoteService = null;
+            mRemoteServiceAidl = null;
         }
     };
 }

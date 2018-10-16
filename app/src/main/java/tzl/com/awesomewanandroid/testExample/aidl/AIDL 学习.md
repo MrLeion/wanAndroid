@@ -18,6 +18,19 @@ idl -> * extends IInterface
 
 
 
+多进程出现数据同步、多线程不起作用等问题--》IPC 机制
+传统管道、System V IPC、socket --》 安全高效 Binder
+
+Binder 四大元素：
+Binder(服务器)
+BinderProxy(客户端)
+ServiceManager(域名解析器)
+Binder驱动(Loadable kernel module)(通信网络)
+
+
+
+
+
 
 
 

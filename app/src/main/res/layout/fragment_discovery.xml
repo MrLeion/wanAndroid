@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tzl.com.framework.widget.multistatusview.MultipleStatusView
+    android:id="@+id/multistatusview"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -51,7 +53,7 @@
 
 
             <android.support.v7.widget.RecyclerView
-                android:id="@+id/chartsArtistRcv"
+                android:id="@+id/rvHotSingers"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/dp_8"

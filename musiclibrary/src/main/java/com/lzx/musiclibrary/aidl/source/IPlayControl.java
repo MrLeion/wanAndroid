@@ -15,7 +15,7 @@ public interface IPlayControl extends android.os.IInterface {
     /**
      * Local-side IPC implementation stub class.
      */
-    public static abstract class Stub extends android.os.Binder implements IPlayControl {
+     abstract class Stub extends android.os.Binder implements IPlayControl {
         private static final java.lang.String DESCRIPTOR = "IPlayControl";
 
         /**
@@ -26,6 +26,7 @@ public interface IPlayControl extends android.os.IInterface {
         }
 
         /**
+         * 客户端处理
          * Cast an IBinder object into an IPlayControl interface,
          * generating a proxy if needed.
          *
@@ -48,6 +49,15 @@ public interface IPlayControl extends android.os.IInterface {
             return this;
         }
 
+        /**
+         * 服务端处理
+         * @param code
+         * @param data
+         * @param reply
+         * @param flags
+         * @return
+         * @throws android.os.RemoteException
+         */
         @Override
         public boolean onTransact(int code, android.os.Parcel data, android.os.Parcel reply, int flags) throws android.os.RemoteException {
             switch (code) {

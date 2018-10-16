@@ -20,7 +20,7 @@ public class RemoteService extends Service {
     private List<Person> mPersons = new ArrayList<>();
 
 
-    private IBinder mBinder =  new IRemoteService.Stub(){
+    private IBinder mBinder =  new RemoteServiceAidl.Stub(){
 
         @Override
         public void addPerson(Person person) throws RemoteException {

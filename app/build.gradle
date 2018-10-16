@@ -18,7 +18,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", '"http://www.wanandroid.com"')
-            buildConfigField("String", "VIDEO_BASE_URL", '"http://baobab.kaiyanapp.com"')
+            buildConfigField("String", "BASE_VIDEO_URL", '"http://baobab.kaiyanapp.com"')
             buildConfigField("String", "BASE_NETEASE_URL", '"https://netease.api.zzsun.cc"')
             buildConfigField("boolean", "ONLINE", 'false')
         }
@@ -27,7 +27,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField("String", "BASE_URL", '"http://www.wanandroid.com"')
-            buildConfigField("String", "VIDEO_BASE_URL", '"http://baobab.kaiyanapp.com"')
+            buildConfigField("String", "BASE_VIDEO_URL", '"http://baobab.kaiyanapp.com"')
             buildConfigField("String", "BASE_NETEASE_URL", '"https://netease.api.zzsun.cc"')
             buildConfigField("boolean", "ONLINE", 'true')
         }
