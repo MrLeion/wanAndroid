@@ -20,6 +20,7 @@ android {
             buildConfigField("String", "BASE_URL", '"http://www.wanandroid.com"')
             buildConfigField("String", "BASE_VIDEO_URL", '"http://baobab.kaiyanapp.com"')
             buildConfigField("String", "BASE_NETEASE_URL", '"https://netease.api.zzsun.cc"')
+            buildConfigField("String", "BASE_NEWS_URL", '"https://api.readhub.cn"')
             buildConfigField("boolean", "ONLINE", 'false')
         }
 
@@ -29,6 +30,7 @@ android {
             buildConfigField("String", "BASE_URL", '"http://www.wanandroid.com"')
             buildConfigField("String", "BASE_VIDEO_URL", '"http://baobab.kaiyanapp.com"')
             buildConfigField("String", "BASE_NETEASE_URL", '"https://netease.api.zzsun.cc"')
+            buildConfigField("String", "BASE_NEWS_URL", '"https://api.readhub.cn"')
             buildConfigField("boolean", "ONLINE", 'true')
         }
 

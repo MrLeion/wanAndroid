@@ -10,18 +10,21 @@ import tzl.com.awesomewanandroid.core.net.WHttpClient;
  */
 public class ApiManager {
 
-
     private static class ApiHolder{
         private static Api api = WHttpClient.getObservables(BuildConfig.BASE_URL, Api.class);
     }
-
-
 
     private static class VideoHolder{
         private static VideoApi videoApi = WHttpClient.getObservables(BuildConfig.BASE_VIDEO_URL, VideoApi.class);
     }
 
+    private static class NeteaseHolder{
+        private static NeteaseApi neteaseApi = WHttpClient.getObservables(BuildConfig.BASE_NETEASE_URL, NeteaseApi.class);
+    }
 
+    private static class NewsHolder{
+        private static NewsApi newsApi = WHttpClient.getObservables(BuildConfig.BASE_NEWS_URL, NewsApi.class);
+    }
 
     public static Api getWanAndroidApi(){
         return ApiHolder.api;
@@ -31,6 +34,12 @@ public class ApiManager {
     public static VideoApi getVideoApi(){
         return VideoHolder.videoApi;
     }
+
+
+    public static NewsApi getNewsApi(){
+        return NewsHolder.newsApi;
+    }
+
 
 
 

@@ -30,13 +30,13 @@
 
 
     <tzl.com.framework.widget.OptionItemView
-        android:id="@+id/oivColletion"
+        android:id="@+id/oivNews"
         android:layout_marginTop="@dimen/dp_5"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         app:right_src="@mipmap/ic_right"
         app:left_src="@mipmap/ic_drawer"
-        app:left_text="@string/collection"/>
+        app:left_text="@string/news"/>
 
     <tzl.com.framework.widget.OptionItemView
         android:id="@+id/oivTodo"
@@ -46,6 +46,17 @@
         app:right_src="@mipmap/ic_right"
         app:left_src="@mipmap/ic_drawer"
         app:left_text="@string/TODO"/>
+
+    <tzl.com.framework.widget.OptionItemView
+        android:id="@+id/oivColletion"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:right_src="@mipmap/ic_right"
+        app:left_src="@mipmap/ic_drawer"
+        app:left_text="@string/collection"/>
+
+
 
     <tzl.com.framework.widget.OptionItemView
         android:id="@+id/oivSetting"
