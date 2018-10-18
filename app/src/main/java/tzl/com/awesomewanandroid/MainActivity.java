@@ -22,6 +22,7 @@ import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
 import tzl.com.awesomewanandroid.ui.home.HomeFragment;
 import tzl.com.awesomewanandroid.ui.music.MusicFragment;
 import tzl.com.awesomewanandroid.ui.navigator.NavigatorFragment;
+import tzl.com.awesomewanandroid.ui.news.NewsActivity;
 import tzl.com.awesomewanandroid.ui.project.ProjectListFragment;
 import tzl.com.awesomewanandroid.ui.video.VideoFragment;
 import tzl.com.framework.base.BaseFragment;
@@ -390,15 +391,19 @@ public class MainActivity extends WBaseActivity {
     }
 
 
-    @OnClick({R.id.oivColletion, R.id.oivTodo, R.id.oivSetting, R.id.oivAboutUs, R.id.oivLogout})
+    @OnClick({R.id.oivColletion, R.id.oivTodo, R.id.oivSetting, R.id.oivAboutUs, R.id.oivLogout,R.id.oivNews})
     public void onClickView(View view) {
         switch (view.getId()) {
-            case R.id.oivColletion:
+            case R.id.oivNews:
+                startActivity(NewsActivity.class);
                 mDrawerWanandroid.closeDrawers();
-                break;
+            break;
             case R.id.oivTodo:
                 mDrawerWanandroid.closeDrawers();
                 break;
+            case R.id.oivColletion:
+            mDrawerWanandroid.closeDrawers();
+            break;
             case R.id.oivSetting:
                 mDrawerWanandroid.closeDrawers();
                 break;

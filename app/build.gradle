@@ -74,6 +74,10 @@ dependencies {
     //最新版本
     implementation 'com.android.support:design:27.1.1'
     implementation project(':musiclibrary')
+
+    //UETools
+//    debugImplementation 'me.ele:uetool:1.0.15'
+//    releaseImplementation 'me.ele:uetool-no-op:1.0.15'
 }
 repositories {
     mavenCentral()

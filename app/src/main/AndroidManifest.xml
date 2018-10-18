@@ -44,6 +44,9 @@
             android:name=".testExample.aidl.RemoteService"
             android:process=":test">
         </service>
+
+        <activity android:name=".ui.news.NewsActivity">
+        </activity>
     </application>
 
 </manifest>
