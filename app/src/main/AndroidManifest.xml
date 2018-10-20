@@ -47,6 +47,8 @@
 
         <activity android:name=".ui.news.NewsActivity">
         </activity>
+        <activity android:name=".testExample.recyclerView.BasicApiCallActivity">
+        </activity>
     </application>
 
 </manifest>

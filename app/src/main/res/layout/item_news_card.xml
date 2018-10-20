@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="270dp"
+    android:orientation="vertical"
+    android:layout_height="360dp"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardBackgroundColor="#393F4E">
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_10"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_40"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/sp_16"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:paddingTop="10dp"
+            android:textColor="@android:color/white"
+            tools:text="中消协发文喊话苹果：经营者须保障消费者支付安全"/>
+
+
+        <TextView
+            android:id="@+id/tvTime"
+            android:layout_width="match_parent"
+            android:textSize="@dimen/sp_14"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:gravity="center_vertical|right"
+            android:textColor="@android:color/white"
+            tools:text="24分钟前"/>
+
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:gravity="center_vertical"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingTop="10dp"
+            android:textColor="@android:color/white"
+            android:maxLines="6"
+            android:ellipsize="end"
+            tools:text="怪气无语怪气无语怪气无语 第一季怪气无语 第一季怪气无语 第一季怪气无语 第一季 第一季怪气无语 第一季怪气无语 第一季怪气无语 第一季怪气无语 第一季怪气无语 第一季怪气无语 第一季 第一季"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+    <ImageView
+        android:id="@+id/ivPro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="10dp"
+        android:src="@mipmap/ic_pro"
+        tools:alpha="255" />
+
+    <ImageView
+        android:id="@+id/ivObj"
+        android:src="@mipmap/ic_obj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="@dimen/dp_10"
+        android:layout_gravity="right|bottom"
+        tools:alpha="255"/>
+
+
+
+</android.support.v7.widget.CardView>
+

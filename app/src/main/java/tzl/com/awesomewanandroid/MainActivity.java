@@ -30,6 +30,7 @@ import tzl.com.framework.helper.LogHelper;
 import tzl.com.framework.helper.TabManager;
 import tzl.com.framework.widget.OptionItemView;
 import tzl.com.framework.widget.anim.Rotate3dFrameLayout;
+import tzl.com.framework.widget.listener.OnViewClickListener;
 import tzl.com.framework.widget.statusbar.StatusBarUtil;
 
 public class MainActivity extends WBaseActivity {
@@ -311,9 +312,9 @@ public class MainActivity extends WBaseActivity {
 
 
 
-        mCommonToolbar.setOnClickListener(new View.OnClickListener() {
+        mTvToolbarTitle.setOnClickListener(new OnViewClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onViewOnClick(View v) {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -325,7 +326,6 @@ public class MainActivity extends WBaseActivity {
                         mHandler.sendEmptyMessage(0);
                     }
                 }).start();
-
             }
         });
 //        if (!BuildConfig.ONLINE) {

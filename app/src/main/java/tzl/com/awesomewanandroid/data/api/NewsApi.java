@@ -1,10 +1,14 @@
 package tzl.com.awesomewanandroid.data.api;
 
+import java.util.List;
+
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
+import tzl.com.awesomewanandroid.data.pojo.BaseReadHubResponse;
 import tzl.com.awesomewanandroid.data.pojo.HomeVideo;
+import tzl.com.awesomewanandroid.data.pojo.Topic;
 import tzl.com.framework.net.pojo.BaseResponse;
 
 /**
@@ -22,7 +26,7 @@ public interface NewsApi {
      * @return
      */
     @GET("/topic")
-    Observable<BaseResponse<HomeVideo>> getTopic(@Query("pageSize")int pageSize,@Query("lastCursor")int lastCursor);
+    Observable<BaseReadHubResponse<List<Topic>>> getTopic(@Query("pageSize")int pageSize, @Query("lastCursor")String lastCursor);
 
 
     /**

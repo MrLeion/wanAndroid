@@ -4,7 +4,7 @@ import android.view.View;
 
 import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
-import tzl.com.awesomewanandroid.testExample.aidl.ClientActivity;
+import tzl.com.awesomewanandroid.testExample.recyclerView.BasicApiCallActivity;
 
 public class TestListActivity extends WBaseActivity {
 
@@ -29,8 +29,7 @@ public class TestListActivity extends WBaseActivity {
     }
 
     public void gotoActivity(View view) {
-
-        startActivity(ClientActivity.class);
+        startActivity(BasicApiCallActivity.class);
 
     }
 }
