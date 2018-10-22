@@ -1,10 +1,11 @@
 package tzl.com.framework.widget.recyclerView.layoutManager;
 
-import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+
+import tzl.com.framework.helper.ContextHolder;
 
 /**
  * author: tangzenglei
@@ -16,8 +17,8 @@ public class OverLayCardLayoutManager extends RecyclerView.LayoutManager {
     private static final String TAG = "swipecard";
 
 
-    public OverLayCardLayoutManager(Context context) {
-        CardConfig.initConfig(context,3);
+    public OverLayCardLayoutManager() {
+        CardConfig.initConfig(ContextHolder.getContext(),3);
     }
 
     @Override

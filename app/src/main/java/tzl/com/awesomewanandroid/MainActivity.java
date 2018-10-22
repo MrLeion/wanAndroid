@@ -312,7 +312,7 @@ public class MainActivity extends WBaseActivity {
 
 
 
-        mTvToolbarTitle.setOnClickListener(new OnViewClickListener() {
+        mTvCommonToolbarTitle.setOnClickListener(new OnViewClickListener() {
             @Override
             public void onViewOnClick(View v) {
                 new Thread(new Runnable() {

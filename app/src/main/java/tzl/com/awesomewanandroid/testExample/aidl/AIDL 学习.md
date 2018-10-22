@@ -14,7 +14,7 @@ https://blog.csdn.net/u011240877/article/details/72765136
 bean -> Parceble.java
 idl -> * extends IInterface
        + Stub extends Binder ---- Server 端操作  自定义操作，继承 service.stub
-         + Proxy 代理 stub 完成操作---- Client 端操作
+         + Proxy 代理 stub 完成操作---- Client 端操作 通过stub 引用调用远程自定义操作
 
 
 

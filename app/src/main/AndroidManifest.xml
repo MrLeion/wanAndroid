@@ -49,6 +49,12 @@
         </activity>
         <activity android:name=".testExample.recyclerView.BasicApiCallActivity">
         </activity>
+        <activity
+            android:name=".testExample.TestCustomActivity"
+            android:hardwareAccelerated="false">
+        </activity>
+        <activity android:name=".testExample.customView.TestWindowActivity">
+        </activity>
     </application>
 
 </manifest>

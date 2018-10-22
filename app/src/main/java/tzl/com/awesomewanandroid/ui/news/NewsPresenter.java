@@ -49,7 +49,7 @@ public class NewsPresenter extends BasePresenter<NewsView,NewsModel> {
     }
 
     private void setUpReclerView() {
-        mRecyclerView.setLayoutManager(new OverLayCardLayoutManager(mActivity));
+        mRecyclerView.setLayoutManager(new OverLayCardLayoutManager());
         mNewsAdapter = new NewsAdapter(R.layout.item_news_card);
         mRecyclerView.setAdapter(mNewsAdapter);
         mNewsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
