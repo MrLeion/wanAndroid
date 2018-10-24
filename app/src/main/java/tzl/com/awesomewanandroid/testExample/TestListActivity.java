@@ -4,7 +4,6 @@ import android.view.View;
 
 import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
-import tzl.com.awesomewanandroid.testExample.recyclerView.BasicApiCallActivity;
 
 public class TestListActivity extends WBaseActivity {
 
@@ -15,7 +14,7 @@ public class TestListActivity extends WBaseActivity {
 
     @Override
     public void initView() {
-
+        showToast("read the fucking source code");
     }
 
     @Override
@@ -29,7 +28,7 @@ public class TestListActivity extends WBaseActivity {
     }
 
     public void gotoActivity(View view) {
-        startActivity(BasicApiCallActivity.class);
+        startActivity(TestWindowManagerActivity.class);
 
     }
 }

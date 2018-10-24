@@ -32,7 +32,6 @@ public class ToastHelper {
     }
 
     public static void showToast(String content) {
-
         try {
             MToast.makeTextShort(ContextHolder.getContext(), content).show();
         } catch (Exception e) {

@@ -1,6 +1,7 @@
 package tzl.com.awesomewanandroid.app;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.os.Looper;
 import android.webkit.WebView;
 
@@ -9,7 +10,10 @@ import com.squareup.leakcanary.RefWatcher;
 import com.tencent.bugly.crashreport.CrashReport;
 
 import me.jessyan.autosize.AutoSizeConfig;
+import tzl.com.awesomewanandroid.R;
+import tzl.com.awesomewanandroid.testExample.ToastActivity;
 import tzl.com.framework.base.BaseApplication;
+import tzl.com.framework.data.AppConfig;
 import tzl.com.framework.helper.AppExecutors;
 import tzl.com.framework.helper.LogHelper;
 

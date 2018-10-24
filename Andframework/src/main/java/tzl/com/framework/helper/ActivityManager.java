@@ -195,6 +195,20 @@ public class ActivityManager {
             return null;
         }
 
+
+        /**
+         * 从堆栈中pop出一个activity对象
+         */
+        public Activity popFromStackExceptToast() {
+            while (!activityStack.isEmpty()) {
+                final WeakReference<Activity> weak     = activityStack.pop();
+                final Activity activity = weak.get();
+                if (activity != null) {
+                    return activity;
+                }
+            }
+            return null;
+        }
         /**
          * 从堆栈中查看一个对象，且不会pop
          */

@@ -3,7 +3,7 @@ package tzl.com.java.basicknowledge;
 /**
  * author: tangzenglei
  * created on: 2018/10/11 下午9:08
- * description:
+ * description: jvm 加载类成员的顺序
  */
 public class ClassLoaderSequence {
 

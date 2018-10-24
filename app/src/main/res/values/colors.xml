@@ -7,4 +7,6 @@
     <color name="color_text_black">#1e150a</color>
     <color name="color_text_gray">#bbb</color>
     <color name="color_indicator">#333333</color>
+    <color name="background_light">#ffffffff</color>
+    <color name="bright_foreground_dark">@color/white</color>
 </resources>

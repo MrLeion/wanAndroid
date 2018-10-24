@@ -8,7 +8,9 @@ import android.view.View;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import tzl.com.awesomewanandroid.R;
+import tzl.com.awesomewanandroid.testExample.ToastActivity;
 import tzl.com.framework.base.BaseActivity;
+import tzl.com.framework.data.AppConfig;
 import tzl.com.framework.widget.dialog.QMUITipDialog;
 import tzl.com.framework.widget.statusbar.StatusBarUtil;
 
@@ -86,6 +88,15 @@ public abstract class WBaseActivity extends BaseActivity {
                 e.printStackTrace();
             }
         }
+
+    }
+
+
+    public void showToast(String msg) {
+        Bundle b  = new Bundle();
+        b.putString(AppConfig.TOAST_MSG, msg);
+        startActivity(ToastActivity.class,b);
+        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
 
     }
 

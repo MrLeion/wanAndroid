@@ -55,6 +55,12 @@
         </activity>
         <activity android:name=".testExample.customView.TestWindowActivity">
         </activity>
+        <activity android:name=".testExample.TestWindowManagerActivity">
+        </activity>
+        <activity android:name=".testExample.ToastActivity"
+                  android:launchMode="singleTop"
+                  android:screenOrientation="user"
+                  android:theme="@style/DialogStyle"/>
     </application>
 
 </manifest>

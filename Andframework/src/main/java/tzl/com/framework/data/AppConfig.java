@@ -12,4 +12,5 @@ public class AppConfig {
 
 
     public static final String PROJECT_ID = "project_id";
+    public static final String TOAST_MSG  = "TOAST_MSG";
 }
