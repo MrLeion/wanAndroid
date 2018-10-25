@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class TestWindowManagerActivity extends AppCompatActivity {
 
@@ -23,7 +24,7 @@ public class TestWindowManagerActivity extends AppCompatActivity {
 //        mWindowManager.addView(mButton, params);
 
 
-//        Toast.makeText(this, "hello", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "hello", Toast.LENGTH_LONG).show();
 
 
     }

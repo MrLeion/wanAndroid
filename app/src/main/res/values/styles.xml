@@ -59,10 +59,10 @@
 
 
     <style name="Anim_toast" parent="@android:style/Animation.Translucent">
-        <item name="android:activityOpenEnterAnimation">@anim/fade_in</item>
-        <item name="android:activityOpenExitAnimation">@anim/fade_out</item>
-        <item name="android:activityCloseEnterAnimation">@anim/fade_in</item>
-        <item name="android:activityCloseExitAnimation">@anim/fade_out</item>
+        <item name="android:activityOpenEnterAnimation">@null</item>
+        <item name="android:activityOpenExitAnimation">@null</item>
+        <!--<item name="android:activityCloseEnterAnimation">@null</item>-->
+        <!--<item name="android:activityCloseExitAnimation">@null</item>-->
     </style>
 
 

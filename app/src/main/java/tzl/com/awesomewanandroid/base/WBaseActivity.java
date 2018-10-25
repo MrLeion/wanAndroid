@@ -28,6 +28,7 @@ public abstract class WBaseActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(getLayoutId());
         mUnbinder = ButterKnife.bind(this);
         initView();
@@ -96,7 +97,7 @@ public abstract class WBaseActivity extends BaseActivity {
         Bundle b  = new Bundle();
         b.putString(AppConfig.TOAST_MSG, msg);
         startActivity(ToastActivity.class,b);
-        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
+//        overridePendingTransition(R.anim.fade_in,R.anim.fade_out);
 
     }
 
