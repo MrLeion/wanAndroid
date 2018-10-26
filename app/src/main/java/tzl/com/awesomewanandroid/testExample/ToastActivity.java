@@ -1,73 +1,68 @@
 package tzl.com.awesomewanandroid.testExample;
 
-import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.os.Message;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.view.KeyEvent;
-import android.view.MotionEvent;
-import android.widget.RelativeLayout;
+import android.view.ContextThemeWrapper;
 import android.widget.TextView;
 
-import java.lang.ref.SoftReference;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import tzl.com.awesomewanandroid.R;
-import tzl.com.framework.data.AppConfig;
-import tzl.com.framework.helper.LogHelper;
 
 public class ToastActivity extends AppCompatActivity {
 
+    private static final String  TOAST_MSG = "TOAST_MSG";
+    private              Handler handler   = new Handler();
+    private TextView tvMessage;
 
-    @BindView(R.id.message)
-    TextView       mMessage;
-    @BindView(R.id.rlToast)
-    RelativeLayout mRlToast;
-    private WorkHandler mWorkHandler;
-    private static final int MSG_FINISH = 0;
+
+    private Runnable finishRunnable = new Runnable() {
+        @Override
+        public void run() {
+            try {
+                finish();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    };
+
+    public  static void showToast(Context context, String msg) {
+        Intent intent = new Intent(context, ToastActivity.class);
+        intent.putExtra(TOAST_MSG,msg);
+        if (!(context instanceof ContextThemeWrapper)) {
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        }
+        context.startActivity(intent);
+    }
+
 
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         setContentView(R.layout.activity_toast);
-        ButterKnife.bind(this);
-        if (getIntent() != null && getIntent().getExtras() != null) {
-            Bundle bundle = getIntent().getExtras();
-            String msg = bundle.getString(AppConfig.TOAST_MSG);
-            mMessage.setText(msg);
-        }
-
-
-        ObjectAnimator animator = ObjectAnimator.ofFloat(mMessage, "alpha",  0f, 1f);
-        animator.setDuration(500);
-        animator.start();
-        mWorkHandler = new WorkHandler(this);
-        Message msg = Message.obtain();
-        msg.what = MSG_FINISH;
-        mWorkHandler.sendMessageDelayed(msg, 1000);
-    }
-
-
-
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent ev) {
-        finish();
-        return super.dispatchTouchEvent(ev);
+        tvMessage = findViewById(R.id.message);
+        handleIntent(getIntent());
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            finish();
-        }
-        return super.onKeyDown(keyCode, event);
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        handler.removeCallbacks(finishRunnable);
+        handleIntent(intent);
     }
 
+    private void handleIntent(Intent intent) {
+        if (tvMessage != null && intent != null && intent.getExtras() != null) {
+            Bundle bundle = intent.getExtras();
+            String msg = bundle.getString(TOAST_MSG);
+            tvMessage.setText(msg);
+            handler.postDelayed(finishRunnable, 1000);
+        }
+    }
 
     @Override
     public void finish() {
@@ -75,28 +70,11 @@ public class ToastActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
     }
 
-
-    private class WorkHandler extends Handler {
-
-        private final SoftReference<ToastActivity> mActivity;
-
-
-        private WorkHandler(ToastActivity activity) {
-            mActivity = new SoftReference<>(activity);
+    @Override
+    protected void onDestroy() {
+        if (handler != null) {
+            handler.removeCallbacksAndMessages(null);
         }
-
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case MSG_FINISH:
-                    if (mActivity.get() != null) {
-                        LogHelper.e("finish");
-                        mActivity.get().finish();
-                    }
-                    break;
-            }
-        }
+        super.onDestroy();
     }
-
-
 }
