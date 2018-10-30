@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<tzl.com.framework.widget.multistatusview.MultipleStatusView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/erro_web_view"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:text="点击重新加载"
+        android:textSize="22sp"
         android:gravity="center"
-        android:textSize="20sp"
-        android:text="@string/video"/>
+        android:textColor="#696969"/>
 
-
-</tzl.com.framework.widget.multistatusview.MultipleStatusView>
+</LinearLayout>

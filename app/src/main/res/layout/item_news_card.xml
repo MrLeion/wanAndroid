@@ -1,13 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView
+<tzl.com.framework.widget.cardView.ShadowCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
     android:layout_width="270dp"
     android:orientation="vertical"
     android:layout_height="360dp"
     android:clickable="true"
-    android:foreground="?android:attr/selectableItemBackground"
+    android:layout_margin="@dimen/dp_10"
+    app:cardShadowColorStart ="#393F4E"
+    app:cardShadowColorEnd = "@color/white"
+    app:cardElevation="@dimen/dp_10"
     app:cardBackgroundColor="#393F4E">
 
 
@@ -97,5 +101,5 @@
 
 
 
-</android.support.v7.widget.CardView>
+</tzl.com.framework.widget.cardView.ShadowCardView>
 

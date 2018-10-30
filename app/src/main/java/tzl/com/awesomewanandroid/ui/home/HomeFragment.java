@@ -48,12 +48,13 @@ public class HomeFragment extends WBaseFragment<HomePresenter> implements HomeVi
 
     @Override
     public void initData() {
-
         mPresenter = new HomePresenter(this, new HomeModel());
         mPresenter.getBanner();
         mPresenter.getArticle();
-
     }
+
+
+
 
 
     @Override

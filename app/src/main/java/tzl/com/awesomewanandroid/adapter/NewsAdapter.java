@@ -5,8 +5,13 @@ import android.text.TextUtils;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 
+import java.util.Random;
+
 import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.data.pojo.Topic;
+import tzl.com.framework.helper.ContextHolder;
+import tzl.com.framework.helper.DensityHelper;
+import tzl.com.framework.widget.cardView.ShadowCardView;
 
 /**
  * author: tangzenglei
@@ -14,6 +19,9 @@ import tzl.com.awesomewanandroid.data.pojo.Topic;
  * description:
  */
 public class NewsAdapter extends BaseQuickAdapter<Topic,BaseViewHolder> {
+
+
+    int[] colors = {0xff01a3a1, 0xff91bbeb, 0xff01b1bf, 0xffff9d62, 0xff2d3867, 0xffee697e};//颜色组
     public NewsAdapter(int layoutResId) {
         super(layoutResId);
     }
@@ -42,8 +50,10 @@ public class NewsAdapter extends BaseQuickAdapter<Topic,BaseViewHolder> {
         }
 
 
-
-
-
+        ShadowCardView shadowCardView = helper.getView(R.id.cardView);
+        int index = new Random().nextInt(100) % 5;
+        shadowCardView.setShadowColor(colors[index]);
+        shadowCardView.setCardBackgroundColor(colors[index]);
+        shadowCardView.setCardElevation(DensityHelper.dp2px(ContextHolder.getContext(), 2));
     }
 }

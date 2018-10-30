@@ -39,6 +39,21 @@ public class GlideImageLoader {
         }
     }
 
+
+    /**
+     * 加载图片
+     * @param context  context
+     * @param iv       imageView
+     * @param url      图片地址
+     */
+    public static void loadImage(Context context, ImageView iv, String url) {
+        if (!TextUtils.isEmpty(url)) {
+            GlideApp.with(context)
+                    .load(url)
+                    .into(iv);
+        }
+    }
+
     /**
      * 加载圆形图片
      * @param context  context

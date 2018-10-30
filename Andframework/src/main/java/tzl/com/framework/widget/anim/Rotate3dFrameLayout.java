@@ -45,7 +45,7 @@ public class Rotate3dFrameLayout extends FrameLayout {
 
         //子View的数量
         int childCount = getChildCount();
-        Log.e("111", "childCount=========" + childCount);
+//        Log.e("111", "childCount=========" + childCount);
         if (childCount != 2) {
             throw new IllegalArgumentException("Rotate3dFrameLayout的子View数量必须为2");
         }

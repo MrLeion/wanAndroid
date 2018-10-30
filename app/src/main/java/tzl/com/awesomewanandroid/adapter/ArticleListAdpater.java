@@ -54,9 +54,5 @@ public class ArticleListAdpater extends BaseQuickAdapter<Article,BaseViewHolder>
         helper.addOnClickListener(R.id.item_home_like_iv);
 
 
-
-
-
-
     }
 }

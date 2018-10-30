@@ -12,11 +12,11 @@
     <application
         android:name=".app.WanAndroidApplication"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_wanandroid"
-        android:testOnly="false"
         android:supportsRtl="true"
-        android:hardwareAccelerated="true"
+        android:testOnly="false"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
         <activity
@@ -59,10 +59,17 @@
         </activity>
         <activity android:name=".testExample.TestWindowManagerActivity">
         </activity>
-        <activity android:name=".testExample.ToastActivity"
-                  android:launchMode="singleTop"
-                  android:screenOrientation="user"
-                  android:theme="@style/DialogStyle"/>
+        <activity
+            android:name=".testExample.ToastActivity"
+            android:launchMode="singleTop"
+            android:screenOrientation="user"
+            android:theme="@style/DialogStyle"/>
+        <activity
+            android:name=".ui.h5.H5Activity"
+            android:exported="false">
+        </activity>
+        <activity android:name=".ui.news.detail.NewsDetailActivity">
+        </activity>
     </application>
 
 </manifest>

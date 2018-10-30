@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_wanandroid">AwesomeWanAndroid</string>
+    <string name="app_wanandroid">玩Android</string>
     <string name="project">项目</string>
     <string name="home">首页</string>
     <string name="collection">收藏</string>
@@ -12,6 +12,7 @@
     <string name="navigator">导航</string>
     <string name="music">音乐</string>
     <string name="video">视频</string>
+    <string name="h5_text">网页界面网页界面网页界面网页界面</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

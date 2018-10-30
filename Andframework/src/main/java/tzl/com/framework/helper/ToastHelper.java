@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.os.Looper;
 
 import tzl.com.framework.base.BaseApplication;
+import tzl.com.framework.widget.toastCompat.PermissonRemoveToastCompat;
 
 /**
  * author: tangzenglei
@@ -33,14 +34,23 @@ public class ToastHelper {
 
     public static void showToast(String content) {
         try {
-            MToast.makeTextShort(ContextHolder.getContext(), content).show();
+//            MToast.makeTextShort(ContextHolder.getContext(), content).show();
+            PermissonRemoveToastCompat.makeText(ContextHolder.getContext(),content,PermissonRemoveToastCompat.LENGTH_LONG).show();
+
         } catch (Exception e) {
             //解决在子线程中调用Toast的异常情况处理
             Looper.prepare();
-            MToast.makeTextShort(ContextHolder.getContext(), content).show();
-            Looper.loop();
+//            MToast.makeTextShort(ContextHolder.getContext(), content).show();
+            PermissonRemoveToastCompat.makeText(ContextHolder.getContext(),content,PermissonRemoveToastCompat.LENGTH_LONG).show();
 
+
+            Looper.loop();
         }
+
+
+
+
+
     }
 
     /**

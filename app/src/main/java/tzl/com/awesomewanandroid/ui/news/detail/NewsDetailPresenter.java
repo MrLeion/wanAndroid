@@ -1,6 +1,5 @@
-package tzl.com.awesomewanandroid.ui.news;
+package tzl.com.awesomewanandroid.ui.news.detail;
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.View;
@@ -14,7 +13,6 @@ import tzl.com.awesomewanandroid.adapter.NewsAdapter;
 import tzl.com.awesomewanandroid.data.pojo.BaseReadHubObserver;
 import tzl.com.awesomewanandroid.data.pojo.BaseReadHubResponse;
 import tzl.com.awesomewanandroid.data.pojo.Topic;
-import tzl.com.awesomewanandroid.ui.news.detail.NewsDetailActivity;
 import tzl.com.framework.base.BasePresenter;
 import tzl.com.framework.rx.RxSchedulers;
 import tzl.com.framework.widget.multistatusview.MultipleStatusView;
@@ -26,7 +24,7 @@ import tzl.com.framework.widget.recyclerView.layoutManager.OverlayCallback;
  * created on: 2018/9/5 下午2:30
  * description:
  */
-public class NewsPresenter extends BasePresenter<NewsView,NewsModel> {
+public class NewsDetailPresenter extends BasePresenter<NewsDetailView,NewsDetailModel> {
 
     private MultipleStatusView mMultistatusview;
     private RecyclerView mRecyclerView;
@@ -38,7 +36,7 @@ public class NewsPresenter extends BasePresenter<NewsView,NewsModel> {
      * @param view
      * @param model
      */
-    public NewsPresenter(NewsView view, NewsModel model) {
+    public NewsDetailPresenter(NewsDetailView view, NewsDetailModel model) {
         super(view, model);
     }
 
@@ -58,7 +56,7 @@ public class NewsPresenter extends BasePresenter<NewsView,NewsModel> {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Topic topic= (Topic) adapter.getItem(position);
-                mActivity.startActivity(new Intent(mActivity,NewsDetailActivity.class));
+
             }
         });
     }

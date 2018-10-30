@@ -28,7 +28,7 @@ public class TestListActivity extends WBaseActivity {
     }
 
     public void gotoActivity(View view) {
-//        startActivity(TestWindowManagerActivity.class);
-        showToast("hello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toast");
+        startActivity(TestWindowManagerActivity.class);
+//        showToast("hello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toast");
     }
 }

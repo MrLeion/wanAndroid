@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -8,6 +8,9 @@
          <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
 
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
+        //开启共享元素 shareElement
+        <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
 </style>
 
 
