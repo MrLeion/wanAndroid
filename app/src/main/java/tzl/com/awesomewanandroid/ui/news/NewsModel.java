@@ -23,4 +23,10 @@ public class NewsModel extends BaseModel{
 
 
 
+    public Observable<BaseReadHubResponse<List<Topic>>> getTopicDetail(int pageSize, String lastCursor) {
+        return ApiManager.getNewsApi().getTopic(pageSize,lastCursor);
+    }
+
+
+
 }

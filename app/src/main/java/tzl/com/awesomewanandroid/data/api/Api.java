@@ -102,7 +102,7 @@ public interface Api {
      * @return
      */
     @GET("/navi/json")
-    Observable<BaseResponse<NaviJson>> getNaviJson();
+    Observable<BaseResponse<List<NaviJson>>> getNaviJson();
 
 
 

@@ -13,7 +13,7 @@ import tzl.com.framework.helper.ActivityManager;
  * description:
  */
 public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatActivity implements CustomAdapt {
-    protected T mPresenter;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -50,10 +50,7 @@ public abstract class BaseActivity<T extends BasePresenter>  extends AppCompatAc
         super.onDestroy();
         ActivityManager.remove(this);
         System.gc();
-        //调用解绑
-        if (null!=mPresenter) {
-            mPresenter.onDestory();
-        }
+
     }
 
     @Override

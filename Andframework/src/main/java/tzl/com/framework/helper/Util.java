@@ -13,6 +13,9 @@ import android.provider.ContactsContract;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * universal util
  */
@@ -150,6 +153,19 @@ public class Util {
         }
         return procName;
     }
+
+    /**
+     * format date
+     * @param time :ms
+     * @return
+     */
+    public static String LongtoStringFormat(long time) {
+        Date currentTime = new Date(time);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd a HH:mm");
+        String dateString = formatter.format(currentTime);
+        return dateString;
+    }
+
 
 
 

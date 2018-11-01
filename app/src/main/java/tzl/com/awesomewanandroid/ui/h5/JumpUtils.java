@@ -19,7 +19,6 @@ public class JumpUtils {
             b.putString(H5Activity.H5_URL,url);
             H5Activity.startActivity(context,b);
         }
-
     }
 
 }

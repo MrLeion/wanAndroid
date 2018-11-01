@@ -1,1 +1,1 @@
-include ':app', ':Andframework', ':java',':musiclibrary'
+include ':app', ':Andframework', ':java',':musiclibrary',':toastlibrary'

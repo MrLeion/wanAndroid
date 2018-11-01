@@ -1,31 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <tzl.com.framework.widget.multistatusview.MultipleStatusView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/multistatusview"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
 
-   <com.scwang.smartrefresh.layout.SmartRefreshLayout
-       android:id="@+id/refreshLayout"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent">
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/indexRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"/>
 
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/contentRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"/>
 
-       <com.scwang.smartrefresh.header.BezierCircleHeader
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
-
-       <android.support.v7.widget.RecyclerView
-           android:id="@+id/recyclerView"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"/>
-
-       <com.scwang.smartrefresh.header.DeliveryHeader
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"/>
-
-
-   </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
 
 
 </tzl.com.framework.widget.multistatusview.MultipleStatusView>

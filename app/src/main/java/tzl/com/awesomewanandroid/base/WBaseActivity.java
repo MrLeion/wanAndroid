@@ -10,6 +10,7 @@ import butterknife.Unbinder;
 import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.testExample.ToastActivity;
 import tzl.com.framework.base.BaseActivity;
+import tzl.com.framework.base.BasePresenter;
 import tzl.com.framework.data.AppConfig;
 import tzl.com.framework.widget.dialog.QMUITipDialog;
 import tzl.com.framework.widget.statusbar.StatusBarUtil;
@@ -19,8 +20,8 @@ import tzl.com.framework.widget.statusbar.StatusBarUtil;
  * created on: 2018/7/27 上午11:02
  * description:玩 Android 应用 BaseActivity
  */
-public abstract class WBaseActivity extends BaseActivity {
-
+public abstract class WBaseActivity<T extends BasePresenter> extends BaseActivity {
+    protected T mPresenter;
 
     private QMUITipDialog mProgressDialog;
     private Unbinder mUnbinder;
@@ -164,6 +165,11 @@ public abstract class WBaseActivity extends BaseActivity {
 
         if (null!=mUnbinder) {
             mUnbinder.unbind();
+        }
+
+        //调用解绑
+        if (null!=mPresenter) {
+            mPresenter.onDestory();
         }
     }
 }

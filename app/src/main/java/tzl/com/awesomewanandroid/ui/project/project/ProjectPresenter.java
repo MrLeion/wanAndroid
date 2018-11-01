@@ -1,7 +1,9 @@
 package tzl.com.awesomewanandroid.ui.project.project;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
 import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.adapter.ProjectListAdapter;
 import tzl.com.awesomewanandroid.data.pojo.ProjectList;
+import tzl.com.awesomewanandroid.ui.h5.JumpUtils;
 import tzl.com.framework.base.BasePresenter;
 import tzl.com.framework.net.pojo.BaseResponse;
 import tzl.com.framework.rx.BaseObserver;
@@ -45,6 +48,13 @@ public class ProjectPresenter extends BasePresenter<ProjectView,ProjectModel>{
         mMultistatusview = mView.getMultistatusview();
         mRecyclerView = mView.getRecyclerView();
         mRefreshLayout = mView.getRefreshLayout();
+        mProjectListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                ProjectList.DatasBean datasBean  = (ProjectList.DatasBean) adapter.getItem(position);
+                JumpUtils.startH5(mActivity,datasBean.getLink());
+            }
+        });
     }
 
     @Override

@@ -6,6 +6,7 @@ import io.reactivex.Observable;
 import tzl.com.awesomewanandroid.data.api.ApiManager;
 import tzl.com.awesomewanandroid.data.pojo.BaseReadHubResponse;
 import tzl.com.awesomewanandroid.data.pojo.Topic;
+import tzl.com.awesomewanandroid.data.pojo.TopicDetail;
 import tzl.com.framework.base.BaseModel;
 
 /**
@@ -19,6 +20,13 @@ public class NewsDetailModel extends BaseModel{
 
     public Observable<BaseReadHubResponse<List<Topic>>> getTopic(int pageSize, String lastCursor) {
         return ApiManager.getNewsApi().getTopic(pageSize,lastCursor);
+    }
+
+
+
+
+    public Observable<TopicDetail> getTopicDetail(String topicId) {
+        return ApiManager.getNewsApi().getTopicDetail(topicId);
     }
 
 

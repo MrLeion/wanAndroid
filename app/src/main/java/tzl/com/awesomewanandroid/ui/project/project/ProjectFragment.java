@@ -65,10 +65,8 @@ public class ProjectFragment extends WBaseLazyFragment<ProjectPresenter> impleme
 
     @Override
     public void initData() {
-
         mPresenter = new ProjectPresenter(this, new ProjectModel());
     }
-
 
     @Override
     protected void onLazyLoad() {
@@ -87,4 +85,6 @@ public class ProjectFragment extends WBaseLazyFragment<ProjectPresenter> impleme
     public SmartRefreshLayout getRefreshLayout() {
         return mRefreshLayout;
     }
+
+
 }

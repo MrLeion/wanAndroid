@@ -1,6 +1,9 @@
 package tzl.com.awesomewanandroid.ui.navigator;
 
+import android.support.v7.widget.RecyclerView;
+
 import tzl.com.framework.base.IView;
+import tzl.com.framework.widget.multistatusview.MultipleStatusView;
 
 /**
  * author: tangzenglei
@@ -8,4 +11,12 @@ import tzl.com.framework.base.IView;
  * description:
  */
 public interface NavigatorView extends IView {
+
+
+    RecyclerView getIndexRecyclerView();
+
+    RecyclerView getContentRecyclerView();
+
+
+    MultipleStatusView getMultistatusview();
 }

@@ -16,6 +16,7 @@ import tzl.com.awesomewanandroid.data.pojo.BaseReadHubResponse;
 import tzl.com.awesomewanandroid.data.pojo.Topic;
 import tzl.com.awesomewanandroid.ui.news.detail.NewsDetailActivity;
 import tzl.com.framework.base.BasePresenter;
+import tzl.com.framework.data.AppConfig;
 import tzl.com.framework.rx.RxSchedulers;
 import tzl.com.framework.widget.multistatusview.MultipleStatusView;
 import tzl.com.framework.widget.recyclerView.layoutManager.OverLayCardLayoutManager;
@@ -47,7 +48,6 @@ public class NewsPresenter extends BasePresenter<NewsView,NewsModel> {
         mMultistatusview = mView.getMultistatusview();
         mRecyclerView = mView.getRecyclerView();
         setUpReclerView();
-
     }
 
     private void setUpReclerView() {
@@ -58,7 +58,9 @@ public class NewsPresenter extends BasePresenter<NewsView,NewsModel> {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Topic topic= (Topic) adapter.getItem(position);
-                mActivity.startActivity(new Intent(mActivity,NewsDetailActivity.class));
+                Intent intent = new Intent(mActivity, NewsDetailActivity.class);
+                intent.putExtra(AppConfig.TOPICID, topic.id);
+                mActivity.startActivity(intent);
             }
         });
     }
@@ -83,7 +85,6 @@ public class NewsPresenter extends BasePresenter<NewsView,NewsModel> {
                             mNewsAdapter.setNewData(response.getData());
                         }else{
                             mMultistatusview.showEmpty();
-
                         }
 
                     }
@@ -94,12 +95,5 @@ public class NewsPresenter extends BasePresenter<NewsView,NewsModel> {
 //                        ToastHelper.showToast(response.toString());
                     }
                 });
-
-
-
-
-
-
-
     }
 }

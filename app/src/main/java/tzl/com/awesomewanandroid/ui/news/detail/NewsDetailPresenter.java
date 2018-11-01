@@ -1,23 +1,23 @@
 package tzl.com.awesomewanandroid.ui.news.detail;
 
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.text.TextUtils;
 import android.view.View;
+import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 
-import java.util.List;
-
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
 import tzl.com.awesomewanandroid.R;
-import tzl.com.awesomewanandroid.adapter.NewsAdapter;
-import tzl.com.awesomewanandroid.data.pojo.BaseReadHubObserver;
-import tzl.com.awesomewanandroid.data.pojo.BaseReadHubResponse;
-import tzl.com.awesomewanandroid.data.pojo.Topic;
+import tzl.com.awesomewanandroid.adapter.NewsDetailAdapter;
+import tzl.com.awesomewanandroid.data.pojo.TopicDetail;
+import tzl.com.awesomewanandroid.ui.h5.JumpUtils;
 import tzl.com.framework.base.BasePresenter;
+import tzl.com.framework.helper.ToastHelper;
 import tzl.com.framework.rx.RxSchedulers;
-import tzl.com.framework.widget.multistatusview.MultipleStatusView;
-import tzl.com.framework.widget.recyclerView.layoutManager.OverLayCardLayoutManager;
-import tzl.com.framework.widget.recyclerView.layoutManager.OverlayCallback;
+import tzl.com.framework.widget.recyclerView.decoration.ItemDecoration;
 
 /**
  * author: tangzenglei
@@ -26,9 +26,12 @@ import tzl.com.framework.widget.recyclerView.layoutManager.OverlayCallback;
  */
 public class NewsDetailPresenter extends BasePresenter<NewsDetailView,NewsDetailModel> {
 
-    private MultipleStatusView mMultistatusview;
     private RecyclerView mRecyclerView;
-    private NewsAdapter mNewsAdapter;
+    private TextView mTvCommonToolbarTitle;
+    private TextView mTvTitle;
+    private TextView mTvTime;
+    private TextView mTvSummary;
+    private NewsDetailAdapter mNewsDetailAdapter;
 
     /**
      * 绑定 View 和 model
@@ -42,58 +45,69 @@ public class NewsDetailPresenter extends BasePresenter<NewsDetailView,NewsDetail
 
     @Override
     public void init() {
-        mMultistatusview = mView.getMultistatusview();
+        mTvTitle = mView.getTvTitle();
+        mTvTime = mView.getTvTime();
+        mTvSummary = mView.getTvSummary();
         mRecyclerView = mView.getRecyclerView();
         setUpReclerView();
-
     }
 
     private void setUpReclerView() {
-        mRecyclerView.setLayoutManager(new OverLayCardLayoutManager());
-        mNewsAdapter = new NewsAdapter(R.layout.item_news_card);
-        mRecyclerView.setAdapter(mNewsAdapter);
-        mNewsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
-                Topic topic= (Topic) adapter.getItem(position);
-
-            }
-        });
+        mRecyclerView.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        mRecyclerView.setHasFixedSize(false);
+        mRecyclerView.setNestedScrollingEnabled(false);
+        mRecyclerView.addItemDecoration(new ItemDecoration(mActivity, 100));
+        mNewsDetailAdapter = new NewsDetailAdapter(R.layout.item_news_timeline);
+        mRecyclerView.setAdapter(mNewsDetailAdapter);
     }
 
     @Override
     public void registerEvent() {
-
+        mNewsDetailAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                TopicDetail.NewsArrayBean arrayBean= (TopicDetail.NewsArrayBean) adapter.getItem(position);
+                JumpUtils.startH5(mActivity, arrayBean.getUrl());
+            }
+        });
     }
 
-    public void loadData() {
-        mModel.getTopic(20, "")
-                .compose(RxSchedulers.<BaseReadHubResponse<List<Topic>>>applyObservableAsync())
-                .subscribe(new BaseReadHubObserver<List<Topic>>() {
+    public void loadData(String topicId) {
+        mModel.getTopicDetail(topicId)
+                .compose(RxSchedulers.<TopicDetail>applyObservableAsync())
+                .subscribe(new Observer<TopicDetail>() {
                     @Override
-                    public void onSuccess(BaseReadHubResponse<List<Topic>> response) {
-
-                        if (response!=null&&response.getData()!=null) {
-                            mMultistatusview.showContent();
-                            OverlayCallback overlayCallback = new OverlayCallback(mRecyclerView, mNewsAdapter, response.getData());
-                            ItemTouchHelper itemTouchHelper = new ItemTouchHelper(overlayCallback);
-                            itemTouchHelper.attachToRecyclerView(mRecyclerView);
-                            mNewsAdapter.setNewData(response.getData());
-                        }else{
-                            mMultistatusview.showEmpty();
-
-                        }
-
+                    public void onSubscribe(Disposable d) {
+                        mActivity.showLoading();
                     }
 
                     @Override
-                    public void onFailure(BaseReadHubResponse<List<Topic>> response) {
-                        mMultistatusview.showEmpty();
-//                        ToastHelper.showToast(response.toString());
+                    public void onNext(TopicDetail topicDetail) {
+                                    if (null!=topicDetail) {
+                                        if (!TextUtils.isEmpty(topicDetail.getTitle())) {
+                                            mTvTitle.setText(topicDetail.getTitle());
+                                        }
+                                        if (!TextUtils.isEmpty(topicDetail.getSummary())) {
+                                            mTvSummary.setText(topicDetail.getSummary());
+                                        }
+                                        if (!TextUtils.isEmpty(topicDetail.getPublishDate())) {
+                                            mTvTime.setText(topicDetail.getPublishDate());
+                                        }
+                                    }
+                                    mNewsDetailAdapter.setNewData(topicDetail.getNewsArray());
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        ToastHelper.showToast(e.toString());
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        mActivity.dismissLoading();
+
                     }
                 });
-
-
 
 
 

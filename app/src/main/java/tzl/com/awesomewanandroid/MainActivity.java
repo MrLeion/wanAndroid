@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -200,6 +201,30 @@ public class MainActivity extends WBaseActivity {
     }
 
 
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+
+        if (null!=mOnDispatchTouchListener) {
+            if (mOnDispatchTouchListener.onDispatchTouchEvent(ev)) {
+                return true;
+            }
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    public void setOnDispatchTouchListener(OnDispatchTouchListener onDispatchTouchListener) {
+        mOnDispatchTouchListener = onDispatchTouchListener;
+    }
+
+    private OnDispatchTouchListener mOnDispatchTouchListener;
+
+    public interface OnDispatchTouchListener {
+
+        boolean onDispatchTouchEvent(MotionEvent ev);
+    }
+
+
     private void initRest() {
 
 
@@ -214,7 +239,6 @@ public class MainActivity extends WBaseActivity {
             e.printStackTrace();
         }
 
-
         mRestTabManager = new TabManager(R.id.fl_content_rest, getSupportFragmentManager());
         mRestTabManager.addFragment(TAG_MUSIC, MusicFragment.class);
         mRestTabManager.addFragment(TAG_VIDEO, VideoFragment.class);
@@ -228,9 +252,6 @@ public class MainActivity extends WBaseActivity {
         mWanAndroidTabManager.addFragment(TAG_HIERARCHY, HierarchyFragment.class);
         mWanAndroidTabManager.addFragment(TAG_PROJECT, ProjectListFragment.class);
         switchWanAndroidFragment(TAG_HOME);
-
-
-
     }
 
     @Override
@@ -281,6 +302,12 @@ public class MainActivity extends WBaseActivity {
         }
         currentFragmentWandroid = mWanAndroidTabManager.getCurrentFragment();
     }
+
+
+
+
+
+
 
     /**
      * 休息一下 切换 Fragment

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/rlToast"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/dp_10"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingLeft="@dimen/dp_20"
+        android:paddingRight="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:textSize="@dimen/sp_14"
+        android:background="@drawable/shape_toast"
+        android:textAppearance="@style/toast"
+        android:textColor="#fff"
+        tools:text = "hello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toasthello toast"
+        android:shadowColor="#BB000000"
+        android:shadowRadius="2.75"/>
+
+
+</RelativeLayout>

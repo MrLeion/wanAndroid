@@ -1,9 +1,9 @@
 package tzl.com.awesomewanandroid.ui.news.detail;
 
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 
 import tzl.com.framework.base.IView;
-import tzl.com.framework.widget.multistatusview.MultipleStatusView;
 
 /**
  * author: tangzenglei
@@ -13,8 +13,14 @@ import tzl.com.framework.widget.multistatusview.MultipleStatusView;
 public interface NewsDetailView extends IView {
 
 
-    RecyclerView getRecyclerView();
+    TextView getTvCommonToolbarTitle();
 
-    MultipleStatusView getMultistatusview();
+    TextView getTvTitle();
+
+    TextView getTvTime();
+
+    TextView getTvSummary();
+
+    RecyclerView getRecyclerView();
 
 }

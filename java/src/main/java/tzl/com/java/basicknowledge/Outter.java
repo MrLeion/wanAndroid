@@ -79,8 +79,6 @@ public class Outter {
          StaticInner staticInner = new Outter.StaticInner();
          Inner inner = new Outter().new Inner();//!!!
 
-
-
      }
 
 
