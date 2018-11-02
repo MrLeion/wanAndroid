@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tvName"
+    android:background="@drawable/shape_hierarchy"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_120"
+    android:ellipsize="end"
+    android:gravity="center"
+    android:maxLines="1"
+    android:padding="@dimen/dp_5"
+    android:textColor="@color/color_text_gray"
+    android:textSize="@dimen/sp_16"
+    android:textStyle="bold"
+    tools:text="常用网站"/>
+
+
+

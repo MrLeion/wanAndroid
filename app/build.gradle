@@ -79,7 +79,6 @@ dependencies {
     //webview
     implementation 'com.just.agentweb:agentweb:4.0.2'
 
-
     //UETools
 //    debugImplementation 'me.ele:uetool:1.0.15'
 //    releaseImplementation 'me.ele:uetool-no-op:1.0.15'

@@ -1,7 +1,13 @@
 package tzl.com.awesomewanandroid.ui.hierarchy;
 
+import android.support.v7.widget.RecyclerView;
+
+import com.scwang.smartrefresh.layout.SmartRefreshLayout;
+
+import butterknife.BindView;
 import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.base.WBaseFragment;
+import tzl.com.framework.widget.multistatusview.MultipleStatusView;
 
 /**
  * author: tangzenglei
@@ -10,6 +16,13 @@ import tzl.com.awesomewanandroid.base.WBaseFragment;
  */
 public class HierarchyFragment extends WBaseFragment<HierarchyPresenter> implements HierarchyView {
 
+
+    @BindView(R.id.recyclerView)
+    RecyclerView       mRecyclerView;
+    @BindView(R.id.refreshLayout)
+    SmartRefreshLayout mRefreshLayout;
+    @BindView(R.id.multistatusview)
+    MultipleStatusView mMultistatusview;
 
     @Override
     public int getLayoutId() {
@@ -28,6 +41,20 @@ public class HierarchyFragment extends WBaseFragment<HierarchyPresenter> impleme
 
     @Override
     public void initData() {
+        mPresenter = new HierarchyPresenter(this, new hierarchyModel());
+        mPresenter.loadData();
+    }
 
+
+    public RecyclerView getRecyclerView() {
+        return mRecyclerView;
+    }
+
+    public SmartRefreshLayout getRefreshLayout() {
+        return mRefreshLayout;
+    }
+
+    public MultipleStatusView getMultistatusview() {
+        return mMultistatusview;
     }
 }

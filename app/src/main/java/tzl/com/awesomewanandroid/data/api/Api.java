@@ -87,7 +87,7 @@ public interface Api {
      */
     @FormUrlEncoded
     @POST("/article/query/{index}/json")
-    Observable<BaseResponse<Object>> query(@Path("index") String index,@Field("K") String key);
+    Observable<BaseResponse<Object>> query(@Path("index") int index,@Field("k") String key);
 
 
 
@@ -103,6 +103,8 @@ public interface Api {
      */
     @GET("/navi/json")
     Observable<BaseResponse<List<NaviJson>>> getNaviJson();
+
+
 
 
 

@@ -45,12 +45,16 @@ public class NavigatorPresenter extends BasePresenter<NavigatorView, NavigatorMo
 
     private void setContentRecyclerView() {
         mContentRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
+        mContentRecyclerView.setHasFixedSize(false);
+        mContentRecyclerView.setNestedScrollingEnabled(false);
         mContentNavigatorAdapter = new ContentNavigatorAdapter(R.layout.item_naviagator_content,mActivity);
         mContentRecyclerView.setAdapter(mContentNavigatorAdapter);
     }
 
     private void setIndexRecyclerView() {
         mIndexRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
+        mIndexRecyclerView.setHasFixedSize(false);
+        mIndexRecyclerView.setNestedScrollingEnabled(false);
         mIndexNavigatorAdapter = new IndexNavigatorAdapter(R.layout.item_naviagator_index);
         mIndexRecyclerView.setAdapter(mIndexNavigatorAdapter);
     }
@@ -72,7 +76,10 @@ public class NavigatorPresenter extends BasePresenter<NavigatorView, NavigatorMo
 
                     @Override
                     public void onSuccess(BaseResponse<List<NaviJson>> response) {
+
+
                         if (response != null && response.getData() != null && response.getData().size() > 0) {
+
                             mMultistatusview.showContent();
                             mContentNavigatorAdapter.setNewData(response.getData());
                             mIndexNavigatorAdapter.setNewData(response.getData());
@@ -83,6 +90,7 @@ public class NavigatorPresenter extends BasePresenter<NavigatorView, NavigatorMo
 
                     @Override
                     public void onFailure(BaseResponse<List<NaviJson>> response) {
+
                         mMultistatusview.showError();
                     }
 
