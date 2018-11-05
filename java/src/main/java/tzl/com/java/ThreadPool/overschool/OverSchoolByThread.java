@@ -15,20 +15,13 @@ public class OverSchoolByThread  {
 
 
 
-
-
-
-
-
      public static void main(String[] args){
 
 
          for (int i = 0; i < 10; i++) {
-
              new Thread(){
                  @Override
                  public void run() {
-
                      try {
                          Thread.sleep(1000);
 
@@ -42,10 +35,6 @@ public class OverSchoolByThread  {
 
         while (count.intValue()>0);
          System.out.println("开门放学了~~");
-
-
-
-
       }
 
 

@@ -43,6 +43,8 @@ public class TestTheadCreation {
          } catch (ExecutionException e) {
              e.printStackTrace();
          }
+
+         //关闭线程池
          executorService.shutdown();
 
 

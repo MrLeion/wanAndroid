@@ -26,8 +26,6 @@ public class OverSchoolByCyclicBarrier {
 
 
      public static void main(String[] args) throws InterruptedException {
-
-
          for (int i = 0; i < 10; i++) {
              new Thread(){
                  @Override
@@ -52,15 +50,7 @@ public class OverSchoolByCyclicBarrier {
                  }
              }.start();
          }
-
-
          System.out.println("teacher is leaving~~");
-
-
-
-
-
-
       }
 
 
