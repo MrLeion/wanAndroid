@@ -93,9 +93,6 @@ public class MyLinkedList {
             current.next = tailNode;
         }
 
-
-
-
         size++;
 
     }
@@ -105,7 +102,6 @@ public class MyLinkedList {
         if (!isIndexExistence(index)) {
             return;
         }
-
         Node newNode = new Node(val);
         Node indexNode = node(index-1);
         if (index == size) {
@@ -116,10 +112,6 @@ public class MyLinkedList {
             newNode.next = indexNode.next;
             indexNode.next = newNode;
         }
-
-
-
-
         size++;
 
 
