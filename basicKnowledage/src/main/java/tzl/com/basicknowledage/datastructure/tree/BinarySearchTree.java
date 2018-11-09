@@ -7,7 +7,7 @@ package tzl.com.basicknowledage.datastructure.tree;
  * <p>
  * 假设data 唯一
  */
-public class BinaryOrderTree {
+public class BinarySearchTree {
 
 
     BNode root;//根节点
@@ -31,6 +31,8 @@ public class BinaryOrderTree {
         } else {
             //判断大小
             BNode current = root;
+
+            //
             while (true) {
                 if (current.data > newNode.data) {
                     //如果新节点比当前节点小,作为左节点(第一个比新节点小)的右叶子节点
@@ -88,7 +90,7 @@ public class BinaryOrderTree {
         }
 
 
-        //删除节点
+        //重点：删除节点
         if (deleteNode.left != null && deleteNode.right != null) {
             return deleteTwo(deleteNode, isLeftNode);
         } else if (deleteNode.left != null || deleteNode.right != null) {
@@ -321,19 +323,14 @@ public class BinaryOrderTree {
     }
 
     private void preOrder(BNode root) {
-
-
         if (root == null) {
             System.out.println("");
             return;
         }
-
-
         //当前节点为叶子节点
         if (root.left == null && root.right == null) {
             System.out.println(root.data);
         }
-
         preOrder(root.left);
         preOrder(root.right);
     }
