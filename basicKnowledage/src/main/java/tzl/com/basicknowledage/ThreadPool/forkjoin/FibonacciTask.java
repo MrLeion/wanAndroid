@@ -1,7 +1,5 @@
 package tzl.com.basicknowledage.ThreadPool.forkjoin;
 
-import android.annotation.SuppressLint;
-
 import java.util.concurrent.RecursiveTask;
 
 /**
@@ -9,7 +7,6 @@ import java.util.concurrent.RecursiveTask;
  * created on: 2018/11/5 下午12:04
  * description: RecursiveTask 伴有返回值
  */
-@SuppressLint("NewApi")
 public class FibonacciTask extends RecursiveTask<Integer>{
     final int n;
 

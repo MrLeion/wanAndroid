@@ -2,8 +2,9 @@ package tzl.com.basicknowledage.designPattern.proxy.dynamicproxy;
 
 import java.lang.reflect.Proxy;
 
-import tzl.com.java.designPattern.proxy.IShopping;
-import tzl.com.java.designPattern.proxy.ShoppingImpl;
+import tzl.com.basicknowledage.designPattern.proxy.IShopping;
+import tzl.com.basicknowledage.designPattern.proxy.ShoppingImpl;
+
 
 /**
  * author: tangzenglei

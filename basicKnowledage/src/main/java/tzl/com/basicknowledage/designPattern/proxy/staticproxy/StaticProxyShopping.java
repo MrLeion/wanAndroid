@@ -1,6 +1,7 @@
 package tzl.com.basicknowledage.designPattern.proxy.staticproxy;
 
-import tzl.com.java.designPattern.proxy.IShopping;
+
+import tzl.com.basicknowledage.designPattern.proxy.IShopping;
 
 /**
  * author: tangzenglei

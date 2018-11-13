@@ -1,7 +1,5 @@
 package tzl.com.basicknowledage.ThreadPool.forkjoin;
 
-import android.annotation.SuppressLint;
-
 import java.util.Arrays;
 import java.util.concurrent.RecursiveAction;
 
@@ -10,7 +8,6 @@ import java.util.concurrent.RecursiveAction;
  * created on: 2018/11/5 上午11:04
  * description:RecursiveAction 无返回值
  */
-@SuppressLint("NewApi")
 public class SortTask extends RecursiveAction {
 
 

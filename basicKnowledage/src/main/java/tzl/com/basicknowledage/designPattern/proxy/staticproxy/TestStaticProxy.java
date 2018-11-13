@@ -1,6 +1,7 @@
 package tzl.com.basicknowledage.designPattern.proxy.staticproxy;
 
-import tzl.com.java.designPattern.proxy.ShoppingImpl;
+
+import tzl.com.basicknowledage.designPattern.proxy.ShoppingImpl;
 
 /**
  * author: tangzenglei

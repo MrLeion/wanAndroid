@@ -1,7 +1,5 @@
 package tzl.com.basicknowledage.ThreadPool.overschool;
 
-import android.annotation.SuppressLint;
-
 import java.util.concurrent.Phaser;
 
 /**
@@ -10,7 +8,6 @@ import java.util.concurrent.Phaser;
  * description:http://whitesock.iteye.com/blog/1135457
  * java 7 Phaser
  */
-@SuppressLint("NewApi")
 public class OverSchoolByPhaser {
 
 

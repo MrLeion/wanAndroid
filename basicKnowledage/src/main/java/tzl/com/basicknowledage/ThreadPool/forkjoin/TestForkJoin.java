@@ -1,6 +1,5 @@
 package tzl.com.basicknowledage.ThreadPool.forkjoin;
 
-import android.annotation.SuppressLint;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
@@ -11,7 +10,6 @@ import java.util.concurrent.ForkJoinTask;
  * created on: 2018/11/5 上午11:41
  * description:https://www.ibm.com/developerworks/cn/java/j-lo-forkjoin/index.html
  */
-@SuppressLint("NewApi")
 public class TestForkJoin {
     
     

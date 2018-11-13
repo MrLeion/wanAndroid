@@ -1,6 +1,5 @@
 package tzl.com.basicknowledage.ThreadPool.forkjoin;
 
-import android.annotation.SuppressLint;
 
 import java.util.concurrent.RecursiveAction;
 
@@ -9,7 +8,6 @@ import java.util.concurrent.RecursiveAction;
  * created on: 2018/11/5 下午2:36
  * description:
  */
-@SuppressLint("NewApi")
 public class ConcurrentPrint extends RecursiveAction {
     @Override
     protected void compute() {
