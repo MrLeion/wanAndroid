@@ -22,4 +22,5 @@ public class ReflectCase {
             System.out.println("run");
         }
     }
+
 }

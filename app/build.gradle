@@ -5,6 +5,8 @@ android {
     compileSdkVersion 27
     buildToolsVersion "27.0.3"
     defaultConfig {
+
+        //仅在以application方式编译时才添加applicationId属性
         applicationId "tzl.com.awesomewanandroid"
         minSdkVersion 16
         targetSdkVersion 26
@@ -75,7 +77,6 @@ dependencies {
     implementation 'com.youth.banner:banner:1.4.10'
     //最新版本
     implementation 'com.android.support:design:27.1.1'
-
     //webview
     implementation 'com.just.agentweb:agentweb:4.0.2'
 
@@ -87,4 +88,14 @@ dependencies {
 }
 repositories {
     mavenCentral()
+}
+
+
+apply plugin:  'com.gradle.apkdist'
+apkdistconf {
+    nameMap { name ->
+        println 'hello, ' + name
+        return name
+    }
+    destDir 'your-distribution-directory'
 }
