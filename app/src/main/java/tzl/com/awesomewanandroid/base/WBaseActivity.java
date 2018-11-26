@@ -7,8 +7,8 @@ import android.view.View;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.testExample.ToastActivity;
+import tzl.com.framework.R;
 import tzl.com.framework.base.BaseActivity;
 import tzl.com.framework.base.BasePresenter;
 import tzl.com.framework.data.AppConfig;
@@ -20,7 +20,7 @@ import tzl.com.framework.widget.statusbar.StatusBarUtil;
  * created on: 2018/7/27 上午11:02
  * description:玩 Android 应用 BaseActivity
  */
-public abstract class WBaseActivity<T extends BasePresenter> extends BaseActivity {
+public abstract class XBaseActivity<T extends BasePresenter> extends BaseActivity {
     protected T mPresenter;
 
     private QMUITipDialog mProgressDialog;
@@ -29,7 +29,6 @@ public abstract class WBaseActivity<T extends BasePresenter> extends BaseActivit
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(getLayoutId());
         mUnbinder = ButterKnife.bind(this);
         initView();
