@@ -1,5 +1,6 @@
 package tzl.com.awesomewanandroid;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.DrawerLayout;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
 import tzl.com.awesomewanandroid.testExample.TestListActivity;
@@ -90,7 +92,7 @@ public class MainActivity extends WBaseActivity {
     private BaseFragment currentFragmentWandroid;
     private BaseFragment currentFragmentRest;
     private String  currentWanAndroidTag = TAG_HOME; //默认首页
-    private String  currentRestTag       = TAG_HOME; //默认音乐
+    private String  currentRestTag       = TAG_MUSIC; //默认音乐
     private boolean isWanAndroid         = true;//默认第一面
     private ActionBarDrawerToggle mToggle;
 
@@ -138,8 +140,6 @@ public class MainActivity extends WBaseActivity {
                 return true;
             }
         });
-
-
         //侧滑与图标交互处理
         //高仿QQ 效果
         //获取mDrawerLayout中的第一个子布局，也就是布局中的RelativeLayout
@@ -178,7 +178,6 @@ public class MainActivity extends WBaseActivity {
                 //设置右边菜单滑动后的占据屏幕大小
                 mContent.setScaleX(endScale);
                 mContent.setScaleY(endScale);
-
             }
 
 
@@ -444,4 +443,10 @@ public class MainActivity extends WBaseActivity {
 
     }
 
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
+    }
 }

@@ -6,14 +6,14 @@ import com.flyco.tablayout.SlidingTabLayout;
 
 import butterknife.BindView;
 import tzl.com.awesomewanandroid.R;
-import tzl.com.awesomewanandroid.base.WBaseFragment;
+import tzl.com.awesomewanandroid.base.XBaseFragment;
 
 /**
  * author: tangzenglei
  * created on: 2018/8/27 下午4:00
  * description:音乐
  */
-public class MusicFragment extends WBaseFragment<MusicPresenter> implements MusicView {
+public class MusicFragment extends XBaseFragment<MusicPresenter> implements MusicView {
 
 
     @BindView(R.id.stlMusic)

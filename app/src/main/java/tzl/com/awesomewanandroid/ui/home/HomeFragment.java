@@ -9,14 +9,14 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import butterknife.BindView;
 import tzl.com.awesomewanandroid.R;
-import tzl.com.awesomewanandroid.base.WBaseFragment;
+import tzl.com.awesomewanandroid.base.XBaseFragment;
 
 /**
  * author: tangzenglei
  * created on: 2018/8/27 下午4:00
  * description:首页
  */
-public class HomeFragment extends WBaseFragment<HomePresenter> implements HomeView {
+public class HomeFragment extends XBaseFragment<HomePresenter> implements HomeView {
 
 
     @BindView(R.id.recyclerView)

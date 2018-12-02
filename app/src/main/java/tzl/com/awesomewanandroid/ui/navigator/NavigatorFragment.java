@@ -8,7 +8,7 @@ import android.view.View;
 import butterknife.BindView;
 import tzl.com.awesomewanandroid.MainActivity;
 import tzl.com.awesomewanandroid.R;
-import tzl.com.awesomewanandroid.base.WBaseFragment;
+import tzl.com.awesomewanandroid.base.XBaseFragment;
 import tzl.com.framework.widget.multistatusview.MultipleStatusView;
 
 /**
@@ -16,7 +16,7 @@ import tzl.com.framework.widget.multistatusview.MultipleStatusView;
  * created on: 2018/8/27 下午4:00
  * description:体系
  */
-public class NavigatorFragment extends WBaseFragment<NavigatorPresenter> implements NavigatorView {
+public class NavigatorFragment extends XBaseFragment<NavigatorPresenter> implements NavigatorView {
 
 
     @BindView(R.id.indexRecyclerView)

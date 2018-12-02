@@ -7,7 +7,7 @@ import com.flyco.tablayout.SlidingTabLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import tzl.com.awesomewanandroid.base.WBaseFragment;
+import tzl.com.awesomewanandroid.base.XBaseFragment;
 import tzl.com.awesomewanandroid.base.WBaseFragmentPagerAdapter;
 import tzl.com.awesomewanandroid.ui.music.discovery.DiscoveryFragment;
 import tzl.com.awesomewanandroid.ui.music.mv.MVFragment;
@@ -20,9 +20,9 @@ import tzl.com.framework.base.BasePresenter;
  */
 public class MusicPresenter extends BasePresenter<MusicView,MusicModel> {
 
-    private final SlidingTabLayout mStlMusic;
-    private final ViewPager mViewPager;
-    private ArrayList<WBaseFragment> mWBaseFragments;
+    private final SlidingTabLayout   mStlMusic;
+    private final ViewPager          mViewPager;
+    private ArrayList<XBaseFragment> mWBaseFragments;
 
     /**
      * 绑定 View 和 model

@@ -1,14 +1,12 @@
 package tzl.com.awesomewanandroid.ui.news.detail;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
 import tzl.com.framework.data.AppConfig;
@@ -90,10 +88,5 @@ public class NewsDetailActivity extends WBaseActivity<NewsDetailPresenter> imple
         return mRecyclerView;
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
-        ButterKnife.bind(this);
-    }
+
 }

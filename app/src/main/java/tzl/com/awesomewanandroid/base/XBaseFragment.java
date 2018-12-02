@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.jessyan.autosize.internal.CustomAdapt;
+import tzl.com.framework.base.BaseActivity;
 import tzl.com.framework.base.BaseFragment;
 import tzl.com.framework.base.BasePresenter;
 
@@ -19,14 +20,12 @@ import tzl.com.framework.base.BasePresenter;
  * created on: 2018/8/22 下午5:30
  * description:http://www.sunnyang.com/742.html
  */
-public abstract class WBaseFragment<T extends BasePresenter> extends BaseFragment implements CustomAdapt {
+public abstract class XBaseFragment<T extends BasePresenter> extends BaseFragment implements CustomAdapt {
 
     protected WBaseActivity mActivity;
-    private View mRootView;
-    private Unbinder mUnbinder;
-    protected T mPresenter;
-
-
+    private   View         mRootView;
+    private   Unbinder     mUnbinder;
+    protected T            mPresenter;
 
     @Nullable
     @Override
@@ -54,7 +53,7 @@ public abstract class WBaseFragment<T extends BasePresenter> extends BaseFragmen
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        if (context instanceof WBaseActivity) {
+        if (context instanceof BaseActivity) {
             this.mActivity = (WBaseActivity) context;
         }
     }

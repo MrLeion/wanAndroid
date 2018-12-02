@@ -16,10 +16,10 @@ import tzl.com.framework.base.BaseFragmentPagerAdapter;
 public class WBaseFragmentPagerAdapter extends BaseFragmentPagerAdapter {
 
 
-    private final List<WBaseFragment> mWBaseFragments;
-    private final List<String> titles;
+    private final List<XBaseFragment> mWBaseFragments;
+    private final List<String>        titles;
 
-    public WBaseFragmentPagerAdapter(FragmentManager fragmentManager, List<WBaseFragment> fragments, List<String> titles) {
+    public WBaseFragmentPagerAdapter(FragmentManager fragmentManager, List<XBaseFragment> fragments, List<String> titles) {
         super(fragmentManager);
         this.mWBaseFragments = fragments;
         this.titles = titles;

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.functions.Consumer;
-import tzl.com.awesomewanandroid.base.WBaseFragment;
+import tzl.com.awesomewanandroid.base.XBaseFragment;
 import tzl.com.awesomewanandroid.base.WBaseFragmentPagerAdapter;
 import tzl.com.awesomewanandroid.data.pojo.ProjectTree;
 import tzl.com.awesomewanandroid.event.ProjectListEvent;
@@ -68,7 +68,7 @@ public class ProjectListPresenter extends BasePresenter<ProjectListView,ProjectL
                     public void onSuccess(BaseResponse<List<ProjectTree>> response) {
                         if (response.getData() != null) {
                             mMultistatusview.showContent();
-                            ArrayList<WBaseFragment> wBaseFragments = new ArrayList<>();
+                            ArrayList<XBaseFragment> wBaseFragments = new ArrayList<>();
                             ArrayList<String> titles = new ArrayList<>();
                             List<ProjectTree> data = response.getData();
                             for (int i = 0; i < data.size(); i++) {

@@ -13,7 +13,7 @@ import tzl.com.framework.helper.LogHelper;
  * created on: 2018/8/22 下午5:30
  * description:http://www.sunnyang.com/742.html
  */
-public abstract class WBaseLazyFragment<T extends BasePresenter> extends WBaseFragment {
+public abstract class XBaseLazyFragment<T extends BasePresenter> extends XBaseFragment {
 
     protected WBaseActivity mActivity;
 
@@ -66,6 +66,8 @@ public abstract class WBaseLazyFragment<T extends BasePresenter> extends WBaseFr
             mPresenter.onDestory();
         }
     }
+
+
 
 
 

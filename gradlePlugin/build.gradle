@@ -13,6 +13,8 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 
+
+//./gradlew -p gradlePlugin/ clean build uploadArchives --stacktrace
 apply plugin: 'maven'
 
 uploadArchives {

@@ -7,7 +7,7 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 
 import butterknife.BindView;
 import tzl.com.awesomewanandroid.R;
-import tzl.com.awesomewanandroid.base.WBaseLazyFragment;
+import tzl.com.awesomewanandroid.base.XBaseLazyFragment;
 import tzl.com.framework.widget.multistatusview.MultipleStatusView;
 
 /**
@@ -15,7 +15,7 @@ import tzl.com.framework.widget.multistatusview.MultipleStatusView;
  * created on: 2018/10/10 下午3:53
  * description: 发现界面
  */
-public class DiscoveryFragment extends WBaseLazyFragment<DiscoveryPresenter> implements DiscoveryView {
+public class DiscoveryFragment extends XBaseLazyFragment<DiscoveryPresenter> implements DiscoveryView {
 
 
     @BindView(R.id.seeAllArtistTv)

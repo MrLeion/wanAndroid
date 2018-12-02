@@ -6,7 +6,7 @@ import com.flyco.tablayout.SlidingTabLayout;
 
 import butterknife.BindView;
 import tzl.com.awesomewanandroid.R;
-import tzl.com.awesomewanandroid.base.WBaseFragment;
+import tzl.com.awesomewanandroid.base.XBaseFragment;
 import tzl.com.awesomewanandroid.event.ProjectListEvent;
 import tzl.com.framework.rx.RxBus;
 import tzl.com.framework.widget.multistatusview.MultipleStatusView;
@@ -16,7 +16,7 @@ import tzl.com.framework.widget.multistatusview.MultipleStatusView;
  * created on: 2018/8/27 下午4:00
  * description:体系
  */
-public class ProjectListFragment extends WBaseFragment<ProjectListPresenter> implements ProjectListView {
+public class ProjectListFragment extends XBaseFragment<ProjectListPresenter> implements ProjectListView {
 
 
     @BindView(R.id.stlProject)

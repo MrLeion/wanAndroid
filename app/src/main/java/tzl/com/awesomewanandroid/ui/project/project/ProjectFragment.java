@@ -10,7 +10,7 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 
 import butterknife.BindView;
 import tzl.com.awesomewanandroid.R;
-import tzl.com.awesomewanandroid.base.WBaseLazyFragment;
+import tzl.com.awesomewanandroid.base.XBaseLazyFragment;
 import tzl.com.framework.data.AppConfig;
 import tzl.com.framework.widget.multistatusview.MultipleStatusView;
 
@@ -19,7 +19,7 @@ import tzl.com.framework.widget.multistatusview.MultipleStatusView;
  * created on: 2018/8/27 下午4:00
  * description:列表
  */
-public class ProjectFragment extends WBaseLazyFragment<ProjectPresenter> implements ProjectView {
+public class ProjectFragment extends XBaseLazyFragment<ProjectPresenter> implements ProjectView {
 
 
     @BindView(R.id.recyclerView)
