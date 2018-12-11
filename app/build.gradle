@@ -83,6 +83,10 @@ dependencies {
     //butterknife
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+
+    //视频
+    implementation 'com.shuyu:gsyVideoPlayer-java:6.0.0-beta'
 //
 //    implementation 'com.billy.android:cc:2.1.1'
 

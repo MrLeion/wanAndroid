@@ -5,12 +5,14 @@
     android:layout_height="match_parent">
 
 
-    <TextView
+
+    <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:text="@string/video"/>
+        android:layout_height="match_parent"/>
+
+
+
 
 
 </tzl.com.framework.widget.multistatusview.MultipleStatusView>

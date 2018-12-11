@@ -30,10 +30,7 @@ public class MusicFragment extends XBaseFragment<MusicPresenter> implements Musi
 
     @Override
     public void initView() {
-
         mMusicPresenter = new MusicPresenter(this, new MusicModel());
-
-
     }
 
     @Override
@@ -43,7 +40,6 @@ public class MusicFragment extends XBaseFragment<MusicPresenter> implements Musi
 
     @Override
     public void initData() {
-
     }
 
 

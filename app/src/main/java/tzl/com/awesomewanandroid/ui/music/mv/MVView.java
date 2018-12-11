@@ -1,5 +1,7 @@
 package tzl.com.awesomewanandroid.ui.music.mv;
 
+import android.support.v7.widget.RecyclerView;
+
 import tzl.com.framework.base.IView;
 
 /**
@@ -10,7 +12,7 @@ import tzl.com.framework.base.IView;
 public interface MVView extends IView {
 
 
-
+    RecyclerView getChartsArtistRcv();
 
 
 

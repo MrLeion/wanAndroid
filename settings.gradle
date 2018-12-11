@@ -1,1 +1,1 @@
-include ':app', ':Andframework',':musiclibrary',':toastlibrary', ':basicKnowledage', ':gradlePlugin', ':musiclake'
+include ':app', ':Andframework',':musiclibrary',':toastlibrary', ':basicKnowledage', ':gradlePlugin'

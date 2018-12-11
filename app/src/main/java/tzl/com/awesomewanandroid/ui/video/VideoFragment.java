@@ -1,5 +1,8 @@
 package tzl.com.awesomewanandroid.ui.video;
 
+import android.widget.FrameLayout;
+
+import butterknife.BindView;
 import tzl.com.awesomewanandroid.R;
 import tzl.com.awesomewanandroid.base.XBaseFragment;
 
@@ -11,7 +14,8 @@ import tzl.com.awesomewanandroid.base.XBaseFragment;
 public class VideoFragment extends XBaseFragment {
 
 
-
+    @BindView(R.id.container)
+    FrameLayout mContainer;
 
     @Override
     public int getLayoutId() {
@@ -20,6 +24,8 @@ public class VideoFragment extends XBaseFragment {
 
     @Override
     public void initView() {
+
+
 
     }
 
@@ -32,4 +38,5 @@ public class VideoFragment extends XBaseFragment {
     public void initData() {
 
     }
+
 }
