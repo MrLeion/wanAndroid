@@ -104,6 +104,11 @@ public abstract class XBaseFragment<T extends BasePresenter> extends BaseFragmen
 
     }
 
+
+
+
+
+
     /**
      * 获取 Activity 布局
      * @return
@@ -142,6 +147,17 @@ public abstract class XBaseFragment<T extends BasePresenter> extends BaseFragmen
 
 
     }
+
+
+
+    public void onBackPressed() {
+
+    }
+
+
+
+
+
 
 
 

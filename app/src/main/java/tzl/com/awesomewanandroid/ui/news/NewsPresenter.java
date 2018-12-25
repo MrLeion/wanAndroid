@@ -76,7 +76,6 @@ public class NewsPresenter extends BasePresenter<NewsView,NewsModel> {
                 .subscribe(new BaseReadHubObserver<List<Topic>>() {
                     @Override
                     public void onSuccess(BaseReadHubResponse<List<Topic>> response) {
-
                         if (response!=null&&response.getData()!=null) {
                             mMultistatusview.showContent();
                             OverlayCallback overlayCallback = new OverlayCallback(mRecyclerView, mNewsAdapter, response.getData());
@@ -86,7 +85,6 @@ public class NewsPresenter extends BasePresenter<NewsView,NewsModel> {
                         }else{
                             mMultistatusview.showEmpty();
                         }
-
                     }
 
                     @Override

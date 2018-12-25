@@ -2,7 +2,6 @@ apply plugin: 'com.android.application'
 //apply plugin: 'kotlin-android'
 //apply plugin:  'com.gradle.apkdist'
 
-
 //ext.mainApp = true //如果此module为主app module，一直以application方式编译，则启用这一行
 //ext.alwaysLib = true //如果此module为基础库，一直以library方式编译，则启用这一行
 //apply from: rootProject.file('cc-settings-2.gradle')
@@ -13,7 +12,7 @@ android {
     defaultConfig {
         //仅在以application方式编译时才添加applicationId属性
 //        if (project.ext.runAsApp) {
-            applicationId "tzl.com.awesomewanandroid"
+        applicationId "tzl.com.awesomewanandroid"
 //        }
         minSdkVersion 16
         targetSdkVersion 26
@@ -54,6 +53,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation project(':Andframework')
     //LeakCanary
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
     //Dagger
@@ -84,9 +84,16 @@ dependencies {
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 
-
     //视频
     implementation 'com.shuyu:gsyVideoPlayer-java:6.0.0-beta'
+    //是否需要ExoPlayer模式
+    implementation 'com.shuyu:GSYVideoPlayer-exo2:6.0.0-beta'
+    //根据你的需求ijk模式的so
+    implementation 'com.shuyu:gsyVideoPlayer-armv5:6.0.0-beta'
+    implementation 'com.shuyu:gsyVideoPlayer-armv7a:6.0.0-beta'
+    implementation 'com.shuyu:gsyVideoPlayer-arm64:6.0.0-beta'
+    implementation 'com.shuyu:gsyVideoPlayer-x64:6.0.0-beta'
+    implementation 'com.shuyu:gsyVideoPlayer-x86:6.0.0-beta'
 //
 //    implementation 'com.billy.android:cc:2.1.1'
 
@@ -101,7 +108,6 @@ repositories {
     mavenCentral()
 }
 
-
 //apkdistconf {
 //    nameMap { name ->
 //        println 'hello, ' + name
@@ -109,3 +115,4 @@ repositories {
 //    }
 //    destDir 'your-distribution-directory'
 //}
+

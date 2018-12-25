@@ -56,6 +56,8 @@ public class DiscoveryFragment extends XBaseLazyFragment<DiscoveryPresenter> imp
     @Override
     public void initData() {
 
+        mDiscoveryPresenter.loadData();
+
 
     }
 

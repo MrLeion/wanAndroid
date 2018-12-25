@@ -1,4 +1,4 @@
-package tzl.com.framework.helper;
+package tzl.com.awesomewanandroid.base;
 
 import android.support.annotation.IdRes;
 import android.support.v4.app.Fragment;
@@ -18,7 +18,7 @@ public class TabManager {
 
     private int             mContainerViewId;
     private FragmentManager mFragmentManager;
-    private BaseFragment mCurrentFragment = null;
+    private XBaseFragment mCurrentFragment = null;
     private String       mCurrentTag      = null;
 
     private Map<String, Class> mFragmentMap = new HashMap<>();
@@ -54,7 +54,7 @@ public class TabManager {
             }
         }
         transaction.commitAllowingStateLoss();
-        mCurrentFragment = (BaseFragment) fragment;
+        mCurrentFragment = (XBaseFragment) fragment;
         mCurrentTag = tag;
     }
 
@@ -75,7 +75,7 @@ public class TabManager {
         return false;
     }
 
-    public BaseFragment getCurrentFragment() {
+    public XBaseFragment getCurrentFragment() {
         return mCurrentFragment;
     }
 

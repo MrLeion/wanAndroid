@@ -25,7 +25,7 @@ import static android.R.attr.drawableRight;
 /**
  * author: tangzenglei
  * created on: 2018/10/31 下午5:35
- * description:
+ * description: 时间轴效果
  */
 public class DotItemDecoration extends RecyclerView.ItemDecoration {
 

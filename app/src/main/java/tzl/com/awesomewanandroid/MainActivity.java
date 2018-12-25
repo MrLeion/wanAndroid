@@ -6,6 +6,7 @@ import android.os.Message;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -19,7 +20,9 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import tzl.com.awesomewanandroid.base.TabManager;
 import tzl.com.awesomewanandroid.base.WBaseActivity;
+import tzl.com.awesomewanandroid.base.XBaseFragment;
 import tzl.com.awesomewanandroid.testExample.TestListActivity;
 import tzl.com.awesomewanandroid.ui.hierarchy.HierarchyFragment;
 import tzl.com.awesomewanandroid.ui.home.HomeFragment;
@@ -28,9 +31,7 @@ import tzl.com.awesomewanandroid.ui.navigator.NavigatorFragment;
 import tzl.com.awesomewanandroid.ui.news.NewsActivity;
 import tzl.com.awesomewanandroid.ui.project.ProjectListFragment;
 import tzl.com.awesomewanandroid.ui.video.VideoFragment;
-import tzl.com.framework.base.BaseFragment;
 import tzl.com.framework.helper.LogHelper;
-import tzl.com.framework.helper.TabManager;
 import tzl.com.framework.widget.OptionItemView;
 import tzl.com.framework.widget.anim.Rotate3dFrameLayout;
 import tzl.com.framework.widget.listener.OnViewClickListener;
@@ -87,10 +88,10 @@ public class MainActivity extends WBaseActivity {
     TextView            mTvToolbarTitle;
 
 
-    private TabManager   mWanAndroidTabManager;
-    private TabManager   mRestTabManager;
-    private BaseFragment currentFragmentWandroid;
-    private BaseFragment currentFragmentRest;
+    private TabManager    mWanAndroidTabManager;
+    private TabManager    mRestTabManager;
+    private XBaseFragment currentFragmentWandroid;
+    private XBaseFragment  currentFragmentRest;
     private String  currentWanAndroidTag = TAG_HOME; //默认首页
     private String  currentRestTag       = TAG_MUSIC; //默认音乐
     private boolean isWanAndroid         = true;//默认第一面
@@ -440,7 +441,6 @@ public class MainActivity extends WBaseActivity {
                 mDrawerWanandroid.closeDrawers();
                 break;
         }
-
     }
 
 
@@ -449,4 +449,17 @@ public class MainActivity extends WBaseActivity {
         super.onCreate(savedInstanceState);
         ButterKnife.bind(this);
     }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK&&currentFragmentRest!=null) {
+            currentFragmentRest.onBackPressed();
+        }
+        return super.onKeyDown(keyCode, event);
+    }
+
+
+
+
+
 }

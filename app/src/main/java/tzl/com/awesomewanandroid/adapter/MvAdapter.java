@@ -2,8 +2,6 @@ package tzl.com.awesomewanandroid.adapter;
 
 import android.app.Activity;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
@@ -22,14 +20,14 @@ import tzl.com.awesomewanandroid.widget.CoverVideo;
 public class MvAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
 
 
-    private final ImageView coverImageView;
+//    private final ImageView coverImageView;
     private final GSYVideoOptionBuilder gsyVideoOptionBuilder;
     private final Activity mActivity;
 
     public MvAdapter(int layoutResId, Activity activity) {
         super(layoutResId);
         mActivity = activity;
-        coverImageView = new ImageView(activity);
+//        coverImageView = new ImageView(activity);
         gsyVideoOptionBuilder = new GSYVideoOptionBuilder();
     }
 
@@ -41,22 +39,22 @@ public class MvAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
         if (adapterPosition%2 == 0) {
             url = "https://res.exexm.com/cw_145225549855002";
             title = "A man";
-            coverImageView.setImageResource(R.mipmap.ic_left);
+//            coverImageView.setImageResource(R.mipmap.ic_left);
         }else{
             url = "http://9890.vod.myqcloud.com/9890_4e292f9a3dd011e6b4078980237cc3d3.f20.mp4";
             title = "A woman";
-            coverImageView.setImageResource(R.mipmap.ic_drawer);
+//            coverImageView.setImageResource(R.mipmap.ic_drawer);
         }
-        if (coverImageView.getParent() != null) {
-            ViewGroup viewGroup = (ViewGroup) coverImageView.getParent();
-            viewGroup.removeView(coverImageView);
-        }
+//        if (coverImageView.getParent() != null) {
+//            ViewGroup viewGroup = (ViewGroup) coverImageView.getParent();
+//            viewGroup.removeView(coverImageView);
+//        }
         CoverVideo video = helper.getView(R.id.cover);
         //防止错位，离开释放
         //gsyVideoPlayer.initUIState();
         gsyVideoOptionBuilder
                 .setIsTouchWiget(false)
-                .setThumbImageView(coverImageView)
+//                .setThumbImageView(coverImageView)
                 .setUrl(url)
                 .setSetUpLazy(true)//lazy可以防止滑动卡顿
                 .setVideoTitle(title)
@@ -93,7 +91,7 @@ public class MvAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
                 }).build(video);
 
         //增加title
-        video.getTitleTextView().setVisibility(View.GONE);
+//        video.getTitleTextView().setVisibility(View.GONE);
 
         //设置返回键
         video.getBackButton().setVisibility(View.GONE);
@@ -105,7 +103,13 @@ public class MvAdapter extends BaseQuickAdapter<String,BaseViewHolder> {
                 video.startWindowFullscreen(mActivity, true, true);
             }
         });
-
-
     }
+
+
+
+
+
+
+
+
 }

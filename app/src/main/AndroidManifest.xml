@@ -21,6 +21,7 @@
         tools:replace="android:label">
         <activity
             android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -71,6 +72,8 @@
         <activity android:name=".ui.news.detail.NewsDetailActivity">
         </activity>
         <activity android:name=".ui.search.SearchActivity">
+        </activity>
+        <activity android:name=".testExample.TestDialogActivity">
         </activity>
     </application>
 

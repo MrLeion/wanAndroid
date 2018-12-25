@@ -26,7 +26,6 @@ public class MusicPresenter extends BasePresenter<MusicView,MusicModel> {
 
     /**
      * 绑定 View 和 model
-     *
      * @param view
      * @param model
      */
@@ -34,7 +33,6 @@ public class MusicPresenter extends BasePresenter<MusicView,MusicModel> {
         super(view, model);
         mStlMusic = mView.getStlMusic();
         mViewPager = mView.getViewPager();
-
         initView();
     }
 
@@ -44,7 +42,7 @@ public class MusicPresenter extends BasePresenter<MusicView,MusicModel> {
         mWBaseFragments.add(MVFragment.newInstance());
         List<String> titles = new ArrayList<>();
         titles.add("发现");
-        titles.add("MV");
+        titles.add("开眼视频");
         WBaseFragmentPagerAdapter wBaseFragmentPagerAdapter = new WBaseFragmentPagerAdapter(mActivity.getSupportFragmentManager(), mWBaseFragments, titles);
         mViewPager.setAdapter(wBaseFragmentPagerAdapter);
         mStlMusic.setViewPager(mViewPager);
@@ -52,10 +50,7 @@ public class MusicPresenter extends BasePresenter<MusicView,MusicModel> {
 
     @Override
     public void init() {
-
     }
-
-
 
     @Override
     public void registerEvent() {

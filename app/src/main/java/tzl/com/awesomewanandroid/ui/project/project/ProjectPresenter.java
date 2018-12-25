@@ -1,5 +1,6 @@
 package tzl.com.awesomewanandroid.ui.project.project;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -47,6 +48,7 @@ public class ProjectPresenter extends BasePresenter<ProjectView,ProjectModel>{
         mProjectListAdapter = new ProjectListAdapter(R.layout.item_project_list);
         mMultistatusview = mView.getMultistatusview();
         mRecyclerView = mView.getRecyclerView();
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
         mRefreshLayout = mView.getRefreshLayout();
         mProjectListAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override

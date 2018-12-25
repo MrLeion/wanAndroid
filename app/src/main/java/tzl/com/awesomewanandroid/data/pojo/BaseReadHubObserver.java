@@ -19,10 +19,12 @@ public abstract class BaseReadHubObserver<T> implements Observer<BaseReadHubResp
 
     private SoftReference<BaseActivity> mActivitySoftReference;
 
-    private boolean canLoading = true;
+    private boolean canLoading;
 
 
-    public BaseReadHubObserver() { }
+    public BaseReadHubObserver() {
+        canLoading = true;
+    }
 
     public BaseReadHubObserver(BaseActivity activity, boolean canLoading) {
         mActivitySoftReference = new SoftReference<>(activity);

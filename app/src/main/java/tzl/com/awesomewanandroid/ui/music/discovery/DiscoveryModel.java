@@ -14,8 +14,4 @@ public class DiscoveryModel extends BaseModel {
 
 
 
-
-
-
-
 }

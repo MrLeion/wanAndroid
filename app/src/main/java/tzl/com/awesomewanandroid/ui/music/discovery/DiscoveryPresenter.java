@@ -38,11 +38,22 @@ public class DiscoveryPresenter extends BasePresenter<DiscoveryView,DiscoveryMod
         mRvHotSingers = mView.getRvHotSingers();
         mSeeAllArtistTv = mView.getSeeAllArtistTv();
         mRvHotSingers.setLayoutManager(new LinearLayoutManager(mActivity,LinearLayoutManager.HORIZONTAL,false));
-
     }
 
     @Override
     public void registerEvent() {
 
     }
+
+    public void loadData() {
+
+
+
+
+
+    }
+
+
+
+
 }

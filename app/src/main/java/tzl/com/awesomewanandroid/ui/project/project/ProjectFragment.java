@@ -1,7 +1,6 @@
 package tzl.com.awesomewanandroid.ui.project.project;
 
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -48,7 +47,7 @@ public class ProjectFragment extends XBaseLazyFragment<ProjectPresenter> impleme
     @Override
     public void initView() {
         Bundle bundle = getArguments();
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
+
         mCid = bundle.getInt(AppConfig.PROJECT_ID);
     }
 

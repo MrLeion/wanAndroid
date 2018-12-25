@@ -39,8 +39,6 @@ public class ProjectListFragment extends XBaseFragment<ProjectListPresenter> imp
 
     @Override
     public void initEvent() {
-
-
     }
 
     @Override
