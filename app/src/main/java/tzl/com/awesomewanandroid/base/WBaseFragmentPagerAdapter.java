@@ -15,7 +15,6 @@ import tzl.com.framework.base.BaseFragmentPagerAdapter;
  */
 public class WBaseFragmentPagerAdapter extends BaseFragmentPagerAdapter {
 
-
     private final List<XBaseFragment> mWBaseFragments;
     private final List<String>        titles;
 
