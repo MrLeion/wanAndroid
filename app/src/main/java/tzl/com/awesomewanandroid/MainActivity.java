@@ -342,6 +342,11 @@ public class MainActivity extends WBaseActivity {
         mTvCommonToolbarTitle.setOnClickListener(new OnViewClickListener() {
             @Override
             public void onViewOnClick(View v) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 new Thread(new Runnable() {
                     @Override
                     public void run() {

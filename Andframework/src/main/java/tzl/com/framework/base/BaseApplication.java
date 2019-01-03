@@ -4,6 +4,8 @@ import android.app.Application;
 import android.os.Process;
 
 import tzl.com.framework.cache.CacheManager;
+import tzl.com.framework.detector.ui.IBlockDetector;
+import tzl.com.framework.detector.ui.PrinterBlockDetector;
 import tzl.com.framework.helper.ContextHolder;
 import tzl.com.framework.helper.LogHelper;
 import tzl.com.framework.helper.Util;
@@ -22,8 +24,10 @@ public abstract class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
 
+        //UI 卡顿检测
+        IBlockDetector detector = new PrinterBlockDetector();
+        detector.start();
         LogHelper.e("current process id:"+ Process.myPid()+ Util.getProcessName(this));
-
         LogHelper.init(tag(),logToggle());
         ContextHolder.init(this);
         CacheManager.init(this);

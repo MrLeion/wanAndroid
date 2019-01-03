@@ -46,4 +46,8 @@ dependencies {
     //系统Toast bugfix
     implementation project(':toastlibrary')
     implementation 'com.android.support:design:27.1.1'
+    implementation files('libs/umeng-share-core-6.9.2.jar')
+    implementation files('libs/umeng-share-QQ-simplify-6.9.2.jar')
+    implementation files('libs/umeng-share-wechat-simplify-6.9.2.jar')
+    implementation files('libs/umeng-sharetool-6.9.2.jar')
 }
