@@ -12,21 +12,15 @@ import java.lang.reflect.Method;
 /**
  * author: tangzenglei
  * created on: 2019/1/3 5:00 PM
- * description: 是否可以通过
- * 动态代理的方式处理
- *
+ * description: 无效
+ * 动态代理的方式处理，hook 主线程 Looper.loop() 中的方法
  * https://github.com/JakeWharton/hugo
- *
- *
- *
- *无效
  */
 public class LooperBlockDetector implements IBlockDetector {
 
 
     private static final String FIELD_MQUEUE = "mQueue";
     private static final String METHOD_NEXT  = "next";
-
     @Override
     public void start() {
         new Handler(Looper.getMainLooper()).post(new Runnable() {

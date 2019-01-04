@@ -11,6 +11,8 @@ import java.io.ByteArrayOutputStream;
  * author: tangzenglei
  * created on: 2018/12/20 5:00 PM
  * description: 图像压缩
+ *
+ * https://github.com/nanchen2251/CompressHelper
  */
 public class BitmapCompressor implements IBitmapCompressor {
 
